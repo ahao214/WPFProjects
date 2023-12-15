@@ -13,12 +13,16 @@ namespace CourseManager.Common
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return DoCanExecute?.Invoke(parameter) == true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            DoExecute?.Invoke(parameter);
         }
+
+        public Action<object> DoExecute { get; set; }
+
+        public Func<object,bool> DoCanExecute { get; set; }
     }
 }
