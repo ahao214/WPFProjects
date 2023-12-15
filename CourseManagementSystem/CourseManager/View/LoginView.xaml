@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CourseManager.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="window"
     Title="系统登录"
     Width="360"
     Height="600"
@@ -296,6 +297,8 @@
                 Height="30"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
+                Command="{Binding CloseWindowCommand}"
+                CommandParameter="{Binding ElementName=window}"
                 Template="{StaticResource CloseButtonTemplate}" />
 
             <StackPanel Margin="0,0,0,30" VerticalAlignment="Bottom">
