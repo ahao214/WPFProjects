@@ -26,5 +26,18 @@ namespace CourseManager.View
             // 关联
             this.DataContext = new LoginViewModel();
         }
+
+        /// <summary>
+        /// 鼠标左键拖动窗体移动
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed) 
+            {
+                this.DragMove();
+            }
+        }
     }
 }

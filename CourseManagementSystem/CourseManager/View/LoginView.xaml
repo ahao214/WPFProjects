@@ -291,7 +291,10 @@
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
-            <Border Background="#007DFA" CornerRadius="10 10 0 0" />
+            <Border
+                Background="#007DFA"
+                CornerRadius="10 10 0 0"
+                MouseLeftButtonDown="Border_MouseLeftButtonDown" />
             <Button
                 Width="40"
                 Height="30"
