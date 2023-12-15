@@ -1,4 +1,5 @@
 ﻿using CourseManager.Common;
+using CourseManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace CourseManager.ViewModel
 {
     public class LoginViewModel
     {
+        public LoginModel LoginModel { get; set; }
+
+
         /// <summary>
         /// 关闭按钮事件
         /// </summary>
@@ -17,6 +21,11 @@ namespace CourseManager.ViewModel
 
         public LoginViewModel()
         {
+            this .LoginModel = new LoginModel();
+            this.LoginModel.UserName = "Joke";
+            this.LoginModel.Password = "123";
+
+
             this.CloseWindowCommand = new CommandBase();
             this.CloseWindowCommand.DoExecute = new Action<object>((o) =>
             {

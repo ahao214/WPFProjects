@@ -347,19 +347,22 @@
                     Height="40"
                     FontSize="16"
                     Foreground="#555"
-                    Style="{DynamicResource UserNameTextBoxStyle}" />
+                    Style="{DynamicResource UserNameTextBoxStyle}"
+                    Text="{Binding LoginModel.UserName}" />
                 <PasswordBox
                     Grid.Row="1"
                     Height="40"
                     FontSize="16"
                     Foreground="#555"
+                    Password="111"
                     Style="{DynamicResource PasswordBoxStyle}" />
                 <TextBox
                     Grid.Row="2"
                     Height="40"
                     FontSize="16"
                     Foreground="#555"
-                    Style="{DynamicResource CodeTextBoxStyle}" />
+                    Style="{DynamicResource CodeTextBoxStyle}"
+                    Text="{Binding LoginModel.ValidationCode}" />
                 <Button
                     Grid.Row="3"
                     Height="40"
