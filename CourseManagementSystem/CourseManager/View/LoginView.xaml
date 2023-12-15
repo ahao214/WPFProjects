@@ -30,6 +30,9 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter TargetName="back" Property="Background" Value="#22FFFFFF" />
                 </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="back" Property="Background" Value="#44FFFFFF" />
+                </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
@@ -58,6 +61,90 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Template="{StaticResource CloseButtonTemplate}" />
+
+            <StackPanel Margin="0,0,0,30" VerticalAlignment="Bottom">
+                <Border
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="White"
+                    CornerRadius="50">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="5"
+                            Direction="0"
+                            Opacity="0.3"
+                            ShadowDepth="0"
+                            Color="White" />
+                    </Border.Effect>
+
+                    <Border
+                        Width="100"
+                        Height="100"
+                        HorizontalAlignment="Center">
+                        <Border.Background>
+                            <ImageBrush ImageSource="../Assets/Images/logo.jpeg" />
+                        </Border.Background>
+                    </Border>
+                </Border>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="小  丑" />
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBox />
+                <TextBox Grid.Row="1" />
+                <TextBox Grid.Row="2" />
+                <Button Grid.Row="3" Content="登录" />
+                <TextBlock
+                    Grid.Row="4"
+                    Foreground="Red"
+                    Text="登录失败" />
+            </Grid>
+            <Grid Grid.Row="2" Margin="20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        VerticalAlignment="Center"
+                        BorderBrush="#DDD"
+                        BorderThickness="0,0,0,1" />
+                    <Border
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        BorderBrush="#DDD"
+                        BorderThickness="0,0,0,1" />
+                    <TextBlock
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="#CCC"
+                        Text="OR" />
+                </Grid>
+                <UniformGrid Grid.Row="1" Columns="5">
+                    <Border Background="Gray" />
+                    <Border />
+                    <Border Background="Gray" />
+                    <Border />
+                    <Border Background="Gray" />
+                </UniformGrid>
+            </Grid>
         </Grid>
     </Border>
 </Window>
