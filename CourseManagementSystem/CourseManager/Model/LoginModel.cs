@@ -12,7 +12,7 @@ namespace CourseManager.Model
     /// </summary>
     public class LoginModel : NotifyBase
     {
-        private string _username;
+        private string _username = "admin";
 
         public string UserName
         {
@@ -24,7 +24,7 @@ namespace CourseManager.Model
             }
         }
 
-        private string _password;
+        private string _password = "111";
         public string Password
         {
             get { return _password; }
@@ -35,7 +35,7 @@ namespace CourseManager.Model
             }
         }
 
-        private string _validationCode;
+        private string _validationCode = "abc";
         public string ValidationCode
         {
             get { return _validationCode; }
