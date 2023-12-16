@@ -47,8 +47,68 @@
                             </Setter.Value>
                         </Setter>
                     </Style>
+
+                    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3" />
+                    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA" />
+                    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5" />
+
+                    <ControlTemplate x:Key="SearchTextBoxTemplate" TargetType="{x:Type TextBox}">
+                        <Border
+                            x:Name="border"
+                            Background="#22000000"
+                            BorderThickness="0"
+                            CornerRadius="10"
+                            SnapsToDevicePixels="True">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="../Assets/Fonts/#iconfont"
+                                    FontSize="16"
+                                    Foreground="#44FFFFFF"
+                                    Text="&#xe60a;" />
+                                <TextBlock
+                                    Name="mt"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Foreground="#44FFFFFF"
+                                    Text="Search for what you like..."
+                                    Visibility="Collapsed" />
+                                <ScrollViewer
+                                    x:Name="PART_ContentHost"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Background="Transparent"
+                                    Focusable="false"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Hidden" />
+                            </Grid>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Opacity" Value="0.56" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource TextBox.Focus.Border}" />
+                            </Trigger>
+                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Mode=Self}}" Value="">
+                                <Setter TargetName="mt" Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+
+
         </ResourceDictionary>
     </Window.Resources>
 
@@ -141,6 +201,15 @@
                     <RadioButton Content="诚聘人才" Style="{StaticResource NavButtonStyle}" />
                     <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}" />
                 </StackPanel>
+
+                <TextBox
+                    Grid.Row="1"
+                    Width="300"
+                    Height="32"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Template="{StaticResource SearchTextBoxTemplate}" />
             </Grid>
 
         </Grid>
