@@ -2,6 +2,7 @@
     x:Class="CourseManager.View.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:CourseManager.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CourseManager.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -22,6 +23,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Assets/styles/DefaultStyle.xaml" />
                 <ResourceDictionary>
+                    <converter:GenderConverter x:Key="genderConverter" />
+
                     <Style x:Key="NavButtonStyle" TargetType="RadioButton">
                         <Setter Property="Template">
                             <Setter.Value>
@@ -372,11 +375,12 @@
                             <RadioButton
                                 Margin="10,0,0,0"
                                 Content="男"
-                                IsChecked="True"
+                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter},ConverterParameter=1}"
                                 Template="{StaticResource GenderRadioButtonTemplate}" />
                             <RadioButton
                                 Margin="10,0,0,0"
                                 Content="女"
+                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter},ConverterParameter=2}"
                                 Template="{StaticResource GenderRadioButtonTemplate}" />
                         </StackPanel>
 

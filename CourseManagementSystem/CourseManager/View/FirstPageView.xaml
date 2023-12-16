@@ -9,6 +9,66 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <TextBlock Text="首页" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160" />
+            <RowDefinition Height="360" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <UniformGrid Columns="4">
+            <Border
+                Margin="10"
+                Background="White"
+                CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="105"
+                        Direction="270"
+                        Opacity="0.4"
+                        ShadowDepth="10"
+                        Color="#F2F2F2" />
+                </Border.Effect>
+
+            </Border>
+            <Border
+                Margin="10"
+                Background="White"
+                CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="105"
+                        Direction="270"
+                        Opacity="0.4"
+                        ShadowDepth="10"
+                        Color="#F2F2F2" />
+                </Border.Effect>
+            </Border>
+            <Border
+                Margin="10"
+                Background="White"
+                CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="105"
+                        Direction="270"
+                        Opacity="0.4"
+                        ShadowDepth="10"
+                        Color="#F2F2F2" />
+                </Border.Effect>
+            </Border>
+            <Border
+                Margin="10"
+                Background="White"
+                CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="105"
+                        Direction="270"
+                        Opacity="0.4"
+                        ShadowDepth="10"
+                        Color="#F2F2F2" />
+                </Border.Effect>
+            </Border>
+        </UniformGrid>
     </Grid>
 </UserControl>
