@@ -73,5 +73,17 @@ namespace CourseManager.DataAccess
             }
         }
 
+        /// <summary>
+        /// 验证用户名和密码
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        public void CheckUserInfo(string username, string password)
+        {
+
+
+        }
+
+
     }
 }
