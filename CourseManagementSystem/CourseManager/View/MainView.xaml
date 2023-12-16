@@ -206,11 +206,17 @@
                     VerticalAlignment="Center"
                     Orientation="Horizontal">
                     <RadioButton
+                        Command="{Binding NavChangedCommand}"
+                        CommandParameter="FirstPageView"
                         Content="首页"
                         IsChecked="True"
                         Style="{StaticResource NavButtonStyle}" />
                     <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}" />
-                    <RadioButton Content="课程中心" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton
+                        Command="{Binding NavChangedCommand}"
+                        CommandParameter="CoursePageView"
+                        Content="课程中心"
+                        Style="{StaticResource NavButtonStyle}" />
                     <RadioButton Content="诚聘人才" Style="{StaticResource NavButtonStyle}" />
                     <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}" />
                 </StackPanel>

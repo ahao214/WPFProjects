@@ -3,6 +3,7 @@ using CourseManager.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -48,6 +49,11 @@ namespace CourseManager.ViewModel
         /// <param name="obj"></param>
         private void DoNavChanged(object obj)
         {
+            Type type = Type.GetType("CourseManager.View." + obj.ToString());
+
+            ConstructorInfo cti = type.GetConstructor(System.Type.EmptyTypes);
+            this.MainContent = (FrameworkElement)cti.Invoke(null);
+
 
         }
 
