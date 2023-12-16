@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 
 namespace CourseManager.ViewModel
 {
-    public class LoginViewModel:NotifyBase
+    public class LoginViewModel : NotifyBase
     {
         public LoginModel LoginModel { get; set; } = new LoginModel();
 
@@ -37,7 +37,7 @@ namespace CourseManager.ViewModel
             set { _errorMsg = value; this.DoNofity(); }
         }
 
-        private bool  _showProgress;
+        private bool _showProgress;
 
         public bool ShowProgress
         {
@@ -97,29 +97,29 @@ namespace CourseManager.ViewModel
                 return;
             }
 
-            Task.Run(new Action(() =>
+            //Task.Run(new Action(() =>
+            //{
+            try
             {
-                try
+                var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
+                if (user == null)
                 {
-                    var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
-                    if (user == null)
-                    {
-                        throw new Exception("登录失败!用户名或密码错误");
-                    }
-                    GlobalValues.UserInfo = user;
-
-                    Application.Current.Dispatcher.Invoke(new Action(() =>
-                    {
-                        (o as Window).DialogResult = true;
-                    }));
-
+                    throw new Exception("登录失败!用户名或密码错误");
                 }
-                catch (Exception ex)
+                GlobalValues.UserInfo = user;
+
+                Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
+                    (o as Window).DialogResult = true;
+                }));
 
-                    this.ErrorMsg = ex.Message;
-                }
-            }));
+            }
+            catch (Exception ex)
+            {
+
+                this.ErrorMsg = ex.Message;
+            }
+            //}));
         }
 
 

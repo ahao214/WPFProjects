@@ -18,7 +18,38 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <ResourceDictionary Source="../Assets/styles/DefaultStyle.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Assets/styles/DefaultStyle.xaml" />
+                <ResourceDictionary>
+                    <Style x:Key="NavButtonStyle" TargetType="RadioButton">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Border
+                                        Name="back"
+                                        Background="Transparent"
+                                        CornerRadius="8">
+                                        <ContentControl
+                                            Margin="20,4"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Content="{TemplateBinding Content}"
+                                            FontSize="13" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="back" Property="Background" Value="#44FFFFFF" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
 
     <Border
@@ -94,6 +125,21 @@
                         VerticalAlignment="Center"
                         Foreground="White"
                         Text="Administrator" />
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <RadioButton
+                        Content="首页"
+                        IsChecked="True"
+                        Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="课程中心" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="诚聘人才" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}" />
                 </StackPanel>
             </Grid>
 
