@@ -22,6 +22,8 @@ namespace CourseManager.View
         public MainView()
         {
             InitializeComponent();
+
+            this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
 
         /// <summary>
@@ -44,12 +46,13 @@ namespace CourseManager.View
 
         private void btnMax_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Maximized;   
+            this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            
         }
 
         private void btnMin_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;
         }
     }
 }
