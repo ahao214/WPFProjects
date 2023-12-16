@@ -45,24 +45,9 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
-                <Button
-                    Width="40"
-                    Height="40"
-                    Content="&#xe650;"
-                    Foreground="White"
-                    Template="{StaticResource WindowControlButtonTemplate}" />
-                <Button
-                    Width="40"
-                    Height="40"
-                    Content="&#xe65b;"
-                    Foreground="White"
-                    Template="{StaticResource WindowControlButtonTemplate}" />
-                <Button
-                    Width="40"
-                    Height="40"
-                    Content="&#xe6a4;"
-                    Foreground="White"
-                    Template="{StaticResource WindowControlButtonTemplate}" />
+                <Button Content="&#xe650;" Style="{StaticResource WindowControlButtonStyle}" />
+                <Button Content="&#xe65b;" Style="{StaticResource WindowControlButtonStyle}" />
+                <Button Content="&#xe6a4;" Style="{StaticResource WindowControlButtonStyle}" />
             </StackPanel>
         </Grid>
 

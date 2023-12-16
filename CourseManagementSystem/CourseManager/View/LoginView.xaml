@@ -290,15 +290,12 @@
                 CornerRadius="10 10 0 0"
                 MouseLeftButtonDown="Border_MouseLeftButtonDown" />
             <Button
-                Width="40"
-                Height="30"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=window}"
                 Content="&#xe6a4;"
-                Foreground="White"
-                Template="{StaticResource WindowControlButtonTemplate}" />
+                Style="{StaticResource WindowControlButtonStyle}" />
 
             <StackPanel Margin="0,0,0,30" VerticalAlignment="Bottom">
                 <Border
