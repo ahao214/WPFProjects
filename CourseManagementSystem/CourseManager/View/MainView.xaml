@@ -130,15 +130,28 @@
                 Height="200"
                 VerticalAlignment="Top"
                 Background="#007DFA"
-                CornerRadius="10 10 0 0"  MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+                CornerRadius="10 10 0 0"
+                MouseLeftButtonDown="Border_MouseLeftButtonDown" />
             <!--  窗口控制按钮  -->
             <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
-                <Button Content="&#xe650;" Style="{StaticResource WindowControlButtonStyle}" />
-                <Button Content="&#xe65b;" Style="{StaticResource WindowControlButtonStyle}" />
-                <Button Content="&#xe6a4;" Style="{StaticResource WindowControlButtonStyle}" />
+                <Button
+                    Name="btnMin"
+                    Click="btnMin_Click"
+                    Content="&#xe650;"
+                    Style="{StaticResource WindowControlButtonStyle}" />
+                <Button
+                    Name="btnMax"
+                    Click="btnMax_Click"
+                    Content="&#xe65b;"
+                    Style="{StaticResource WindowControlButtonStyle}" />
+                <Button
+                    Name="btnClose"
+                    Click="btnClose_Click"
+                    Content="&#xe6a4;"
+                    Style="{StaticResource WindowControlButtonStyle}" />
             </StackPanel>
 
 
@@ -211,7 +224,7 @@
                     Foreground="White"
                     Template="{StaticResource SearchTextBoxTemplate}" />
 
-                <ContentControl Grid.Row="2" Content="{Binding}"/>
+                <ContentControl Grid.Row="2" Content="{Binding}" />
             </Grid>
 
         </Grid>

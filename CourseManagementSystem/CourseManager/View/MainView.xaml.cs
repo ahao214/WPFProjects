@@ -36,5 +36,20 @@ namespace CourseManager.View
                 this.DragMove();
             }
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMax_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;   
+        }
+
+        private void btnMin_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        }
     }
 }
