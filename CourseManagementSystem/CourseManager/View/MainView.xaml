@@ -17,6 +17,10 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <ResourceDictionary Source="../Assets/styles/DefaultStyle.xaml" />
+    </Window.Resources>
+
     <Border
         Margin="5"
         Background="White"
@@ -41,9 +45,24 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
-                <Button Width="40" Height="40" />
-                <Button Width="40" Height="40" />
-                <Button Width="40" Height="40" />
+                <Button
+                    Width="40"
+                    Height="40"
+                    Content="&#xe650;"
+                    Foreground="White"
+                    Template="{StaticResource WindowControlButtonTemplate}" />
+                <Button
+                    Width="40"
+                    Height="40"
+                    Content="&#xe65b;"
+                    Foreground="White"
+                    Template="{StaticResource WindowControlButtonTemplate}" />
+                <Button
+                    Width="40"
+                    Height="40"
+                    Content="&#xe6a4;"
+                    Foreground="White"
+                    Template="{StaticResource WindowControlButtonTemplate}" />
             </StackPanel>
         </Grid>
 
