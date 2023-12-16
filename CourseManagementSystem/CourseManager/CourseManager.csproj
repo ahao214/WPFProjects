@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\MD5Provider.cs" />
     <Compile Include="Common\NotifyBase.cs" />
     <Compile Include="Common\PasswordHelper.cs" />
     <Compile Include="DataAccess\DataEntity\UserEntity.cs" />
