@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseManager.Common;
+using CourseManager.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,13 @@ namespace CourseManager.View
         public MainView()
         {
             InitializeComponent();
+            MainViewModel model = new MainViewModel();
+            this.DataContext = model;
+
+            model.UserInfo.Avatar = GlobalValues.UserInfo.Avatar;
+            model.UserInfo.UserName = GlobalValues.UserInfo.UserName;
+            model.UserInfo.Gender = GlobalValues.UserInfo.Gender;
+
 
             this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
@@ -33,7 +42,7 @@ namespace CourseManager.View
         /// <param name="e"></param>
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
             }
@@ -47,7 +56,7 @@ namespace CourseManager.View
         private void btnMax_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-            
+
         }
 
         private void btnMin_Click(object sender, RoutedEventArgs e)

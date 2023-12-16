@@ -190,14 +190,14 @@
                         Height="30"
                         CornerRadius="15">
                         <Border.Background>
-                            <ImageBrush ImageSource="../Assets/Images/basketball.jpg" />
+                            <ImageBrush ImageSource="{Binding UserInfo.Avatar}" />
                         </Border.Background>
                     </Border>
                     <TextBlock
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         Foreground="White"
-                        Text="Administrator" />
+                        Text="{Binding UserInfo.UserName}" />
                 </StackPanel>
 
                 <StackPanel
@@ -222,9 +222,10 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Foreground="White"
-                    Template="{StaticResource SearchTextBoxTemplate}" />
+                    Template="{StaticResource SearchTextBoxTemplate}"
+                    Text="{Binding SearchText}" />
 
-                <ContentControl Grid.Row="2" Content="{Binding}" />
+                <ContentControl Grid.Row="2" Content="{Binding MainContent}" />
             </Grid>
 
         </Grid>

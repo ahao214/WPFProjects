@@ -36,6 +36,7 @@ namespace CourseManager.ViewModel
         public CommandBase NavChangedCommand { get; set; }
         public MainViewModel()
         {
+            UserInfo = new UserModel();
             this.NavChangedCommand = new CommandBase();
             this.NavChangedCommand.DoExecute = new Action<object>(DoNavChanged);
             this.NavChangedCommand.DoCanExecute = new Func<object, bool>((o) => true);
