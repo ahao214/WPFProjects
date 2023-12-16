@@ -2,6 +2,7 @@
     x:Class="CourseManager.View.LoginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:CourseManager.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CourseManager.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -352,9 +353,10 @@
                 <PasswordBox
                     Grid.Row="1"
                     Height="40"
+                    common:PasswordHelper.Attach="True"
+                    common:PasswordHelper.Password="{Binding LoginModel.Password}"
                     FontSize="16"
                     Foreground="#555"
-                    Password="111"
                     Style="{DynamicResource PasswordBoxStyle}" />
                 <TextBox
                     Grid.Row="2"

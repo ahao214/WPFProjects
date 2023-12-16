@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Common\CommandBase.cs" />
     <Compile Include="Common\NotifyBase.cs" />
+    <Compile Include="Common\PasswordHelper.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\LoginView.xaml.cs">

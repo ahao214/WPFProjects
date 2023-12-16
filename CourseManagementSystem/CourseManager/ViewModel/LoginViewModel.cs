@@ -23,7 +23,7 @@ namespace CourseManager.ViewModel
         {
             this .LoginModel = new LoginModel();
             this.LoginModel.UserName = "Joke";
-            this.LoginModel.Password = "123";
+            this.LoginModel.Password = "123456";
 
 
             this.CloseWindowCommand = new CommandBase();
