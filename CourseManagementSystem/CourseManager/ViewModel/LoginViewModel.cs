@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 
 namespace CourseManager.ViewModel
 {
-    public class LoginViewModel
+    public class LoginViewModel:NotifyBase
     {
         public LoginModel LoginModel { get; set; } = new LoginModel();
 
@@ -34,7 +34,7 @@ namespace CourseManager.ViewModel
         public string ErrorMsg
         {
             get { return _errorMsg; }
-            set { _errorMsg = value; }
+            set { _errorMsg = value; this.DoNofity(); }
         }
 
         private bool  _showProgress;

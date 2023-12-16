@@ -169,6 +169,7 @@
                                     Text="&#xe82b;" />
                                 <ScrollViewer
                                     x:Name="PART_ContentHost"
+                                    Grid.Column="1"
                                     VerticalAlignment="Center"
                                     Focusable="false"
                                     HorizontalScrollBarVisibility="Hidden"
@@ -238,6 +239,8 @@
                                     Text="&#xe666;" />
                                 <ScrollViewer
                                     x:Name="PART_ContentHost"
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
                                     Focusable="false"
                                     HorizontalScrollBarVisibility="Hidden"
                                     VerticalScrollBarVisibility="Hidden" />
