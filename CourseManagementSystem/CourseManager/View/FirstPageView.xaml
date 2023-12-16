@@ -124,7 +124,7 @@
                                 Fill="#FFE3E0"
                                 PointGeometrySize="0"
                                 Stroke="#FF7261"
-                                Values="1,2,3,40,5,6,7" />
+                                Values="11,2,3,40,55,6,71" />
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
                             <lvc:Axis ShowLabels="False" />
@@ -211,7 +211,7 @@
                                 Fill="#FFF2DE"
                                 PointGeometrySize="0"
                                 Stroke="#FECC71"
-                                Values="1,2,3,4,5,6,7" />
+                                Values="11,32,3,34,54,16,7" />
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
                             <lvc:Axis ShowLabels="False" />
@@ -298,7 +298,7 @@
                                 Fill="#FFF2DE"
                                 PointGeometrySize="0"
                                 Stroke="#FECC71"
-                                Values="1,2,3,4,5,6,7" />
+                                Values="10,21,32,14,5,6,17" />
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
                             <lvc:Axis ShowLabels="False" />
