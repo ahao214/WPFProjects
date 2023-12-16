@@ -269,20 +269,78 @@
             <Border
                 Width="240"
                 HorizontalAlignment="Right"
-                Background="White"
+                Background="#EE444444"
                 CornerRadius="0 5 5 0">
+                <Border.Effect>
+                    <DropShadowEffect
+                        BlurRadius="5"
+                        Direction="180"
+                        Opacity="0.3"
+                        ShadowDepth="0"
+                        Color="Gray" />
+                </Border.Effect>
                 <Border.RenderTransform>
                     <TranslateTransform x:Name="tt" X="250" />
                 </Border.RenderTransform>
-                <Button
-                    Name="btnCloseUserInfo"
-                    Width="40"
-                    Height="40"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    BorderThickness="0"
-                    Content="&#xe6a4;"
-                    FontFamily="../Assets/Fonts/#iconfont" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="230" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button
+                        Name="btnCloseUserInfo"
+                        Width="40"
+                        Height="40"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        BorderThickness="0"
+                        Content="&#xe6a4;"
+                        FontFamily="../Assets/Fonts/#iconfont" />
+                    <Border
+                        Width="80"
+                        Height="80"
+                        CornerRadius="40">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="5"
+                                Direction="0"
+                                Opacity="0.3"
+                                ShadowDepth="0"
+                                Color="White" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding UserInfo.Avatar}" />
+                        </Border.Background>
+                    </Border>
+                    <Grid Grid.Row="1" Margin="20,0">
+                        <Grid.Resources>
+                            <Style TargetType="RadioButton">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="用户名" />
+                            <TextBlock Margin="10,0,0,0" Text="{Binding UserInfo.UserName}" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="性  别" />
+                            <RadioButton Margin="10,0,0,0" Content="男" />
+                            <RadioButton Margin="10,0,0,0" Content="女" />
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
             </Border>
 
         </Grid>
