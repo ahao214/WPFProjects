@@ -1,4 +1,5 @@
-﻿using CourseManager.DataAccess.DataEntity;
+﻿using CourseManager.Common;
+using CourseManager.DataAccess.DataEntity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -89,7 +90,8 @@ namespace CourseManager.DataAccess
                     string userSql = "select * from users where user_name=@user_name and password=@pwd and is_validation=1";
                     adapter = new SqlDataAdapter(userSql, conn);
                     adapter.SelectCommand.Parameters.Add(new SqlParameter("@user_name", SqlDbType.VarChar) { Value = username });
-                    adapter .SelectCommand.Parameters .Add (new SqlParameter ("@pwd",SqlDbType.VarChar) { Value = pwd });
+                    adapter.SelectCommand.Parameters.Add(new SqlParameter("@pwd", SqlDbType.VarChar) { Value = MD5Provider.GetMD5String(pwd + "@" + username) });
+
                     DataTable dt = new DataTable();
                     int count = adapter.Fill(dt);
                     if (count <= 0)

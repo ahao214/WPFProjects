@@ -1,4 +1,5 @@
 ﻿using CourseManager.Common;
+using CourseManager.DataAccess;
 using CourseManager.Model;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace CourseManager.ViewModel
 {
@@ -80,6 +82,27 @@ namespace CourseManager.ViewModel
                 this.ErrorMsg = "验证码不正确";
                 return;
             }
+
+            Task.Run(new Action(() =>
+            {
+                try
+                {
+                    var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
+                    if (user == null)
+                    {
+                        throw new Exception("登录失败!用户名或密码错误");
+                    }
+                    GlobalValues.UserInfo = user;
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    this.ErrorMsg = ex.Message;
+                }
+            }));
         }
 
 
