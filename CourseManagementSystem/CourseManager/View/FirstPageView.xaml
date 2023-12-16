@@ -30,7 +30,7 @@
                         Color="#F2F2F2" />
                 </Border.Effect>
                 <Grid>
-                    <lvc:CartesianChart>
+                    <lvc:CartesianChart Margin="0,0,0,45">
                         <lvc:CartesianChart.Series>
                             <lvc:LineSeries
                                 Fill="#FFF2DE"
@@ -48,6 +48,23 @@
                                 ShowLabels="False" />
                         </lvc:CartesianChart.AxisY>
                     </lvc:CartesianChart>
+                    <StackPanel
+                        Margin="15"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Border
+                            Width="20"
+                            Height="20"
+                            Background="#EDFAF0"
+                            CornerRadius="5">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="../Assets/Fonts/#iconfont"
+                                Foreground="#7ADA95"
+                                Text="&#xe6d2;" />
+                        </Border>
+                    </StackPanel>
                 </Grid>
             </Border>
             <Border
