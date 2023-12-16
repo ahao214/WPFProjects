@@ -42,7 +42,7 @@ namespace CourseManager.Common
             PasswordBox password = d as PasswordBox;
             password.PasswordChanged += Password_PasswordChanged;
             if (!_isUpdating)
-                password.Password = e.NewValue.ToString();
+                password.Password = e.NewValue?.ToString();
             password.PasswordChanged -= Password_PasswordChanged;
         }
 

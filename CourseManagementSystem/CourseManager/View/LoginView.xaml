@@ -369,6 +369,7 @@
                     Grid.Row="3"
                     Height="40"
                     Background="White"
+                    Command="{Binding LoginCommand}"
                     Content="登录"
                     FontSize="16"
                     Template="{StaticResource LoginButtonTemplate}" />
@@ -379,7 +380,7 @@
                     FontSize="13"
                     Foreground="Red"
                     LineHeight="22"
-                    Text=""
+                    Text="{Binding ErrorMsg}"
                     TextWrapping="Wrap" />
             </Grid>
             <Grid Grid.Row="2" Margin="20,0">
