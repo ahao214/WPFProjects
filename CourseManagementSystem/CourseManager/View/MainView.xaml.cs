@@ -23,5 +23,18 @@ namespace CourseManager.View
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// 拖动页面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
     }
 }

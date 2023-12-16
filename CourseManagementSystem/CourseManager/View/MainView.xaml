@@ -130,7 +130,7 @@
                 Height="200"
                 VerticalAlignment="Top"
                 Background="#007DFA"
-                CornerRadius="10 10 0 0" />
+                CornerRadius="10 10 0 0"  MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
             <!--  窗口控制按钮  -->
             <StackPanel
                 HorizontalAlignment="Right"
@@ -210,6 +210,8 @@
                     VerticalAlignment="Center"
                     Foreground="White"
                     Template="{StaticResource SearchTextBoxTemplate}" />
+
+                <ContentControl Grid.Row="2" Content="{Binding}"/>
             </Grid>
 
         </Grid>
