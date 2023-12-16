@@ -105,12 +105,36 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
 
+                    <Storyboard x:Key="UserInfoStoryboard">
+                        <DoubleAnimation
+                            Storyboard.TargetName="tt"
+                            Storyboard.TargetProperty="X"
+                            To="0"
+                            Duration="0:0:0.2" />
+                    </Storyboard>
+                    <Storyboard x:Key="CloseUserInfoStoryboard">
+                        <DoubleAnimation
+                            Storyboard.TargetName="tt"
+                            Storyboard.TargetProperty="X"
+                            Duration="0:0:0.1" />
+                    </Storyboard>
+
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
 
 
         </ResourceDictionary>
     </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="btnUserInfo">
+            <BeginStoryboard Storyboard="{StaticResource UserInfoStoryboard}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Button.Click" SourceName="btnCloseUserInfo">
+            <BeginStoryboard Storyboard="{StaticResource CloseUserInfoStoryboard}" />
+        </EventTrigger>
+
+    </Window.Triggers>
 
     <Border
         Margin="5"
@@ -193,11 +217,18 @@
                             <ImageBrush ImageSource="{Binding UserInfo.Avatar}" />
                         </Border.Background>
                     </Border>
-                    <TextBlock
+                    <Button
+                        Name="btnUserInfo"
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
-                        Foreground="White"
-                        Text="{Binding UserInfo.UserName}" />
+                        Cursor="Hand"
+                        Foreground="White">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <TextBlock Text="{Binding UserInfo.UserName}" />
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
 
                 <StackPanel
@@ -233,6 +264,26 @@
 
                 <ContentControl Grid.Row="2" Content="{Binding MainContent}" />
             </Grid>
+
+            <!--  抽屉测滑栏  -->
+            <Border
+                Width="240"
+                HorizontalAlignment="Right"
+                Background="White"
+                CornerRadius="0 5 5 0">
+                <Border.RenderTransform>
+                    <TranslateTransform x:Name="tt" X="250" />
+                </Border.RenderTransform>
+                <Button
+                    Name="btnCloseUserInfo"
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderThickness="0"
+                    Content="&#xe6a4;"
+                    FontFamily="../Assets/Fonts/#iconfont" />
+            </Border>
 
         </Grid>
 
