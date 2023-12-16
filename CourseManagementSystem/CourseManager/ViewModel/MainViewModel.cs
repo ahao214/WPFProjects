@@ -17,9 +17,9 @@ namespace CourseManager.ViewModel
     {
         public UserModel UserInfo { get; set; }
 
-        private int _searchText;
+        private string _searchText;
 
-        public int SearchText
+        public string SearchText
         {
             get { return _searchText; }
             set { _searchText = value; this.DoNofity(); }
@@ -35,12 +35,15 @@ namespace CourseManager.ViewModel
         }
 
         public CommandBase NavChangedCommand { get; set; }
+
         public MainViewModel()
         {
             UserInfo = new UserModel();
             this.NavChangedCommand = new CommandBase();
             this.NavChangedCommand.DoExecute = new Action<object>(DoNavChanged);
             this.NavChangedCommand.DoCanExecute = new Func<object, bool>((o) => true);
+            // 显示首页
+            DoNavChanged("FirstPageView");
         }
 
         /// <summary>
