@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:CourseManager.ViewModel"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="750"
+    d:DesignWidth="1000"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
@@ -367,5 +367,168 @@
                 </Grid>
             </Border>
         </UniformGrid>
+
+        <Grid Grid.Row="1" Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--  学员访问情况监控  -->
+            <Grid Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    Foreground="#3F4C5D"
+                    Text="学员访问情况监控" />
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink>详情</Hyperlink>
+                </TextBlock>
+                <Border
+                    Grid.Row="1"
+                    Background="White"
+                    CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="105"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#F2F2F2" />
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top">
+                            <TextBlock
+                                FontSize="14"
+                                Foreground="#3F4C5D"
+                                Text="当前使用率" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="#3F4C5D"
+                                Text="+120%" />
+                        </StackPanel>
+                        <StackPanel
+                            Margin="0,0,0,10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom">
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <Border
+                                    Width="20"
+                                    Height="20"
+                                    Background="#EDFAF0"
+                                    CornerRadius="5">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="../Assets/Fonts/#iconfont"
+                                        Foreground="#7ADA95"
+                                        Text="&#xe6d2;" />
+                                </Border>
+                                <TextBlock
+                                    Margin="5,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="#7ADA95"
+                                    Text="32%" />
+                            </StackPanel>
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                Foreground="#3F4C5D"
+                                Text="最高使用率" />
+                        </StackPanel>
+                        <lvc:CartesianChart Grid.Column="1" Margin="10">
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries
+                                    Fill="#E1F2F6"
+                                    PointGeometrySize="0"
+                                    Stroke="#3Bc8D7"
+                                    Values="1,11,32,14,5,6,17" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis ShowLabels="False" />
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis
+                                    MaxValue="100"
+                                    MinValue="0"
+                                    ShowLabels="True" />
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!--  学院简介  -->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Foreground="#3F4D5D"
+                    Text="Joker戏剧院" />
+                <Border
+                    Grid.Row="1"
+                    Background="#007DFA"
+                    CornerRadius="10">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="270"
+                            Opacity="0.4"
+                            ShadowDepth="10"
+                            Color="#F2F2F2" />
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock
+                                Margin="15,0,0,10"
+                                Foreground="White"
+                                Text="Hi" />
+                            <TextBlock
+                                Margin="15,0,0,0"
+                                Foreground="#B3E9F1"
+                                LineHeight="20"
+                                Text="小丑戏剧院，欢迎大家的到来，请观看精彩的表演"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                        <Image
+                            Grid.Column="1"
+                            Width="60"
+                            Height="60"
+                            Source="../Assets/Images/logo.jpeg" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+
     </Grid>
 </UserControl>
