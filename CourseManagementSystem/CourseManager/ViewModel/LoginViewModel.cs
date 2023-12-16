@@ -37,6 +37,15 @@ namespace CourseManager.ViewModel
             set { _errorMsg = value; }
         }
 
+        private bool  _showProgress;
+
+        public bool ShowProgress
+        {
+            get { return _showProgress; }
+            set { _showProgress = value; }
+        }
+
+
 
         public LoginViewModel()
         {
@@ -61,25 +70,30 @@ namespace CourseManager.ViewModel
         private void DoLogin(object o)
         {
             this.ErrorMsg = string.Empty;
+            //this.ShowProgress = Visibility.Visible;
             if (string.IsNullOrEmpty(LoginModel.UserName))
             {
                 this.ErrorMsg = "请输入用户名";
+                //this.ShowProgress = Visibility.Collapsed;
                 return;
             }
             if (string.IsNullOrEmpty(LoginModel.Password))
             {
                 this.ErrorMsg = "密码不能为空";
+                //this.ShowProgress = Visibility.Collapsed;
                 return;
             }
             if (string.IsNullOrEmpty(LoginModel.ValidationCode))
             {
                 this.ErrorMsg = "验证码不能为空";
+                //this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
             if (LoginModel.ValidationCode.ToLower() != "abc")
             {
                 this.ErrorMsg = "验证码不正确";
+                //this.ShowProgress = Visibility.Collapsed;
                 return;
             }
 
@@ -94,7 +108,10 @@ namespace CourseManager.ViewModel
                     }
                     GlobalValues.UserInfo = user;
 
-
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        (o as Window).DialogResult = true;
+                    }));
 
                 }
                 catch (Exception ex)

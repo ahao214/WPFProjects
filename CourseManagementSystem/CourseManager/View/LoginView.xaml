@@ -354,7 +354,7 @@
                     Grid.Row="1"
                     Height="40"
                     common:PasswordHelper.Attach="True"
-                    common:PasswordHelper.Password="{Binding LoginModel.Password}"
+                    common:PasswordHelper.Password="{Binding LoginModel.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     FontSize="16"
                     Foreground="#555"
                     Style="{DynamicResource PasswordBoxStyle}" />
@@ -370,6 +370,7 @@
                     Height="40"
                     Background="White"
                     Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding ElementName=window}"
                     Content="登录"
                     FontSize="16"
                     Template="{StaticResource LoginButtonTemplate}" />
