@@ -97,29 +97,29 @@ namespace CourseManager.ViewModel
                 return;
             }
 
-            //Task.Run(new Action(() =>
-            //{
-            try
+            Task.Run(new Action(() =>
             {
-                var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
-                if (user == null)
+                try
                 {
-                    throw new Exception("登录失败!用户名或密码错误");
+                    var user = LocalDataAccess.GetInstance().CheckUserInfo(LoginModel.UserName, LoginModel.Password);
+                    if (user == null)
+                    {
+                        throw new Exception("登录失败!用户名或密码错误");
+                    }
+                    GlobalValues.UserInfo = user;
+
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        (o as Window).DialogResult = true;
+                    }));
+
                 }
-                GlobalValues.UserInfo = user;
-
-                Application.Current.Dispatcher.Invoke(new Action(() =>
+                catch (Exception ex)
                 {
-                    (o as Window).DialogResult = true;
-                }));
 
-            }
-            catch (Exception ex)
-            {
-
-                this.ErrorMsg = ex.Message;
-            }
-            //}));
+                    this.ErrorMsg = ex.Message;
+                }
+            }));
         }
 
 
