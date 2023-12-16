@@ -1,12 +1,52 @@
-﻿<Window x:Class="CourseManager.View.MainView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CourseManager.View"
-        mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window
+    x:Class="CourseManager.View.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CourseManager.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Joker"
+    Width="1250"
+    Height="800"
+    AllowsTransparency="True"
+    Background="{x:Null}"
+    FontFamily="Microsoft YaHei"
+    FontSize="12"
+    FontWeight="ExtraLight"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Border
+        Margin="5"
+        Background="White"
+        CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="5"
+                Direction="0"
+                Opacity="0.3"
+                ShadowDepth="0"
+                Color="Gray" />
+        </Border.Effect>
+
+        <Grid>
+            <Border
+                Height="200"
+                VerticalAlignment="Top"
+                Background="#007DFA"
+                CornerRadius="10 10 0 0" />
+            <!--  窗口控制按钮  -->
+            <StackPanel
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Button Width="40" Height="40" />
+                <Button Width="40" Height="40" />
+                <Button Width="40" Height="40" />
+            </StackPanel>
+        </Grid>
+
+    </Border>
+
 </Window>
