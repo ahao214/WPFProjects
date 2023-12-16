@@ -69,6 +69,17 @@ namespace CourseManager.ViewModel
                 this.ErrorMsg = "密码不能为空";
                 return;
             }
+            if (string.IsNullOrEmpty(LoginModel.ValidationCode))
+            {
+                this.ErrorMsg = "验证码不能为空";
+                return;
+            }
+
+            if (LoginModel.ValidationCode.ToLower() != "abc")
+            {
+                this.ErrorMsg = "验证码不正确";
+                return;
+            }
         }
 
 
