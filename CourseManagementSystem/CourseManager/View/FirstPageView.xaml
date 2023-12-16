@@ -523,7 +523,7 @@
                             Grid.Column="1"
                             Width="60"
                             Height="60"
-                            Source="../Assets/Images/logo.jpeg" />
+                            Source="../Assets/Images/joker.jpeg" />
                     </Grid>
                 </Border>
             </Grid>
