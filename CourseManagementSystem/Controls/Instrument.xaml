@@ -15,5 +15,30 @@
             Name="mainCanvas"
             Width="{Binding Width, ElementName=backEllipse}"
             Height="{Binding Height, ElementName=backEllipse}" />
+        <Path
+            Name="circle"
+            Width="{Binding Width, ElementName=backEllipse}"
+            Height="{Binding Height, ElementName=backEllipse}"
+            Data=""
+            RenderTransformOrigin="0.5,0.5"
+            Stroke="White"
+            StrokeEndLineCap="Round"
+            StrokeStartLineCap="Round"
+            StrokeThickness="4">
+            <Path.RenderTransform>
+                <RotateTransform Angle="-45" />
+            </Path.RenderTransform>
+        </Path>
+        <Path
+            Name="pointer"
+            Width="{Binding Width, ElementName=backEllipse}"
+            Height="{Binding Height, ElementName=backEllipse}"
+            Data=""
+            Fill="Green"
+            RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <RotateTransform Angle="-45" />
+            </Path.RenderTransform>
+        </Path>
     </Grid>
 </UserControl>

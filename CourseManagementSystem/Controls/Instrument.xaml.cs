@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,15 @@ namespace Controls
                 this.mainCanvas.Children.Add(textScale);
             }
 
+            string sData = "M{0} {1} A{0} {0} 0 1 1 {1} {2}";
+            sData = string.Format(sData, radius / 2, radius, radius * 1.5);
+            var converter = TypeDescriptor.GetConverter(typeof(Geometry));
+            this.circle.Data = (Geometry)converter.ConvertFrom(sData);
+
+            sData = "M{0} {1},{1} {2},{1} {3}";
+            sData = string.Format(sData, radius * 0.3, radius, radius - 5, radius + 5);
+            converter = TypeDescriptor.GetConverter(typeof(Geometry));
+            this.pointer.Data = (Geometry)converter.ConvertFrom(sData);
         }
     }
 }
