@@ -151,5 +151,11 @@
   <ItemGroup>
     <Resource Include="Assets\Images\joker.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\Controls.csproj">
+      <Project>{d1c5beac-1df6-4403-b93d-b6dea9d5db9b}</Project>
+      <Name>Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

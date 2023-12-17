@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:CourseManager.ViewModel"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:zxc="clr-namespace:Controls;assembly=Controls"
     d:DesignHeight="750"
     d:DesignWidth="1000"
     mc:Ignorable="d">
@@ -626,6 +627,7 @@
                                 Foreground="#3F4C5D"
                                 Text="最高使用率" />
                         </StackPanel>
+                        <zxc:Instrument />
                     </Grid>
                 </Border>
 
