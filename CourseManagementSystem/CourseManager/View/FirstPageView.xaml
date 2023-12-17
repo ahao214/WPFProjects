@@ -628,7 +628,13 @@
                                 Text="最高使用率" />
                         </StackPanel>
                         <!--  仪表盘  -->
-                        <zxc:Instrument Margin="0,20,0,40" Value="12" />
+                        <zxc:Instrument
+                            Margin="0,20,0,40"
+                            Interval="10"
+                            Maximum="100"
+                            Minimum="0"
+                            PlateBackground="Orange"
+                            Value="1" />
                     </Grid>
                 </Border>
 
