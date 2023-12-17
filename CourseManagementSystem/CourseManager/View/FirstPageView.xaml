@@ -636,7 +636,7 @@
                             PlateBackground="Orange"
                             ScaleBrush="White"
                             ScaleTextSize="14"
-                            Value="1" />
+                            Value="{Binding InstrumentValue}" />
                     </Grid>
                 </Border>
 
