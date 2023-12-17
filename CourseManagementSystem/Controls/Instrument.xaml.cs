@@ -23,6 +23,15 @@ namespace Controls
         public Instrument()
         {
             InitializeComponent();
+
+            this.SizeChanged += Instrument_SizeChanged;
+        }
+
+        private void Instrument_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double minSize = Math.Min(this.RenderSize.Width, this.RenderSize.Height);
+            this.backEllipse.Width = minSize;
+            this.backEllipse.Height = minSize;
         }
     }
 }
