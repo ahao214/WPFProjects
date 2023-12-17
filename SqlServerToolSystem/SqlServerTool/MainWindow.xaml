@@ -1,0 +1,13 @@
+﻿<Window
+    x:Class="SqlServerTool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SqlServerTool"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SqlServer连接工具登录界面"
+    Width="640"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid />
+</Window>

@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SqlTool", "SqlTool", "{FE83
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "CourseManagementSystem\Controls\Controls.csproj", "{D1C5BEAC-1DF6-4403-B93D-B6DEA9D5DB9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerTool", "SqlServerToolSystem\SqlServerTool\SqlServerTool.csproj", "{184CED3D-892A-476C-99F6-F3BCDACABD7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D1C5BEAC-1DF6-4403-B93D-B6DEA9D5DB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C5BEAC-1DF6-4403-B93D-B6DEA9D5DB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C5BEAC-1DF6-4403-B93D-B6DEA9D5DB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{184CED3D-892A-476C-99F6-F3BCDACABD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{184CED3D-892A-476C-99F6-F3BCDACABD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{184CED3D-892A-476C-99F6-F3BCDACABD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{184CED3D-892A-476C-99F6-F3BCDACABD7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{94E81816-E341-494C-86C4-862D5E73EA43} = {87D34BFA-D026-417B-94C3-8C99F1D62DE5}
 		{D1C5BEAC-1DF6-4403-B93D-B6DEA9D5DB9B} = {87D34BFA-D026-417B-94C3-8C99F1D62DE5}
+		{184CED3D-892A-476C-99F6-F3BCDACABD7F} = {FE83AF44-9F59-4DA9-934A-C72BEA92C46E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
