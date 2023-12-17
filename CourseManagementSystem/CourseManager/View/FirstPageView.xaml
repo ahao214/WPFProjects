@@ -627,7 +627,8 @@
                                 Foreground="#3F4C5D"
                                 Text="最高使用率" />
                         </StackPanel>
-                        <zxc:Instrument />
+                        <!--  仪表盘  -->
+                        <zxc:Instrument Margin="0,20,0,40" Value="12" />
                     </Grid>
                 </Border>
 

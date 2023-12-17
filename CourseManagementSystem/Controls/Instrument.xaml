@@ -10,5 +10,10 @@
     mc:Ignorable="d">
     <Grid>
         <Ellipse Name="backEllipse" Fill="Orange" />
+
+        <Canvas
+            Name="mainCanvas"
+            Width="{Binding Width, ElementName=backEllipse}"
+            Height="{Binding Height, ElementName=backEllipse}" />
     </Grid>
 </UserControl>
