@@ -626,7 +626,6 @@
                                 Foreground="#3F4C5D"
                                 Text="最高使用率" />
                         </StackPanel>
-
                     </Grid>
                 </Border>
 
