@@ -634,6 +634,8 @@
                             Maximum="100"
                             Minimum="0"
                             PlateBackground="Orange"
+                            ScaleBrush="White"
+                            ScaleTextSize="14"
                             Value="1" />
                     </Grid>
                 </Border>

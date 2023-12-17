@@ -82,6 +82,28 @@ namespace Controls
 
 
 
+        public int ScaleTextSize
+        {
+            get { return (int)GetValue(ScaleTextSizeProperty); }
+            set { SetValue(ScaleTextSizeProperty, value); }
+        }
+
+        public static readonly DependencyProperty ScaleTextSizeProperty =
+            DependencyProperty.Register("ScaleTextSize", typeof(int), typeof(Instrument), new PropertyMetadata(0, new PropertyChangedCallback(OnPropertyChanged)));
+
+
+
+        public Brush ScaleBrush
+        {
+            get { return (Brush)GetValue(ScaleBrushProperty); }
+            set { SetValue(ScaleBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty ScaleBrushProperty =
+            DependencyProperty.Register("ScaleBrush", typeof(Brush), typeof(Instrument), new PropertyMetadata(default(Brush),new PropertyChangedCallback(OnPropertyChanged)));
+
+
+
 
         /// <summary>
         /// Value发生变化，调用这里
@@ -128,7 +150,7 @@ namespace Controls
                 lineScale.X2 = radius - (radius - 8) * Math.Cos((i * step - 45) * Math.PI / 180);
                 lineScale.Y2 = radius - (radius - 8) * Math.Sin((i * step - 45) * Math.PI / 180);
 
-                lineScale.Stroke = Brushes.White;
+                lineScale.Stroke = ScaleBrush;
                 lineScale.StrokeThickness = 1;
 
                 this.mainCanvas.Children.Add(lineScale);
@@ -146,7 +168,7 @@ namespace Controls
                 lineScale.X2 = radius - (radius - 8) * Math.Cos((i * step - 45) * Math.PI / 180);
                 lineScale.Y2 = radius - (radius - 8) * Math.Sin((i * step - 45) * Math.PI / 180);
 
-                lineScale.Stroke = Brushes.White;
+                lineScale.Stroke = ScaleBrush;
                 lineScale.StrokeThickness = 1;
 
                 this.mainCanvas.Children.Add(lineScale);
@@ -154,10 +176,10 @@ namespace Controls
                 TextBlock textScale = new TextBlock();
                 textScale.Width = 34;
                 textScale.TextAlignment = TextAlignment.Center;
-                textScale.FontSize = 14;
+                textScale.FontSize = this.ScaleTextSize;
 
                 textScale.Text = (scaleText + (this.Maximum - this.Minimum) / this.Interval * i).ToString();
-                textScale.Foreground = Brushes.White;
+                textScale.Foreground = ScaleBrush;
                 Canvas.SetLeft(textScale, radius - (radius - 36) * Math.Cos((i * step - 45) * Math.PI / 180) - 17);
                 Canvas.SetTop(textScale, radius - (radius - 36) * Math.Sin((i * step - 45) * Math.PI / 180) - 10);
 
