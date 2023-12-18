@@ -72,6 +72,13 @@ namespace SqlServerTool
                 {
                     // 添加日志
                     AddServerLog(conn);
+                    App.DbConnectionInfo = conn;
+                    MessageBox.Show("数据库连接成功", Caption, MessageBoxButton.OK, MessageBoxImage.Information
+                     );
+                    // 打开主窗体
+                    WinMain main = new WinMain();
+                    main.Show();
+                    Application.Current.Shutdown();
                 }
                 else
                 {
