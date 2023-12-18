@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Joker"
     Width="1250"
-    Height="1000"
+    Height="800"
     AllowsTransparency="True"
     Background="{x:Null}"
     FontFamily="Microsoft YaHei"

@@ -1,6 +1,11 @@
 ﻿using CourseManager.Common;
+using CourseManager.Model;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,12 +23,40 @@ namespace CourseManager.ViewModel
             set { _instrumentValue = value; this.DoNofity(); }
         }
 
+        public ObservableCollection<CourseSeriesModel> CourseSeriesList { get; set; } = new ObservableCollection<CourseSeriesModel>();
+
+
         Random rand = new Random();
         bool taskSwitch = true;
         List<Task> listTask = new List<Task>();
         public FirstPageViewModel()
         {
             this.RefreshInstrumentValue();
+            this.InitCourseSeries();
+        }
+
+        private void InitCourseSeries()
+        {
+            CourseSeriesList.Add(new CourseSeriesModel
+            {
+                CourseName = "VIP Class",
+                SeriesColection = new LiveCharts.SeriesCollection { new PieSeries {
+                    Title="Joker",
+                    Values=new ChartValues<ObservableValue>{ new ObservableValue(123)},
+                    DataLabels=false},new PieSeries {
+                    Title="Joker",
+                    Values=new ChartValues<ObservableValue>{ new ObservableValue(123)},
+                    DataLabels=false}
+                },
+                SeriesList = new ObservableCollection<SeriesModel>
+                {
+                    new SeriesModel{SeriesName="云课堂",CurrentValue=15,IsGrowing=false,ChangeRate=89},
+                    new SeriesModel{SeriesName="计算机",CurrentValue=15,IsGrowing=false,ChangeRate=89},
+                    new SeriesModel{SeriesName="计算机",CurrentValue=15,IsGrowing=false,ChangeRate=89},
+                    new SeriesModel{SeriesName="计算机",CurrentValue=15,IsGrowing=false,ChangeRate=89},
+                    new SeriesModel{SeriesName="计算机",CurrentValue=15,IsGrowing=false,ChangeRate=89},
+                }
+            });
         }
 
         private void RefreshInstrumentValue()
@@ -46,7 +79,7 @@ namespace CourseManager.ViewModel
                 taskSwitch = false;
                 Task.WaitAll(this.listTask.ToArray());
             }
-            catch 
+            catch
             {
 
             }
