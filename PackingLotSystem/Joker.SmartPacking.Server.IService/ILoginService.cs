@@ -2,7 +2,9 @@
 
 namespace Joker.SmartPacking.Server.IService
 {
-    public class ILoginService
+    public interface ILoginService
     {
+        void Get(string un, string pwd);
+
     }
 }

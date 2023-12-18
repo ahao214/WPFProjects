@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Server.IService\Joker.SmartPacking.Server.IService.csproj" />
   </ItemGroup>
 
