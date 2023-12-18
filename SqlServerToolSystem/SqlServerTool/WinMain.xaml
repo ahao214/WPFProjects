@@ -68,6 +68,10 @@
                         <Image Source="/Images/exec.jpeg" />
                     </Button.Content>
                 </Button>
+                <DockPanel
+                    x:Name="DocContent"
+                    Grid.Row="1"
+                    Background="White" />
             </Grid>
         </Grid>
 
