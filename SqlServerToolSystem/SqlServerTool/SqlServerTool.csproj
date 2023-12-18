@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomClass\TreeNode.cs" />
     <Compile Include="WinMain.xaml.cs">
       <DependentUpon>WinMain.xaml</DependentUpon>
     </Compile>
@@ -130,8 +131,6 @@
   <ItemGroup>
     <Resource Include="Images\exec.jpeg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomClass\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
