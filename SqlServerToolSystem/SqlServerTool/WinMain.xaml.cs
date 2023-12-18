@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlServerTool.CustomClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,7 +52,13 @@ namespace SqlServerTool
         /// <exception cref="NotImplementedException"></exception>
         private void LoadTreeView()
         {
-            throw new NotImplementedException();
+            List<TreeNode> nodes = new List<TreeNode>
+            {
+                new TreeNode("数据库表","DataTable",0,0),
+                new TreeNode("视图","DataView",0,0),
+                new TreeNode("存储过程","DataTable",0,0),
+                new TreeNode("自定义函数","DataTable",0,0),
+            };
         }
 
         #endregion

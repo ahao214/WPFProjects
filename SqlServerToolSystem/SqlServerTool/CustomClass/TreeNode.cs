@@ -23,12 +23,13 @@ namespace SqlServerTool.CustomClass
         /// <summary>
         /// 带参数构造函数
         /// </summary>
+        /// <param name="header"></param>
         /// <param name="name"></param>
         /// <param name="nodeType"></param>
         /// <param name="depth"></param>
-        public TreeNode(string name, TreeNodeType nodeType,int depth)
+        public TreeNode(string header,string name, TreeNodeType nodeType,int depth)
         {
-            Header = name;
+            Header = header;
             Name = name;
             NodeType = nodeType;
             Depth = depth;
@@ -47,7 +48,7 @@ namespace SqlServerTool.CustomClass
     /// <summary>
     /// 节点类型枚举
     /// </summary>
-    public enum TreeNodeType:ushort
+    public enum TreeNodeType
     {
         /// <summary>
         /// 表
