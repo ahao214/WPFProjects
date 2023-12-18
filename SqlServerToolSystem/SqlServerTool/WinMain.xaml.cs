@@ -19,9 +19,40 @@ namespace SqlServerTool
     /// </summary>
     public partial class WinMain : Window
     {
+
+        #region 构造函数
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public WinMain()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region 窗体加载
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadWinCaption();
+        }
+
+        #endregion
+
+        #region 构造WinMain窗体标题
+        /// <summary>
+        /// 构造WinMain窗体标题
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void LoadWinCaption()
+        {
+            Title += string.Format($"-服务器 {App.DbConnectionInfo.Server} 数据库 {App.DbConnectionInfo.DataBase}");
+        }
+
+        #endregion
     }
 }

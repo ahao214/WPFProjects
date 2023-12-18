@@ -9,7 +9,7 @@
     Width="1024"
     Height="600"
     Background="AliceBlue"
-    Icon="Images/Toolbar.ico"
+    Icon="Images/Toolbar.ico" Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
