@@ -88,9 +88,19 @@ namespace Joker.SmartPacking.Server.IService
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="tList"></param>
-        void Delete<T>(IEnumerable<T> tList) where T: class;    
+        void Delete<T>(IEnumerable<T> tList) where T: class;
 
         #endregion
 
+
+        #region Other
+
+        /// <summary>
+        /// 立即保存全部修改
+        /// 把增/删的savechange给放到这里，是为了保证事物的
+        /// </summary>
+        void Commit();
+
+        #endregion
     }
 }
