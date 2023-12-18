@@ -38,10 +38,34 @@ namespace SqlServerTool.DatabaseHelper
         /// <returns></returns>
         private SqlConnection CreateConn()
         {
-            return new SqlConnection(connString);   
+            return new SqlConnection(connString);
         }
 
         #endregion
+
+        #region 返回一个对象
+
+        /// <summary>
+        /// 返回一个对象
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public object GetValue(string sql)
+        {
+            object o = null;
+            using (SqlConnection conn = CreateConn())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                o = cmd.ExecuteScalar();
+                conn.Close();
+            }
+
+            return o;
+        }
+
+        #endregion
+
 
     }
 

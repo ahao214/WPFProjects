@@ -21,6 +21,11 @@ namespace SqlServerTool
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 对话框标题信息
+        /// </summary>
+        private const string Caption = "信息提示";
+
         #region 构造函数
         /// <summary>
         /// 构造函数
@@ -47,6 +52,23 @@ namespace SqlServerTool
                 UserId = TxtUserId.Text.Trim(),
                 Password = TxtUserPass.Password.Trim(),
             };
+            DBHelper db = new DBHelper(conn.ToString());
+            try
+            {
+                object o = db.GetValue("select 1 ");
+                if (o != null)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("登录失败", Caption, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            catch (Exception Err)
+            {
+                MessageBox.Show(Err.Message, Caption, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
         #endregion

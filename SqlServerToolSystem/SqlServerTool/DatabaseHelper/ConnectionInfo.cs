@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,17 @@ namespace SqlServerTool.DatabaseHelper
         /// <summary>
         /// 数据库的名称
         /// </summary>
-        public string DataBase {  get; set; }
+        public string DataBase { get; set; }
 
+        #region 重新转换字符串函数
+        /// <summary>
+        /// 重新转换字符串函数
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format("Server={0};Database={1};User Id={2};Password={3}", Server, DataBase, UserId, Password);
+        } 
+        #endregion
     }
 }
