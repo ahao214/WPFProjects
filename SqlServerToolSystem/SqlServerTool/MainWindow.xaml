@@ -9,6 +9,7 @@
     Width="640"
     Height="450"
     Icon="Images/Toolbar.ico"
+    Loaded="Window_Loaded" KeyDown="Window_KeyDown"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
@@ -54,6 +55,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
+                IsDropDownOpen="False"
                 IsEnabled="True" />
         </StackPanel>
 

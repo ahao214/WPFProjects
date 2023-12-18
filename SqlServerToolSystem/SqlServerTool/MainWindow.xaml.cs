@@ -78,11 +78,11 @@ namespace SqlServerTool
                     // 打开主窗体
                     WinMain main = new WinMain();
                     main.Show();
-                    Application.Current.Shutdown();
+                    Close();
                 }
                 else
                 {
-                    //AddServerLog(conn);
+                    AddServerLog(conn);
                     MessageBox.Show("登录失败", Caption, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
@@ -126,5 +126,34 @@ namespace SqlServerTool
             Environment.Exit(0);
         }
         #endregion
+
+        #region 窗体加载
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(fileName))
+            {
+                StreamReader sr = new StreamReader(fileName);
+                string log = sr.ReadToEnd();
+                sr.Close();
+                if (!string.IsNullOrEmpty(log))
+                {
+                    string ser = log.Split('|')[0];
+                    CbServer.Items.Clear();
+                    CbServer.Items.Add(ser);
+                    CbServer.Text = ser;
+                }
+            }
+        }
+        #endregion
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
