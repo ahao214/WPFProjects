@@ -31,6 +31,14 @@ namespace SqlServerTool
 
         #endregion
 
+        #region 存放日志文件内容(数据库连接信息)
+        /// <summary>
+        /// 存放日志文件内容(数据库连接信息)
+        /// </summary>
+        private string connString = string.Empty;
+
+        #endregion
+
         #region 对话框标题信息
         /// <summary>
         /// 对话框标题信息
@@ -145,7 +153,8 @@ namespace SqlServerTool
                     string ser = log.Split('|')[0];
                     CbServer.Items.Clear();
                     CbServer.Items.Add(ser);
-                    CbServer.Text = ser;
+                    //CbServer.Text = ser;
+                    connString = log;
                 }
             }
         }
@@ -166,6 +175,53 @@ namespace SqlServerTool
             }
 
         }
+        #endregion
+
+        #region 获取日志文件里面的数据库连接信息进行赋值
+        /// <summary>
+        /// 获取日志文件里面的数据库连接信息进行赋值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CbServer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ConnectionInfo info = GetConnectionInfo(CbServer.SelectedItem.ToString());
+            if (info != null)
+            {
+                TxtDbName.Text = info.DataBase;
+                TxtUserId.Text = info.UserId;
+                TxtUserPass.Password = info.Password;
+
+            }
+        }
+
+        #endregion
+
+        #region 获取ConnectionInfo对象信息
+
+        /// <summary>
+        /// 获取ConnectionInfo对象信息
+        /// </summary>
+        /// <returns></returns>
+        private ConnectionInfo GetConnectionInfo(string server)
+        {
+            if (string.IsNullOrEmpty(server))
+                return null;
+            if (string.IsNullOrEmpty(connString))
+                return null;
+            string[] s = connString.Split('|');
+            if (s.Length != 4)
+                return null;
+            ConnectionInfo info = new ConnectionInfo
+            {
+                Server = s[0],
+                DataBase = s[1],
+                UserId = s[2],
+                Password = s[3]
+            };
+            return info;
+        }
+
         #endregion
     }
 }
