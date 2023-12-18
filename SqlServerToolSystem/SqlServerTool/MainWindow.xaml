@@ -8,6 +8,7 @@
     Title="SqlServer连接工具登录界面"
     Width="640"
     Height="450"
+    Background="AliceBlue"
     Icon="Images/Toolbar.ico"
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"
