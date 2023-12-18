@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlServerTool.DatabaseHelper;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace SqlServerTool
     /// </summary>
     public partial class App : Application
     {
+        #region 全局应用变量ConnectionInfo对象
+
+        /// <summary>
+        /// 全局应用变量ConnectionInfo对象
+        /// </summary>
+        public static ConnectionInfo DbConnectionInfo;
+
+        #endregion
     }
 }
