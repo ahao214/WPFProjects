@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CourseManager.ViewModel"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:zxc="clr-namespace:Controls;assembly=Controls"
     d:DesignHeight="750"
@@ -673,7 +674,68 @@
                             Color="Gray" />
                     </Border.Effect>
                     <Grid Height="70">
-                        <Grid.ColumnDefinitions />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="3.5*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="#444"
+                            Text="C#/.Net架构师" />
+                        <lvc:PieChart
+                            Grid.Column="1"
+                            InnerRadius="15"
+                            LegendLocation="Right">
+                            <lvc:PieChart.Series>
+                                <lvcs:SeriesCollection>
+                                    <lvc:PieSeries
+                                        Title="111"
+                                        DataLabels="False"
+                                        Values="11" />
+                                    <lvc:PieSeries
+                                        Title="111"
+                                        DataLabels="False"
+                                        Values="11" />
+                                    <lvc:PieSeries
+                                        Title="111"
+                                        DataLabels="False"
+                                        Values="11" />
+                                    <lvc:PieSeries
+                                        Title="111"
+                                        DataLabels="False"
+                                        Values="11" />
+                                </lvcs:SeriesCollection>
+                            </lvc:PieChart.Series>
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend BulletSize="10" />
+                            </lvc:PieChart.ChartLegend>
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultLegend BulletSize="10" />
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+
+                        <UniformGrid Grid.Column="2" Columns="5">
+                            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="云课程" />
+                                <TextBlock Grid.Row="1" Text="161" />
+                                <TextBlock Grid.Column="1" Text="|" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="76%" />
+                            </Grid>
+                        </UniformGrid>
+
                     </Grid>
                 </Border>
                 <Border

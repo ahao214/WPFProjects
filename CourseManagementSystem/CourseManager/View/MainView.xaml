@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Joker"
     Width="1250"
-    Height="800"
+    Height="1000"
     AllowsTransparency="True"
     Background="{x:Null}"
     FontFamily="Microsoft YaHei"
@@ -375,12 +375,12 @@
                             <RadioButton
                                 Margin="10,0,0,0"
                                 Content="男"
-                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter},ConverterParameter=1}"
+                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=1}"
                                 Template="{StaticResource GenderRadioButtonTemplate}" />
                             <RadioButton
                                 Margin="10,0,0,0"
                                 Content="女"
-                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter},ConverterParameter=2}"
+                                IsChecked="{Binding UserInfo.Gender, Converter={StaticResource genderConverter}, ConverterParameter=2}"
                                 Template="{StaticResource GenderRadioButtonTemplate}" />
                         </StackPanel>
 
