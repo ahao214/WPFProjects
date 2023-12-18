@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SqlServerTool.DatabaseHelper
 {
     /// <summary>
-    /// 数据库模型
+    /// 连接数据库所需信息
     /// </summary>
     public class ConnectionInfo
     {

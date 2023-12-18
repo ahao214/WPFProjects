@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SqlServerTool.DatabaseHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,14 @@ namespace SqlServerTool
         /// <param name="e"></param>
         private void BtnConn_Click(object sender, RoutedEventArgs e)
         {
+            string server = CbServer.Text.Trim();
+            ConnectionInfo conn = new ConnectionInfo
+            {
+                Server = string.IsNullOrEmpty(server) ? "." : server,
+                DataBase = TxtDbName.Text.Trim(),
+                UserId = TxtUserId.Text.Trim(),
+                Password = TxtUserPass.Password.Trim(),
+            };
 
         }
         #endregion
