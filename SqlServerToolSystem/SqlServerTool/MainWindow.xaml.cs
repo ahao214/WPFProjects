@@ -151,9 +151,21 @@ namespace SqlServerTool
         }
         #endregion
 
+        #region 窗体按键事件
+        /// <summary>
+        /// 窗体按键事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            // Enter按键
+            if (e.Key == Key.Enter)
+            {
+                BtnConn_Click(null, null);
+            }
 
         }
+        #endregion
     }
 }
