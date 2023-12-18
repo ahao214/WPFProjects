@@ -1,6 +1,7 @@
 ﻿using SqlServerTool.DatabaseHelper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,21 @@ namespace SqlServerTool
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        #region 日志文件的全路径
+        /// <summary>
+        /// 日志文件的全路径
+        /// </summary>
+        private readonly string fileName = AppDomain.CurrentDomain.BaseDirectory + "\\ConnInfo.log";
+
+        #endregion
+
+        #region 对话框标题信息
         /// <summary>
         /// 对话框标题信息
         /// </summary>
         private const string Caption = "信息提示";
+        #endregion
 
         #region 构造函数
         /// <summary>
@@ -58,10 +70,12 @@ namespace SqlServerTool
                 object o = db.GetValue("select 1 ");
                 if (o != null)
                 {
-
+                    // 添加日志
+                    AddServerLog(conn);
                 }
                 else
                 {
+                    //AddServerLog(conn);
                     MessageBox.Show("登录失败", Caption, MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
@@ -71,6 +85,25 @@ namespace SqlServerTool
             }
 
         }
+
+
+        #endregion
+
+
+        #region 添加登录成功后的日志(日志内容是连接信息)
+        /// <summary>
+        /// 添加登录成功后的日志(日志内容是连接信息)
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void AddServerLog(ConnectionInfo conn)
+        {
+            string connInfo = string.Format("{0}|{1}|{2}|{3}", conn.Server, conn.DataBase, conn.UserId, conn.Password);
+            StreamWriter sw = new StreamWriter(fileName);
+            sw.WriteLine(connInfo);
+            sw.Close();
+        }
+
         #endregion
 
         #region 退出程序
