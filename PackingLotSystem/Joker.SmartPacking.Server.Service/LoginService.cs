@@ -4,18 +4,13 @@ using System;
 
 namespace Joker.SmartPacking.Server.Service
 {
-    public class LoginService : ILoginService
+    public class LoginService :ServiceBase, ILoginService
     {
-        DbContext _context;
-        public LoginService(IEFContext.IEFContext efContext)
+        public LoginService(IEFContext.IEFContext efContext):base(efContext)
         {
-            _context = efContext.CreateDBContext();
+            
         }
 
-        public void Get(string un, string pwd)
-        {
-
-
-        }
+      
     }
 }
