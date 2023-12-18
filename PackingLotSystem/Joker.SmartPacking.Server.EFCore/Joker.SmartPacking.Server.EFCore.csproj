@@ -12,4 +12,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Server.Models\Joker.SmartPacking.Server.Models.csproj" />
+  </ItemGroup>
+
 </Project>

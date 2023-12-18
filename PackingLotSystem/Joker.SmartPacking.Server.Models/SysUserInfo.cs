@@ -7,6 +7,7 @@ namespace Joker.SmartPacking.Server.Models
     /// <summary>
     /// 用户
     /// </summary>    
+    [Table("sys_user_info")]
     public class SysUserInfo
     {
         [Key]
