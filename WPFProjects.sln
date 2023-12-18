@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.Models", "PackingLotSystem\Joker.SmartPacking.Server.Models\Joker.SmartPacking.Server.Models.csproj", "{01EBCCE3-7B28-403D-8765-EC00BFDA774C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IEFContext", "PackingLotSystem\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj", "{D2D38795-E8A3-483E-9301-43B1794AE7E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{01EBCCE3-7B28-403D-8765-EC00BFDA774C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01EBCCE3-7B28-403D-8765-EC00BFDA774C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01EBCCE3-7B28-403D-8765-EC00BFDA774C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{1F7085AB-24A6-4DC1-8291-54FE6158A15F} = {D770276C-B17B-440A-AFDC-0CDFA60D70C6}
 		{2D6A3F2A-AA22-486D-B084-1D3F1329D19C} = {DD52A05C-9B66-4414-996F-90513321C25F}
 		{01EBCCE3-7B28-403D-8765-EC00BFDA774C} = {22DDB5D9-7081-4C89-AD42-240B235EAC92}
+		{D2D38795-E8A3-483E-9301-43B1794AE7E8} = {DD52A05C-9B66-4414-996F-90513321C25F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
