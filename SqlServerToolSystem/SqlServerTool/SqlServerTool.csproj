@@ -130,5 +130,8 @@
   <ItemGroup>
     <Resource Include="Images\exec.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomClass\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

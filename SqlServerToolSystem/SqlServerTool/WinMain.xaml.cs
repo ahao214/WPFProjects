@@ -39,6 +39,19 @@ namespace SqlServerTool
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadWinCaption();
+            LoadTreeView();
+        }
+
+        #endregion
+
+        #region 加载树形菜单(表 视图 存储过程 自定义函数)
+        /// <summary>
+        /// 加载树形菜单(表 视图 存储过程 自定义函数)
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void LoadTreeView()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -50,7 +63,7 @@ namespace SqlServerTool
         /// <exception cref="NotImplementedException"></exception>
         private void LoadWinCaption()
         {
-            Title += string.Format($"-服务器 {App.DbConnectionInfo.Server} 数据库 {App.DbConnectionInfo.DataBase}");
+            Title += string.Format($"-服务器:{App.DbConnectionInfo.Server} 数据库: {App.DbConnectionInfo.DataBase}");
         }
 
         #endregion
