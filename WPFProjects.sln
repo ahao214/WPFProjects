@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IEFContext", "PackingLotSystem\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj", "{D2D38795-E8A3-483E-9301-43B1794AE7E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.EFContext", "PackingLotSystem\Joker.SmartPacking.Server.EFContext\Joker.SmartPacking.Server.EFContext.csproj", "{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IConfiguration", "PackingLotSystem\Joker.SmartPacking.Server.IConfiguration\Joker.SmartPacking.Server.IConfiguration.csproj", "{594D064A-3FA1-49C2-835F-39CB577A59E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,14 @@ Global
 		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D38795-E8A3-483E-9301-43B1794AE7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594D064A-3FA1-49C2-835F-39CB577A59E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594D064A-3FA1-49C2-835F-39CB577A59E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594D064A-3FA1-49C2-835F-39CB577A59E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594D064A-3FA1-49C2-835F-39CB577A59E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +119,8 @@ Global
 		{2D6A3F2A-AA22-486D-B084-1D3F1329D19C} = {DD52A05C-9B66-4414-996F-90513321C25F}
 		{01EBCCE3-7B28-403D-8765-EC00BFDA774C} = {22DDB5D9-7081-4C89-AD42-240B235EAC92}
 		{D2D38795-E8A3-483E-9301-43B1794AE7E8} = {DD52A05C-9B66-4414-996F-90513321C25F}
+		{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409} = {DD52A05C-9B66-4414-996F-90513321C25F}
+		{594D064A-3FA1-49C2-835F-39CB577A59E7} = {22DDB5D9-7081-4C89-AD42-240B235EAC92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}

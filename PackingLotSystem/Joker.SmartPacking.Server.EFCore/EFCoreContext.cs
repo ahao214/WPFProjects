@@ -8,7 +8,10 @@ namespace Joker.SmartPacking.Server.EFCore
     {
         private string strConn = "Data Source=LAPTOP-3HE8JVHO;Initial Catalog=ParkingLotDB;User ID=sa;Pwd=hao@chen214";
 
-        
+        public EFCoreContext(string strConn)
+        {
+            this.strConn = strConn;
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
