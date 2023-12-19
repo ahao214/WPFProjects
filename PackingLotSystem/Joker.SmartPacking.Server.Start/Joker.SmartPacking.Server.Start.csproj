@@ -8,4 +8,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Server.IService\Joker.SmartPacking.Server.IService.csproj" />
+  </ItemGroup>
+
 </Project>
