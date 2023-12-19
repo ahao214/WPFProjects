@@ -28,8 +28,8 @@ namespace Joker.SmartPacking.Server.Start
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IConfiguration.IConfiguration, Configuration.Configuration>();
-            services.AddTransient<IEFContext.IEFContext, EFContext.EFContext>();
-            //services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IEFContext.IEFContext, EFContext.EFContext>();            
+            services.AddTransient<ILoginService, LoginService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
