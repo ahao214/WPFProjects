@@ -93,5 +93,14 @@ namespace Joker.SmartPacking.Server.Service
             }
             this.Commit();
         }
+
+        /// <summary>
+        /// 销毁
+        /// </summary>
+        public virtual void Dispose()
+        {
+            if (this.Context != null)
+                this.Context.Dispose();
+        }
     }
 }
