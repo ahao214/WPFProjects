@@ -20,12 +20,24 @@ namespace Joker.SmartPacking.Client.DAL
             }
         }
 
+        private MultipartFormDataContent GetFormData(Dictionary<string, HttpContent> contents)
+        {
+            var postContent = new MultipartFormDataContent();
+            string boundary = $"---{DateTime.Now.Ticks.ToString("x")}---";
+            postContent.Headers.Add("ContentType", $"muiltipart/form-data,boundary={boundary}");
 
-        public Task<string> PostDatas(string url,HttpContent content)
+            foreach (var item in contents)
+            {
+                postContent.Add(item.Value, item.Key);
+            }
+            return postContent;
+        }
+
+        public Task<string> PostDatas(string url, Dictionary<string, HttpContent> contents)
         {
             using (HttpClient client = new HttpClient())
             {
-                var resp = client.PostAsync($"{domain}{url}",content).GetAwaiter().GetResult();
+                var resp = client.PostAsync($"{domain}{url}", GetFormData(contents)).GetAwaiter().GetResult();
                 return resp.Content.ReadAsStringAsync();
             }
 
