@@ -43,7 +43,7 @@
                     Margin="0,20,0,20"
                     FontSize="16"
                     Foreground="#363636"
-                    Text="it should only tiem a couple of my friiend and my family and my borthers,and my sisters"
+                    Text="it should only take a couple of minutes to pair with your watch"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
 
