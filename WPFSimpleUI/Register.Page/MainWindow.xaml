@@ -128,14 +128,44 @@
                         Style="{StaticResource text}"
                         Text="MemberShip" />
 
-                    <uc:MyTextBox Grid.Column="1" Grid.Row="0" Hint="Karim" />
-                    <uc:MyTextBox Grid.Column="1" Grid.Row="1" Hint="Doe" />
-                    <uc:MyTextBox Grid.Column="1" Grid.Row="3" Hint="01/01/1987" />
-                    <uc:MyTextBox Grid.Column="1" Grid.Row="4" Hint="ddd@163.com" />
-                    <uc:MyTextBox Grid.Column="1" Grid.Row="5" Hint="+90 9098 0098" />
+                    <uc:MyTextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Hint="Karim" />
+                    <uc:MyTextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Hint="Doe" />
+                    <uc:MyTextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Hint="01/01/1987" />
+                    <uc:MyTextBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Hint="ddd@163.com" />
+                    <uc:MyTextBox
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Hint="+90 9098 0098" />
 
-                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Margin="0 10">
-                        
+                    <StackPanel
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="0,10"
+                        Orientation="Horizontal">
+                        <uc:MyOption Icon="Male" Text="Male" />
+                        <uc:MyOption Icon="Female" Text="Female" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Margin="0,10"
+                        Orientation="Horizontal">
+                        <uc:MyOption Icon="CreditCard" Text="Classic" />
+                        <uc:MyOption Icon="CreditCard" Text="Silver" />
+                        <uc:MyOption Icon="CreditCard" Text="Gold" />
                     </StackPanel>
 
 

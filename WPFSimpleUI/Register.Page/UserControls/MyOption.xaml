@@ -8,17 +8,18 @@
     Name="myOption"
     mc:Ignorable="d">
     <StackPanel Orientation="Horizontal">
-        <Button>
+        <Button Style="{StaticResource button}">
             <fa:ImageAwesome
                 Width="15"
                 Height="15"
                 Foreground="White"
-                Icon="Telegram" />
+                Icon="{Binding Path=Icon, ElementName=myOption}" />
         </Button>
         <TextBlock
-            Margin="10,0,0,0"
+            Margin="10,0,20,0"
             VerticalAlignment="Center"
+            FontWeight="SemiBold"
             Foreground="#363636"
-            Text="Hi" />
+            Text="{Binding Path=Text, ElementName=myOption}" />
     </StackPanel>
 </UserControl>
