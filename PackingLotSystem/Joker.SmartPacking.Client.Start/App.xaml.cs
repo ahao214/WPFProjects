@@ -23,6 +23,7 @@ namespace Joker.SmartPacking.Client.Start
 
         protected override void InitializeShell(Window shell)
         {
+            // 先打开登录窗口，如果登录成功，则打开主窗口
             if (Container.Resolve<LoginView>().ShowDialog() == false)
             {
                 Application.Current?.Shutdown();

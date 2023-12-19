@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:Joker.SmartPacking.Client.Start.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:pwdHelper="clr-namespace:Joker.SmartPacking.Client.Common;assembly=Joker.SmartPacking.Client.Common"
     Title="LoginView"
     Width="800"
     Height="450"
@@ -14,14 +15,23 @@
     mc:Ignorable="d">
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-            <PasswordBox Password="111" />
+            <TextBox Height="25" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            <PasswordBox
+                Height="25"
+                pwdHelper:PasswordHelper.Attach="True"
+                pwdHelper:PasswordHelper.Password="{Binding Password, Mode=TwoWay}" />
+
+
             <TextBlock Foreground="Red" Text="{Binding ErrorMsg}" />
+
+
             <Button
                 Width="100"
-                Height="50"
+                Height="30"
                 Command="{Binding LoginCommand}"
-                Content="登录" />
+                Content="登  录" />
         </StackPanel>
     </Grid>
 </Window>

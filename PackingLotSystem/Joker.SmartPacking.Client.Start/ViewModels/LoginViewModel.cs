@@ -19,7 +19,7 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
             set { SetProperty<string>(ref _userName, value); }
         }
 
-        private string _password;
+        private string _password = "111";
 
         public string Password
         {
@@ -59,6 +59,9 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
                     this.ErrorMsg = "请输入密码";
                     return;
                 }
+
+                // 登录操作
+
             }
             catch (Exception err)
             {
