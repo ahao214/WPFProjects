@@ -33,42 +33,65 @@ namespace Joker.SmartPacking.Server.Service
 
         public void Delete<T>(T t) where T : class
         {
-            throw new NotImplementedException();
+            if (t == null)
+                throw new Exception("t is null");
+            this.Context.Set<T>().Attach(t);
+            this.Context.Set<T>().Remove(t);
+            this.Commit();
         }
 
         public void Delete<T>(IEnumerable<T> tList) where T : class
         {
-            throw new NotImplementedException();
+            foreach (var t in tList)
+            {
+                this.Context.Set<T>().Attach(t);
+            }
+            this.Context.Set<T>().RemoveRange(tList);
+            this.Commit();
         }
 
         public T Find<T>(int id) where T : class
         {
-            throw new NotImplementedException();
+            return this.Context.Set<T>().Find(id);
         }
 
         public T Insert<T>(T t) where T : class
         {
-            throw new NotImplementedException();
+            this.Context.Set<T>().Add(t);
+            this.Commit();
+            return t;
         }
 
         public IEnumerable<T> Insert<T>(IEnumerable<T> list) where T : class
         {
-            throw new NotImplementedException();
+            this.Context.Set<T>().AddRange(list);
+            this.Commit();
+            return list;
         }
 
         public IQueryable<T> Query<T>(Expression<Func<T, bool>> funcWhere) where T : class
         {
-            throw new NotImplementedException();
+            return this.Context.Set<T>().Where<T>(funcWhere);
         }
 
         public void Update<T>(T t) where T : class
         {
-            throw new NotImplementedException();
+            if (t == null)
+                throw new Exception("t is null");
+
+            this.Context.Set<T>().Attach(t);
+            this.Context.Entry<T>(t).State = EntityState.Modified;
+            this.Commit();
         }
 
         public void Update<T>(IEnumerable<T> tList) where T : class
         {
-            throw new NotImplementedException();
+            foreach (var t in tList)
+            {
+                this.Context.Set<T>().Attach(t);
+                this.Context.Entry<T>(t).State = EntityState.Modified;
+            }
+            this.Commit();
         }
     }
 }

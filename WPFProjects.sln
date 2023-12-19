@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.Service", "PackingLotSystem\Joker.SmartPacking.Server.Service\Joker.SmartPacking.Server.Service.csproj", "{72405F05-27E3-4659-B187-B0E70445392D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFBase", "WPFBase", "{512B5D44-D307-462C-AE24-ACFACF1DA4D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFSimpleUI", "WPFSimpleUI", "{512B5D44-D307-462C-AE24-ACFACF1DA4D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
