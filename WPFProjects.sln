@@ -65,6 +65,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{3008F860-1111-4C29-9C49-AB3409A55448}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.IDAL", "PackingLotSystem\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj", "{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.DAL", "PackingLotSystem\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj", "{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +131,14 @@ Global
 		{3008F860-1111-4C29-9C49-AB3409A55448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3008F860-1111-4C29-9C49-AB3409A55448}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3008F860-1111-4C29-9C49-AB3409A55448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,6 +170,8 @@ Global
 		{72405F05-27E3-4659-B187-B0E70445392D} = {F47499BA-BFED-4DD3-BB14-B0B1916DDDA9}
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB} = {70F884CF-8C1B-4199-8091-F194D76DC7F6}
 		{3008F860-1111-4C29-9C49-AB3409A55448} = {4D96B403-E4AF-4677-9E0D-1FE3210ACAC2}
+		{070B4149-F0F2-4AAF-96AF-CFDDDC708B00} = {0120F17A-9417-4DF0-BA02-999C8F8B0A10}
+		{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD} = {0120F17A-9417-4DF0-BA02-999C8F8B0A10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
