@@ -11,6 +11,11 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
 {
     public class LoginViewModel : BindableBase
     {
+        public LoginViewModel()
+        {
+
+        }
+
         private string _userName = "admin";
 
         public string UserName
@@ -49,12 +54,12 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
             try
             {
                 this.ErrorMsg = string.Empty;
-                if(string.IsNullOrEmpty (this .UserName ))
+                if (string.IsNullOrEmpty(this.UserName))
                 {
                     this.ErrorMsg = "请输入用户名";
                     return;
                 }
-                if(string .IsNullOrEmpty (this .Password ))
+                if (string.IsNullOrEmpty(this.Password))
                 {
                     this.ErrorMsg = "请输入密码";
                     return;

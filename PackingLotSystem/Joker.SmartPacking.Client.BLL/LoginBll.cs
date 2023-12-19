@@ -16,6 +16,8 @@ namespace Joker.SmartPacking.Client.BLL
         public async Task<bool> Login(string username, string password)
         {
             var loginStr = await _loginDal.Login(username, password);
+            // 用户信息反序列化
+
 
             return false;
         }
