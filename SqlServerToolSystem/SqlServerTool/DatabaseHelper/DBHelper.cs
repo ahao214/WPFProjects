@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -66,7 +67,38 @@ namespace SqlServerTool.DatabaseHelper
 
         #endregion
 
+        #region 返回DataSet集合
+        /// <summary>
+        /// 返回DataSet集合
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public DataSet GetDataSet(string sql)
+        {
+            DataSet ds = new DataSet();
+            using (SqlConnection conn = CreateConn())
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                sda.Fill(ds);
+                return ds;
+            }
+        }
 
+        #endregion
+
+
+        #region 返回DataTable集合
+        /// <summary>
+        /// 返回DataTable集合
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public DataTable GetDataTable(string sql)
+        {
+            return GetDataSet(sql).Tables[0];
+        }
+
+        #endregion
     }
 
 }
