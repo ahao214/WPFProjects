@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Joker.SmartPacking.Server.Service
 {
+    /// <summary>
+    /// 基类实现
+    /// </summary>
     public class ServiceBase : IServiceBase
     {
         protected DbContext Context { get; private set; }
