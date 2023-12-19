@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj" />
+  </ItemGroup>
+
+</Project>
