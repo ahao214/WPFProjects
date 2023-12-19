@@ -63,6 +63,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFSimpleUI", "WPFSimpleUI"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Start", "PackingLotSystem\Joker.SmartPacking.Client.Start\Joker.SmartPacking.Client.Start.csproj", "{FCFEE033-706E-42D9-A48F-3AF3392704FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,10 @@ Global
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
