@@ -9,7 +9,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Server.Configuration\Joker.SmartPacking.Server.Configuration.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Server.EFContext\Joker.SmartPacking.Server.EFContext.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Server.IConfiguration\Joker.SmartPacking.Server.IConfiguration.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Server.IService\Joker.SmartPacking.Server.IService.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Server.Models\Joker.SmartPacking.Server.Models.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Server.Service\Joker.SmartPacking.Server.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,5 @@
+using Joker.SmartPacking.Server.IService;
+using Joker.SmartPacking.Server.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -15,16 +17,19 @@ namespace Joker.SmartPacking.Server.Start
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(Microsoft.Extensions.Configuration.IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public Microsoft.Extensions.Configuration.IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IConfiguration.IConfiguration, Configuration.Configuration>();
+            services.AddTransient<IEFContext.IEFContext, EFContext.EFContext>();
+            //services.AddTransient<ILoginService, LoginService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
