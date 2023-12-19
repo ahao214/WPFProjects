@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Entity", "PackingLotSystem\Joker.SmartPacking.Client.Entity\Joker.SmartPacking.Client.Entity.csproj", "{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGrid.Dashboard", "WPFSimpleUI\DataGrid.Dashboard\DataGrid.Dashboard.csproj", "{B4A11B4B-0D49-4E91-AD18-4AA734349F10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,10 @@ Global
 		{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4A11B4B-0D49-4E91-AD18-4AA734349F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A11B4B-0D49-4E91-AD18-4AA734349F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A11B4B-0D49-4E91-AD18-4AA734349F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A11B4B-0D49-4E91-AD18-4AA734349F10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +199,7 @@ Global
 		{CEED8D6D-F6DC-457E-BBF5-37468C9459AA} = {A6313FE6-7506-4C95-9B21-61363C4C369E}
 		{99E673E6-AFCC-48E0-A2E2-D2B11E4941EB} = {A6313FE6-7506-4C95-9B21-61363C4C369E}
 		{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC} = {DF9EE3D0-92B1-492F-AEA4-FDA5F746CA4E}
+		{B4A11B4B-0D49-4E91-AD18-4AA734349F10} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
