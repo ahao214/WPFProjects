@@ -59,6 +59,45 @@ namespace SqlServerTool
                 new TreeNode("存储过程","DataTable",0,0),
                 new TreeNode("自定义函数","DataTable",0,0),
             };
+
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                nodes[i].IsExpanded = true;
+                AddChildNode(nodes[i], (TreeNodeType)(i + 1));
+
+            }
+            TvMenu.ItemsSource = nodes;
+        }
+
+        #endregion
+
+        #region 填充树节点的子节点  
+        /// <summary>
+        /// 填充树节点的子节点
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="type"></param>
+        private void AddChildNode(TreeNode node,TreeNodeType type)
+        {
+            string sType = "U";
+            switch(type)
+            {
+                case TreeNodeType.Table:
+                    sType = "U";
+                    break;
+                case TreeNodeType.View:
+                    sType = "V";
+                    break;
+                case TreeNodeType.Procedure:
+                    sType = "P";
+                    break;
+                case TreeNodeType.Function:
+                    sType = "F";
+                    break;
+            }
+
+            string sql = string.Format("", sType);
+                
         }
 
         #endregion
