@@ -23,5 +23,7 @@ namespace Joker.SmartPacking.Client.Start.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

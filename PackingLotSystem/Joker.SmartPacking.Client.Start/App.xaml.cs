@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using Joker.SmartPacking.Client.Start.Views;
+using Prism.Ioc;
 using Prism.Unity;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,20 @@ namespace Joker.SmartPacking.Client.Start
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>(); 
+            return Container.Resolve<MainWindow>();
+        }
+
+        protected override void InitializeShell(Window shell)
+        {
+            if (Container.Resolve<LoginView>().ShowDialog() == false)
+            {
+                Application.Current?.Shutdown();
+            }
+            else
+            {
+                base.InitializeShell(shell);
+            }
+
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
