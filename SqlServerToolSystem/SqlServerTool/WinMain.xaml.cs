@@ -113,6 +113,8 @@ namespace SqlServerTool
                 node.Items.Add(new TreeNode(dr["name"].ToString(), dr["name"].ToString(), type, 1));
             }
 
+            TbContent.Text += string.Format("{0}:{1}个  ", node.Header, dt.Rows.Count);
+
         }
 
         #endregion

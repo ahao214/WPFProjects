@@ -41,23 +41,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{22DDB5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4D96B403-E4AF-4677-9E0D-1FE3210ACAC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.Start", "PackingLotSystem\Joker.SmartPacking.Server.Start\Joker.SmartPacking.Server.Start.csproj", "{1F7085AB-24A6-4DC1-8291-54FE6158A15F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.Start", "PackingLotSystem\Joker.SmartPacking.Server.Start\Joker.SmartPacking.Server.Start.csproj", "{1F7085AB-24A6-4DC1-8291-54FE6158A15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.EFCore", "PackingLotSystem\Joker.SmartPacking.Server.EFCore\Joker.SmartPacking.Server.EFCore.csproj", "{2D6A3F2A-AA22-486D-B084-1D3F1329D19C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.EFCore", "PackingLotSystem\Joker.SmartPacking.Server.EFCore\Joker.SmartPacking.Server.EFCore.csproj", "{2D6A3F2A-AA22-486D-B084-1D3F1329D19C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.Models", "PackingLotSystem\Joker.SmartPacking.Server.Models\Joker.SmartPacking.Server.Models.csproj", "{01EBCCE3-7B28-403D-8765-EC00BFDA774C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.Models", "PackingLotSystem\Joker.SmartPacking.Server.Models\Joker.SmartPacking.Server.Models.csproj", "{01EBCCE3-7B28-403D-8765-EC00BFDA774C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IEFContext", "PackingLotSystem\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj", "{D2D38795-E8A3-483E-9301-43B1794AE7E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.IEFContext", "PackingLotSystem\Joker.SmartPacking.Server.IEFContext\Joker.SmartPacking.Server.IEFContext.csproj", "{D2D38795-E8A3-483E-9301-43B1794AE7E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.EFContext", "PackingLotSystem\Joker.SmartPacking.Server.EFContext\Joker.SmartPacking.Server.EFContext.csproj", "{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.EFContext", "PackingLotSystem\Joker.SmartPacking.Server.EFContext\Joker.SmartPacking.Server.EFContext.csproj", "{66FAC0DF-7683-47EE-ADDC-0B8C0A0DB409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IConfiguration", "PackingLotSystem\Joker.SmartPacking.Server.IConfiguration\Joker.SmartPacking.Server.IConfiguration.csproj", "{594D064A-3FA1-49C2-835F-39CB577A59E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.IConfiguration", "PackingLotSystem\Joker.SmartPacking.Server.IConfiguration\Joker.SmartPacking.Server.IConfiguration.csproj", "{594D064A-3FA1-49C2-835F-39CB577A59E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.Configuration", "PackingLotSystem\Joker.SmartPacking.Server.Configuration\Joker.SmartPacking.Server.Configuration.csproj", "{2EA25F17-023A-46C1-ADAC-C25B9210C66E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.Configuration", "PackingLotSystem\Joker.SmartPacking.Server.Configuration\Joker.SmartPacking.Server.Configuration.csproj", "{2EA25F17-023A-46C1-ADAC-C25B9210C66E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.IService", "PackingLotSystem\Joker.SmartPacking.Server.IService\Joker.SmartPacking.Server.IService.csproj", "{0C952B42-7057-4C3A-B743-847D828379A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.IService", "PackingLotSystem\Joker.SmartPacking.Server.IService\Joker.SmartPacking.Server.IService.csproj", "{0C952B42-7057-4C3A-B743-847D828379A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Server.Service", "PackingLotSystem\Joker.SmartPacking.Server.Service\Joker.SmartPacking.Server.Service.csproj", "{72405F05-27E3-4659-B187-B0E70445392D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.Service", "PackingLotSystem\Joker.SmartPacking.Server.Service\Joker.SmartPacking.Server.Service.csproj", "{72405F05-27E3-4659-B187-B0E70445392D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFBase", "WPFBase", "{512B5D44-D307-462C-AE24-ACFACF1DA4D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
