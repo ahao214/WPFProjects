@@ -1,6 +1,9 @@
 ﻿using SqlServerTool.CustomClass;
+using SqlServerTool.DatabaseHelper;
+using SqlServerTool.SqlItem;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +23,12 @@ namespace SqlServerTool
     /// </summary>
     public partial class WinMain : Window
     {
+        #region 数据库帮助
+        /// <summary>
+        /// 数据库帮助
+        /// </summary>
+        private readonly DBHelper db = new DBHelper(App.DbConnectionInfo.ToString());
+        #endregion
 
         #region 构造函数
         /// <summary>
@@ -77,10 +86,10 @@ namespace SqlServerTool
         /// </summary>
         /// <param name="node"></param>
         /// <param name="type"></param>
-        private void AddChildNode(TreeNode node,TreeNodeType type)
+        private void AddChildNode(TreeNode node, TreeNodeType type)
         {
             string sType = "U";
-            switch(type)
+            switch (type)
             {
                 case TreeNodeType.Table:
                     sType = "U";
@@ -92,12 +101,18 @@ namespace SqlServerTool
                     sType = "P";
                     break;
                 case TreeNodeType.Function:
-                    sType = "F";
+                    sType = "TF";
                     break;
             }
 
-            string sql = string.Format("", sType);
-                
+            string sql = string.Format(SqlConst.GetTables, sType);
+            DataTable dt = db.GetDataTable(sql);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                node.Items.Add(new TreeNode(dr["name"].ToString(), dr["name"].ToString(), type, 1));
+            }
+
         }
 
         #endregion
