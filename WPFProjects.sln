@@ -63,7 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFSimpleUI", "WPFSimpleUI"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Start", "PackingLotSystem\Joker.SmartPacking.Client.Start\Joker.SmartPacking.Client.Start.csproj", "{FCFEE033-706E-42D9-A48F-3AF3392704FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{3008F860-1111-4C29-9C49-AB3409A55448}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,10 +123,10 @@ Global
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E12BBE1A-7F3A-4F43-A83C-BA25BDF07B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3008F860-1111-4C29-9C49-AB3409A55448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3008F860-1111-4C29-9C49-AB3409A55448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3008F860-1111-4C29-9C49-AB3409A55448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3008F860-1111-4C29-9C49-AB3409A55448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +157,7 @@ Global
 		{0C952B42-7057-4C3A-B743-847D828379A3} = {F47499BA-BFED-4DD3-BB14-B0B1916DDDA9}
 		{72405F05-27E3-4659-B187-B0E70445392D} = {F47499BA-BFED-4DD3-BB14-B0B1916DDDA9}
 		{FCFEE033-706E-42D9-A48F-3AF3392704FB} = {70F884CF-8C1B-4199-8091-F194D76DC7F6}
+		{3008F860-1111-4C29-9C49-AB3409A55448} = {4D96B403-E4AF-4677-9E0D-1FE3210ACAC2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
