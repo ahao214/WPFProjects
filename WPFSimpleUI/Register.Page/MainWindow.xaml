@@ -168,6 +168,26 @@
                         <uc:MyOption Icon="CreditCard" Text="Gold" />
                     </StackPanel>
 
+                    <Grid
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Margin="0,40,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            Margin="0,0,10,0"
+                            Content="Cancel"
+                            Style="{StaticResource buttonMain}" />
+                        <Button
+                            Grid.Column="1"
+                            Margin="0,0,10,0"
+                            Content="Save"
+                            Style="{StaticResource buttonMainGreen}" />
+
+                    </Grid>
 
                 </Grid>
             </Grid>
