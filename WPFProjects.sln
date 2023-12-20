@@ -61,23 +61,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Server.S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPFSimpleUI", "WPFSimpleUI", "{512B5D44-D307-462C-AE24-ACFACF1DA4D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Start", "PackingLotSystem\Joker.SmartPacking.Client.Start\Joker.SmartPacking.Client.Start.csproj", "{FCFEE033-706E-42D9-A48F-3AF3392704FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.Start", "PackingLotSystem\Joker.SmartPacking.Client.Start\Joker.SmartPacking.Client.Start.csproj", "{FCFEE033-706E-42D9-A48F-3AF3392704FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{3008F860-1111-4C29-9C49-AB3409A55448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.Common", "PackingLotSystem\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj", "{3008F860-1111-4C29-9C49-AB3409A55448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.IDAL", "PackingLotSystem\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj", "{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.IDAL", "PackingLotSystem\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj", "{070B4149-F0F2-4AAF-96AF-CFDDDC708B00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.DAL", "PackingLotSystem\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj", "{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.DAL", "PackingLotSystem\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj", "{81AB3C4E-953D-4E85-9A5B-9FB7044EF3AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.IBLL", "PackingLotSystem\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj", "{CEED8D6D-F6DC-457E-BBF5-37468C9459AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.IBLL", "PackingLotSystem\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj", "{CEED8D6D-F6DC-457E-BBF5-37468C9459AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.BLL", "PackingLotSystem\Joker.SmartPacking.Client.BLL\Joker.SmartPacking.Client.BLL.csproj", "{99E673E6-AFCC-48E0-A2E2-D2B11E4941EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.BLL", "PackingLotSystem\Joker.SmartPacking.Client.BLL\Joker.SmartPacking.Client.BLL.csproj", "{99E673E6-AFCC-48E0-A2E2-D2B11E4941EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Entity", "PackingLotSystem\Joker.SmartPacking.Client.Entity\Joker.SmartPacking.Client.Entity.csproj", "{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.Entity", "PackingLotSystem\Joker.SmartPacking.Client.Entity\Joker.SmartPacking.Client.Entity.csproj", "{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGrid.Dashboard", "WPFSimpleUI\DataGrid.Dashboard\DataGrid.Dashboard.csproj", "{B4A11B4B-0D49-4E91-AD18-4AA734349F10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGrid.Dashboard", "WPFSimpleUI\DataGrid.Dashboard\DataGrid.Dashboard.csproj", "{B4A11B4B-0D49-4E91-AD18-4AA734349F10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register.Page", "WPFSimpleUI\Register.Page\Register.Page.csproj", "{D2DAC763-4EAE-440B-9806-671EFAB75BA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Register.Page", "WPFSimpleUI\Register.Page\Register.Page.csproj", "{D2DAC763-4EAE-440B-9806-671EFAB75BA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignUpForm", "WPFSimpleUI\SignUpForm\SignUpForm.csproj", "{AEEAE577-F787-4EC5-9D44-59F09BEDC021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +171,10 @@ Global
 		{D2DAC763-4EAE-440B-9806-671EFAB75BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2DAC763-4EAE-440B-9806-671EFAB75BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2DAC763-4EAE-440B-9806-671EFAB75BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEEAE577-F787-4EC5-9D44-59F09BEDC021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEEAE577-F787-4EC5-9D44-59F09BEDC021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEEAE577-F787-4EC5-9D44-59F09BEDC021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEEAE577-F787-4EC5-9D44-59F09BEDC021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -207,6 +213,7 @@ Global
 		{B65E74F1-01BA-41A2-83B5-D0BABD5C67EC} = {DF9EE3D0-92B1-492F-AEA4-FDA5F746CA4E}
 		{B4A11B4B-0D49-4E91-AD18-4AA734349F10} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 		{D2DAC763-4EAE-440B-9806-671EFAB75BA0} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
+		{AEEAE577-F787-4EC5-9D44-59F09BEDC021} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
