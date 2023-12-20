@@ -15,6 +15,10 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Styles/ButtonStyles.xaml" />
+    </Window.Resources>
+
     <WindowChrome.WindowChrome>
         <WindowChrome
             GlassFrameThickness="-1"
@@ -33,13 +37,25 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Orientation="Horizontal">
-            <Image />
+
+            <Image
+                Width="40"
+                Height="40"
+                Margin="10"
+                Source="/Joker.SmartPacking.Client.Assets;component/Images/longtou.jpeg" />
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="16"
                 Foreground="White"
                 Text="Joker" />
+
         </StackPanel>
+
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Orientation="Horizontal" />
+
 
         <StackPanel Grid.Row="1">
             <TextBox Height="25" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />

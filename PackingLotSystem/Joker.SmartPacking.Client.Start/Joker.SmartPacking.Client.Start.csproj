@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Client.Assets\Joker.SmartPacking.Client.Assets.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.BLL\Joker.SmartPacking.Client.BLL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj" />
