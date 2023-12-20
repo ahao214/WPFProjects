@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Joker.SmartPacking.Client.MainModule
+namespace Joker.SmartPacking.Client.MainModule.Views
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// TreeMenuView.xaml 的交互逻辑
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class TreeMenuView : UserControl
     {
-        public UserControl1()
+        public TreeMenuView()
         {
             InitializeComponent();
         }
