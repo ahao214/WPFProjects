@@ -30,6 +30,46 @@ namespace SqlServerTool
         private readonly DBHelper db = new DBHelper(App.DbConnectionInfo.ToString());
         #endregion
 
+        #region 定义数据库表右键菜单
+        /// <summary>
+        /// 定义数据库表右键菜单
+        /// </summary>
+        private readonly ContextMenu tbMenu = new ContextMenu();
+
+        #endregion
+
+        #region 定义视图右键菜单
+        /// <summary>
+        /// 定义视图右键菜单
+        /// </summary>
+        private readonly ContextMenu vmMenu = new ContextMenu();
+
+        #endregion
+
+        #region 定义存储过程右键菜单
+        /// <summary>
+        /// 定义存储过程右键菜单
+        /// </summary>
+        private readonly ContextMenu prMenu = new ContextMenu();
+
+        #endregion
+
+        #region 定义自定义函数右键菜单
+        /// <summary>
+        /// 定义自定义函数右键菜单
+        /// </summary>
+        private readonly ContextMenu fcMenu = new ContextMenu();
+
+        #endregion
+
+        #region 装载右键菜单集合
+        /// <summary>
+        /// 装载右键菜单集合
+        /// </summary>
+        private List<ContextMenu> listCm = new List<ContextMenu>();
+
+        #endregion
+
         #region 构造函数
         /// <summary>
         /// 构造函数
@@ -48,8 +88,68 @@ namespace SqlServerTool
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadListCm();
             LoadWinCaption();
             LoadTreeView();
+            LoadContextMenu();
+        }
+
+        #endregion
+
+        #region 装载四个右键菜单
+        /// <summary>
+        /// 装载四个右键菜单
+        /// </summary>
+        private void LoadListCm()
+        {
+            listCm.Add(tbMenu);
+            listCm.Add(vmMenu);
+            listCm.Add(prMenu);
+            listCm.Add(fcMenu);
+        }
+
+        #endregion
+
+        #region 加载四个模块的右键菜单内容
+        /// <summary>
+        /// 加载四个模块的右键菜单内容
+        /// </summary>
+        private void LoadContextMenu()
+        {
+            //1.表
+            MenuItem cmMiOne = new MenuItem
+            {
+                Header = "查看表结构"
+            };
+            cmMiOne.Click += new RoutedEventHandler(CmMiOne_Click);
+            tbMenu.Items.Add(cmMiOne);
+            //2.视图
+            MenuItem cmMiTwo = new MenuItem
+            {
+                Header = "生成Create脚本"
+            };
+            cmMiTwo.Click += new RoutedEventHandler(CmMiTwo_Click);
+            tbMenu.Items.Add(cmMiTwo);
+
+            //3.存储过程
+            MenuItem cmMiThree = new MenuItem
+            {
+                Header = "生成Create脚本"
+            };
+            cmMiThree.Click += new RoutedEventHandler(CmMiTwo_Click);
+            tbMenu.Items.Add(cmMiThree);
+
+            //4.自定义函数
+        }
+
+        private void CmMiTwo_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CmMiOne_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("");
         }
 
         #endregion
@@ -74,6 +174,7 @@ namespace SqlServerTool
                 nodes[i].IsExpanded = true;
                 AddChildNode(nodes[i], (TreeNodeType)(i + 1));
 
+                nodes[i].ContextMenu = listCm[i];
             }
             TvMenu.ItemsSource = nodes;
         }
