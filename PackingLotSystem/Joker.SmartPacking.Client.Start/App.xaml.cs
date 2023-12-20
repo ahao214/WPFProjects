@@ -1,4 +1,8 @@
-﻿using Joker.SmartPacking.Client.Start.Views;
+﻿using Joker.SmartPacking.Client.BLL;
+using Joker.SmartPacking.Client.DAL;
+using Joker.SmartPacking.Client.IBLL;
+using Joker.SmartPacking.Client.IDAL;
+using Joker.SmartPacking.Client.Start.Views;
 using Prism.Ioc;
 using Prism.Unity;
 using System;
@@ -37,8 +41,9 @@ namespace Joker.SmartPacking.Client.Start
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //containerRegistry.Register<>();
-
+            // 注册
+            containerRegistry.Register<ILoginDal, LoginDal>();
+            containerRegistry.Register<ILoginBll, LoginBll>();
         }
     }
 }

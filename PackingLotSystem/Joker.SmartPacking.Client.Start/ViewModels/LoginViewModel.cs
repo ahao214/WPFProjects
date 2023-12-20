@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Joker.SmartPacking.Client.IBLL;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
 {
     public class LoginViewModel : BindableBase
     {
-        public LoginViewModel()
-        {
+        ILoginBll _loginBLL
 
+        public LoginViewModel(ILoginBll loginBll)
+        {
+            _loginBLL = loginBll;
         }
 
         private string _userName = "admin";
@@ -66,6 +69,11 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
                 }
 
                 // 登录操作
+                if(_loginBLL.Login(this.UserName, this.Password).GetAwaiter().GetResult())
+                {
+                    // 关闭登录窗口，并且DialogResult返回True
+
+                }
 
             }
             catch (Exception err)

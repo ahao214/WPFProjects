@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Joker.SmartPacking.Client.BLL\Joker.SmartPacking.Client.BLL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.Common\Joker.SmartPacking.Client.Common.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj" />
   </ItemGroup>
 
 </Project>
