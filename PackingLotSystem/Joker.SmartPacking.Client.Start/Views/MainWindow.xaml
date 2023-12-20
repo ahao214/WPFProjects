@@ -5,15 +5,67 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Joker.SmartPacking.Client.Start"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
-    Width="800"
-    Height="450"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="主窗体"
+    Width="1000"
+    Height="850"
+    FontFamily="Microsoft YaHei"
+    FontSize="13"
+    FontWeight="ExtraLight"
+    Foreground="#333"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
-        <Button
-            Width="100"
-            Height="100"
-            Content="主窗体" />
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            GlassFrameThickness="-1"
+            NonClientFrameEdges="None"
+            ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+
+    <Grid Margin="1" Background="Transparent">
+        <DockPanel>
+            <Grid
+                Width="230"
+                Background="#EEE"
+                DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <Image
+                        Width="70"
+                        Height="70"
+                        Margin="0,30,0,0"
+                        Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Images/comp.jpeg" />
+                    <TextBlock
+                        Margin="0,30"
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Smart Packing" />
+                </StackPanel>
+
+                <!--  放置菜单的区域  -->
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="LeftMenuTreeRegion" />
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <ContentControl prism:RegionManager.RegionName="MainHeaderRegion" />
+                <TabControl
+                    Grid.Row="1"
+                    prism:RegionManager.RegionName="MainContentRegion"
+                    BorderThickness="0,1,0,0" />
+
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>
