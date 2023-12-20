@@ -117,12 +117,27 @@ namespace SqlServerTool
         private void LoadContextMenu()
         {
             //1.表
-            MenuItem cmMiOne = new MenuItem
+            MenuItem tbMiOne = new MenuItem
             {
                 Header = "查看表结构"
             };
-            cmMiOne.Click += new RoutedEventHandler(CmMiOne_Click);
-            tbMenu.Items.Add(cmMiOne);
+            tbMiOne.Click += new RoutedEventHandler(TbMiOne_Click);
+            tbMenu.Items.Add(tbMiOne);
+
+            MenuItem tbMiTwo = new MenuItem
+            {
+                Header = "生成Create脚本"
+            };
+            tbMiTwo.Click += new RoutedEventHandler(TbMiTwo_Click);
+            tbMenu.Items.Add(tbMiTwo);
+
+            MenuItem tbMiThree = new MenuItem
+            {
+                Header = "生成Insert脚本"
+            };
+            tbMiThree.Click += new RoutedEventHandler(TbMiThree_Click);
+            tbMenu.Items.Add(tbMiThree);
+
             //2.视图
             MenuItem cmMiTwo = new MenuItem
             {
@@ -132,22 +147,29 @@ namespace SqlServerTool
             tbMenu.Items.Add(cmMiTwo);
 
             //3.存储过程
-            MenuItem cmMiThree = new MenuItem
-            {
-                Header = "生成Create脚本"
-            };
-            cmMiThree.Click += new RoutedEventHandler(CmMiTwo_Click);
-            tbMenu.Items.Add(cmMiThree);
+            
 
             //4.自定义函数
         }
+
+        
 
         private void CmMiTwo_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        private void CmMiOne_Click(object sender, RoutedEventArgs e)
+        private void TbMiThree_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TbMiTwo_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TbMiOne_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("");
         }
