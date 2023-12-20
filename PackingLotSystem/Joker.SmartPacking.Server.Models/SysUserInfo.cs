@@ -12,8 +12,8 @@ namespace Joker.SmartPacking.Server.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("user_id")]
-        public int Id { get; set; }
+        [Column("id")]
+        public int UserId { get; set; }
         [Column("user_name")]
         public string UserName { get; set; }
         [Column("password")]
