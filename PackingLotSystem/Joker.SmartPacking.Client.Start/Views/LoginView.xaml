@@ -19,7 +19,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Styles/ButtonStyles.xaml" />
-
+                <ResourceDictionary Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Styles/BaseResources.xaml" />
                 <ResourceDictionary>
                     <ControlTemplate x:Key="UserNameTextBoxTemplate" TargetType="TextBox">
 
@@ -221,7 +221,9 @@
                 Width="100"
                 Height="30"
                 Command="{Binding LoginCommand}"
-                Content="登  录" FontSize="14" />
+                CommandParameter="{Binding Path=., RelativeSource={RelativeSource AncestorType=Window}}"
+                Content="登  录"
+                FontSize="14" />
 
             <TextBlock Foreground="Red" Text="{Binding ErrorMsg}" />
 

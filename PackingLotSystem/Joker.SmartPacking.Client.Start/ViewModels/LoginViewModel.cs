@@ -78,7 +78,7 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
                 }
                 else
                 {
-                    throw new Exception("登录失败!用户名或密码错误");
+                    throw new Exception("用户名或密码错误");
                 }
             }
             catch (Exception err)

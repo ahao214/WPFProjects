@@ -24,9 +24,14 @@ namespace Joker.SmartPacking.Client.Start.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 关闭按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = false;
         }
     }
 }
