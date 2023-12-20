@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\longtou.jpeg" />
+    <None Remove="Images\right.jpeg" />
+    <None Remove="Images\wrong.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
@@ -19,6 +25,18 @@
     <ProjectReference Include="..\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\longtou.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\right.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\wrong.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

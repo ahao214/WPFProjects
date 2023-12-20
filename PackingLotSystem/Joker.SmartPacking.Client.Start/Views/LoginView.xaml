@@ -7,14 +7,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:pwdHelper="clr-namespace:Joker.SmartPacking.Client.Common;assembly=Joker.SmartPacking.Client.Common"
-    Title="LoginView"
-    Width="800"
-    Height="450"
+    Title="登录"
+    Width="428"
+    Height="328"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            GlassFrameThickness="-1"
+            NonClientFrameEdges="None"
+            ResizeBorderThickness="0" />
+    </WindowChrome.WindowChrome>
+
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.618*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border Background="#2E9FFB" />
+        <StackPanel
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            <Image />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="16"
+                Foreground="White"
+                Text="Joker" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
             <TextBox Height="25" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
 
 
