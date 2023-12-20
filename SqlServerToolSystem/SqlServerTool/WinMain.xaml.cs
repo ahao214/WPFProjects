@@ -66,7 +66,7 @@ namespace SqlServerTool
         /// <summary>
         /// 装载右键菜单集合
         /// </summary>
-        private List<ContextMenu> listCm = new List<ContextMenu>();
+        private List<ContextMenu> listCm = new List<ContextMenu>();        
 
         #endregion
 
@@ -139,26 +139,54 @@ namespace SqlServerTool
             tbMenu.Items.Add(tbMiThree);
 
             //2.视图
-            MenuItem cmMiTwo = new MenuItem
+            MenuItem vmMi = new MenuItem
             {
-                Header = "生成Create脚本"
+                Header = "查看视图结构"
             };
-            cmMiTwo.Click += new RoutedEventHandler(CmMiTwo_Click);
-            tbMenu.Items.Add(cmMiTwo);
+            vmMi.Click += new RoutedEventHandler(VmMi_Click);
+            tbMenu.Items.Add(vmMi);
 
             //3.存储过程
-            
+            MenuItem prMi = new MenuItem
+            {
+                Header = "查看存储过程脚本"
+            };
+            prMi.Click += new RoutedEventHandler(PrMi_Click);
+            tbMenu.Items.Add(prMi);
 
             //4.自定义函数
+            MenuItem fcMi = new MenuItem
+            {
+                Header = "查看自定义函数脚本"
+            };
+            fcMi.Click += new RoutedEventHandler(FcMi_Click);
+            tbMenu.Items.Add(fcMi);
         }
 
-        
-
-        private void CmMiTwo_Click(object sender, RoutedEventArgs e)
+        #region 自定义函数
+        private void FcMi_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region 存储过程
+        private void PrMi_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region 视图
+        private void VmMi_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+
+        #region 表
         private void TbMiThree_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
@@ -172,7 +200,8 @@ namespace SqlServerTool
         private void TbMiOne_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("");
-        }
+        } 
+        #endregion
 
         #endregion
 
