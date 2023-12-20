@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Joker.SmartPacking.Client.Start.ViewModels
@@ -51,7 +52,10 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
             get => new DelegateCommand<object>(OnLogin);
         }
 
-
+        /// <summary>
+        /// 登录方法
+        /// </summary>
+        /// <param name="obj"></param>
         private void OnLogin(object obj)
         {
             try
@@ -59,27 +63,28 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
                 this.ErrorMsg = string.Empty;
                 if (string.IsNullOrEmpty(this.UserName))
                 {
-                    this.ErrorMsg = "请输入用户名";
-                    return;
+                    throw new Exception("请输入用户名");
                 }
                 if (string.IsNullOrEmpty(this.Password))
                 {
-                    this.ErrorMsg = "请输入密码";
-                    return;
+                    throw new Exception("请输入密码");
                 }
 
                 // 登录操作
-                if(_loginBLL.Login(this.UserName, this.Password).GetAwaiter().GetResult())
+                if (_loginBLL.Login(this.UserName, this.Password).GetAwaiter().GetResult())
                 {
                     // 关闭登录窗口，并且DialogResult返回True
-
+                    (obj as Window).DialogResult = true;
                 }
-
+                else
+                {
+                    throw new Exception("登录失败!用户名或密码错误");
+                }
             }
             catch (Exception err)
             {
 
-                throw;
+                this.ErrorMsg = "登录失败!" + err.Message;
             }
         }
 
