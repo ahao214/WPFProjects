@@ -12,7 +12,7 @@ namespace Joker.SmartPacking.Client.Start.ViewModels
 {
     public class LoginViewModel : BindableBase
     {
-        ILoginBll _loginBLL
+        ILoginBll _loginBLL;
 
         public LoginViewModel(ILoginBll loginBll)
         {
