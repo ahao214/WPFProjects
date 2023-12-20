@@ -3,7 +3,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="30" />
-        <!--<Setter Property="FontFamily" Value="{DynamicResource Iconfont}"/>-->
+        <Setter Property="FontFamily" Value="{DynamicResource iconfont}" />
         <Setter Property="Background" Value="#FF0ABEFF" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />

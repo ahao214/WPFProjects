@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\iconfont.ttf" />
     <None Remove="Images\longtou.jpeg" />
     <None Remove="Images\right.jpeg" />
     <None Remove="Images\wrong.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\iconfont.ttf" />
     <Resource Include="Images\longtou.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

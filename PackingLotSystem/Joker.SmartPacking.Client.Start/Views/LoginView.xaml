@@ -54,7 +54,18 @@
         <StackPanel
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Orientation="Horizontal" />
+            Orientation="Horizontal">
+            <Button
+                Height="28"
+                Background="Transparent"
+                Content="&#xe6bf;"
+                Style="{StaticResource IconButtonStyle}" />
+            <Button
+                Height="28"
+                Background="Transparent"
+                Content="&#xe625;"
+                Style="{StaticResource IconButtonStyle}" />
+        </StackPanel>
 
 
         <StackPanel Grid.Row="1">
