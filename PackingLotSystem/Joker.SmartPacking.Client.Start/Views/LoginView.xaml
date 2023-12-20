@@ -58,12 +58,12 @@
             <Button
                 Height="28"
                 Background="Transparent"
-                Content="&#xe6bf;"
+                Content="&#xe8bd;"
                 Style="{StaticResource IconButtonStyle}" />
             <Button
                 Height="28"
                 Background="Transparent"
-                Content="&#xe625;"
+                Content="&#xe8bb;"
                 Style="{StaticResource IconButtonStyle}" />
         </StackPanel>
 
