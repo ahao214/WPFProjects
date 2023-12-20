@@ -24,6 +24,9 @@ namespace Joker.SmartPacking.Client.Start.Views
             InitializeComponent();
         }
 
-       
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

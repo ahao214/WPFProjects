@@ -16,7 +16,15 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <ResourceDictionary Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Styles/ButtonStyles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Joker.SmartPacking.Client.Assets;component/Styles/ButtonStyles.xaml" />
+
+                <ResourceDictionary>
+                    <ControlTemplate x:Key="UserNameTextBoxTemplate" TargetType="TextBox" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
 
     <WindowChrome.WindowChrome>
@@ -61,16 +69,48 @@
                 Content="&#xe8bd;"
                 Style="{StaticResource IconButtonStyle}" />
             <Button
+                Name="Close"
                 Height="28"
                 Background="Transparent"
+                Click="Close_Click"
                 Content="&#xe8bb;"
                 Style="{StaticResource IconButtonStyle}" />
         </StackPanel>
 
+        <Border
+            Grid.RowSpan="2"
+            Width="70"
+            Height="70"
+            Margin="0,80,0,0"
+            VerticalAlignment="Top"
+            BorderBrush="#FFA5CEF0"
+            BorderThickness="2"
+            CornerRadius="40">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Direction="265"
+                    Opacity="0.3"
+                    ShadowDepth="5"
+                    Color="Gray" />
+            </Border.Effect>
 
-        <StackPanel Grid.Row="1">
-            <TextBox Height="25" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+            <Border.Background>
+                <ImageBrush ImageSource="Joker.SmartPacking.Client.Assets;component/Images/compu.jpeg" />
+            </Border.Background>
+        </Border>
 
+
+        <!--  登录文本框  -->
+        <StackPanel
+            Grid.Row="1"
+            Width="240"
+            Margin="0,0,0,10"
+            VerticalAlignment="Bottom">
+            <TextBox
+                Height="25"
+                Template="{StaticResource UserNameTextBoxTemplate}"
+                Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
 
             <PasswordBox
                 Height="25"

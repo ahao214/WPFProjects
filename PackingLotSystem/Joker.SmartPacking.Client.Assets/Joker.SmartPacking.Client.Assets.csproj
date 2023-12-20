@@ -8,19 +8,31 @@
 
   <ItemGroup>
     <None Remove="Fonts\iconfont.ttf" />
+    <None Remove="Images\comp.jpeg" />
+    <None Remove="Images\compu.jpeg" />
+    <None Remove="Images\computer.jpg" />
     <None Remove="Images\longtou.jpeg" />
     <None Remove="Images\right.jpeg" />
+    <None Remove="Images\sf.jpeg" />
+    <None Remove="Images\sfs.jpeg" />
+    <None Remove="Images\shan.jpeg" />
     <None Remove="Images\wrong.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\iconfont.ttf" />
+    <Resource Include="Images\comp.jpeg" />
+    <Resource Include="Images\compu.jpeg" />
+    <Resource Include="Images\computer.jpg" />
     <Resource Include="Images\longtou.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\right.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\sf.jpeg" />
+    <Resource Include="Images\sfs.jpeg" />
+    <Resource Include="Images\shan.jpeg" />
     <Resource Include="Images\wrong.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
