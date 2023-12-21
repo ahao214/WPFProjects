@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Joker.SmartPacking.Client.DAL\Joker.SmartPacking.Client.DAL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.IBLL\Joker.SmartPacking.Client.IBLL.csproj" />
     <ProjectReference Include="..\Joker.SmartPacking.Client.IDAL\Joker.SmartPacking.Client.IDAL.csproj" />
+    <ProjectReference Include="..\Joker.SmartPacking.Client.MainModule\Joker.SmartPacking.Client.MainModule.csproj" />
   </ItemGroup>
 
 </Project>

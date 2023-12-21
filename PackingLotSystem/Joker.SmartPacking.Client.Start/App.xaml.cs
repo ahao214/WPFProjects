@@ -2,8 +2,10 @@
 using Joker.SmartPacking.Client.DAL;
 using Joker.SmartPacking.Client.IBLL;
 using Joker.SmartPacking.Client.IDAL;
+using Joker.SmartPacking.Client.MainModule;
 using Joker.SmartPacking.Client.Start.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
 
@@ -38,6 +40,12 @@ namespace Joker.SmartPacking.Client.Start
             // 注册
             containerRegistry.Register<ILoginDal, LoginDal>();
             containerRegistry.Register<ILoginBll, LoginBll>();
+        }
+
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<MainModule.MainModule>();
         }
     }
 }
