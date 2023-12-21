@@ -79,11 +79,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGrid.Dashboard", "WPFSi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Register.Page", "WPFSimpleUI\Register.Page\Register.Page.csproj", "{D2DAC763-4EAE-440B-9806-671EFAB75BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignUpForm", "WPFSimpleUI\SignUpForm\SignUpForm.csproj", "{AEEAE577-F787-4EC5-9D44-59F09BEDC021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignUpForm", "WPFSimpleUI\SignUpForm\SignUpForm.csproj", "{AEEAE577-F787-4EC5-9D44-59F09BEDC021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.Assets", "PackingLotSystem\Joker.SmartPacking.Client.Assets\Joker.SmartPacking.Client.Assets.csproj", "{4D0DF253-A204-418E-9BD8-9F7477882CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.Assets", "PackingLotSystem\Joker.SmartPacking.Client.Assets\Joker.SmartPacking.Client.Assets.csproj", "{4D0DF253-A204-418E-9BD8-9F7477882CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Joker.SmartPacking.Client.MainModule", "PackingLotSystem\Joker.SmartPacking.Client.MainModule\Joker.SmartPacking.Client.MainModule.csproj", "{46390DA8-EFF6-4BEE-844C-640DE352201D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.MainModule", "PackingLotSystem\Joker.SmartPacking.Client.MainModule\Joker.SmartPacking.Client.MainModule.csproj", "{46390DA8-EFF6-4BEE-844C-640DE352201D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp", "WPFSimpleUI\LoginApp\LoginApp.csproj", "{A0676CA8-8D03-4BB6-AEEC-91684D90947F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -187,6 +189,10 @@ Global
 		{46390DA8-EFF6-4BEE-844C-640DE352201D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46390DA8-EFF6-4BEE-844C-640DE352201D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46390DA8-EFF6-4BEE-844C-640DE352201D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +234,7 @@ Global
 		{AEEAE577-F787-4EC5-9D44-59F09BEDC021} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 		{4D0DF253-A204-418E-9BD8-9F7477882CAC} = {4D96B403-E4AF-4677-9E0D-1FE3210ACAC2}
 		{46390DA8-EFF6-4BEE-844C-640DE352201D} = {60B29CBE-73EC-4C00-8364-6A9FEE7DA452}
+		{A0676CA8-8D03-4BB6-AEEC-91684D90947F} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}

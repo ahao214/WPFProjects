@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\appleemail.png" />
+    <None Remove="Images\email.jpeg" />
+    <None Remove="Images\long.jpeg" />
+    <None Remove="Images\long.jpg" />
+    <None Remove="Images\longtou.jpeg" />
+    <None Remove="Images\pwd.jpg" />
+    <None Remove="Images\shan.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\appleemail.png" />
+    <Resource Include="Images\email.jpeg" />
+    <Resource Include="Images\long.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\long.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\longtou.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pwd.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\shan.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
