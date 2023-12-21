@@ -41,13 +41,13 @@ namespace Music
 
         public ICommand LoginCommand { get; set; }  
 
-        public ICommand CancelRemborCommand { get; set; }   
+        public ICommand CancelRemberCommand { get; set; }   
 
 
         public TempModel()
         {
             //LoginCommand= new RelayCommand(LoginAction);
-            //CancelRemborCommand = new RelayCommand<bool>(CancelAction);
+            //CancelRemberCommand = new RelayCommand<bool>(CancelAction);
 
             Account = "root";
             LoginTypes= new List<string> ();

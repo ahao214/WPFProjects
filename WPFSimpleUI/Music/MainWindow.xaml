@@ -64,7 +64,7 @@
                 Width="200"
                 Height="30"
                 Margin="3"
-                Command="{Binding CancelRemborCommand}"
+                Command="{Binding CancelRemberCommand}"
                 Content="check" />
         </StackPanel>
 
