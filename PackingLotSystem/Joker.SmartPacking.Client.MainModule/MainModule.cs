@@ -12,7 +12,8 @@ namespace Joker.SmartPacking.Client.MainModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            throw new NotImplementedException();
+            // 初始化的时候，添加一个组件到对应的区域
+
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
