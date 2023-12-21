@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:Joker.SmartPacking.Client.MainModule.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="左侧菜单" FontSize="20"/>
+    <Grid Background="#66FFFFFF">
+        <TreeView  ItemsSource="{Binding}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                    
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
     </Grid>
 </UserControl>

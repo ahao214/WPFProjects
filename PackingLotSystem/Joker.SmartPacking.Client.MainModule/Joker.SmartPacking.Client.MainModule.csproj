@@ -10,4 +10,7 @@
 		<PackageReference Include="Prism.Unity" Version="8.1.97" />
 		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Joker.SmartPacking.Client.Entity\Joker.SmartPacking.Client.Entity.csproj" />
+	</ItemGroup>
 </Project>
