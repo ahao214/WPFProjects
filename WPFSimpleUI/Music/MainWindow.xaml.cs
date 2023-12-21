@@ -20,5 +20,20 @@ namespace Music
         {
             InitializeComponent();
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string account = TxtAccount.Text;
+            string pwd = TxtPassword.Text;
+
+            if (account == "admin" && pwd == "111")
+            {
+                MessageBox.Show("Login Successful");
+            }
+            else
+            {
+                MessageBox.Show("Login Failed");
+            }
+        }
     }
 }
