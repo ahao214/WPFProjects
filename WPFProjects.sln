@@ -87,6 +87,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joker.SmartPacking.Client.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginApp", "WPFSimpleUI\LoginApp\LoginApp.csproj", "{A0676CA8-8D03-4BB6-AEEC-91684D90947F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "WPFSimpleUI\Calculator\Calculator.csproj", "{756A7CEF-BDDE-47C1-8B5C-90397B203B12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,10 @@ Global
 		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0676CA8-8D03-4BB6-AEEC-91684D90947F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756A7CEF-BDDE-47C1-8B5C-90397B203B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756A7CEF-BDDE-47C1-8B5C-90397B203B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756A7CEF-BDDE-47C1-8B5C-90397B203B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756A7CEF-BDDE-47C1-8B5C-90397B203B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,6 +241,7 @@ Global
 		{4D0DF253-A204-418E-9BD8-9F7477882CAC} = {4D96B403-E4AF-4677-9E0D-1FE3210ACAC2}
 		{46390DA8-EFF6-4BEE-844C-640DE352201D} = {60B29CBE-73EC-4C00-8364-6A9FEE7DA452}
 		{A0676CA8-8D03-4BB6-AEEC-91684D90947F} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
+		{756A7CEF-BDDE-47C1-8B5C-90397B203B12} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
