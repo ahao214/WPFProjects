@@ -19,6 +19,7 @@ namespace Music
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new TempModel();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -26,7 +27,7 @@ namespace Music
             string account = TxtAccount.Text;
             string pwd = TxtPassword.Text;
 
-            if (account == "admin" && pwd == "111")
+            if (account == "root" && pwd == "111")
             {
                 MessageBox.Show("Login Successful");
             }

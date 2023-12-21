@@ -14,6 +14,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -24,8 +25,11 @@
             <TextBox
                 Name="TxtAccount"
                 Width="300"
-                Height="30" />
+                Height="30"
+                VerticalAlignment="Center"
+                Text="{Binding Account}" />
         </StackPanel>
+
         <StackPanel
             Grid.Row="1"
             HorizontalAlignment="Center"
@@ -37,11 +41,19 @@
             <TextBox
                 Name="TxtPassword"
                 Width="300"
-                Height="30" />
+                Height="30"
+                VerticalAlignment="Center" />
         </StackPanel>
+
+        <ComboBox
+            Grid.Row="2"
+            Width="200"
+            Height="25"
+            ItemsSource="{Binding LoginTypes}" />
+
         <Button
             Name="BtnLogin"
-            Grid.Row="2"
+            Grid.Row="3"
             Width="200"
             Height="30"
             Click="BtnLogin_Click"
