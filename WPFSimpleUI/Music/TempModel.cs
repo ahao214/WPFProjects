@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Music
 {
@@ -36,8 +39,16 @@ namespace Music
             set { _loginTypes = value; }
         }
 
+        public ICommand LoginCommand { get; set; }  
+
+        public ICommand CancelRemborCommand { get; set; }   
+
+
         public TempModel()
         {
+            //LoginCommand= new RelayCommand(LoginAction);
+            //CancelRemborCommand = new RelayCommand<bool>(CancelAction);
+
             Account = "root";
             LoginTypes= new List<string> ();
             LoginTypes.Add("手机号登录");
@@ -45,5 +56,23 @@ namespace Music
             LoginTypes.Add("二维码登录");
         }
 
+        private void CancelAction(bool obj)
+        {
+            MessageBox.Show($"check status{obj}");
+        }
+
+
+        private void LoginAction()
+        {
+            if(Account == "root" && Password=="111")
+            {
+                MessageBox.Show("Login Successful");
+            }
+            else
+            {
+                MessageBox.Show("Login Failed");
+            }
+
+        }
     }
 }

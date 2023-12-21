@@ -45,18 +45,28 @@
                 VerticalAlignment="Center" />
         </StackPanel>
 
-        <ComboBox
-            Grid.Row="2"
-            Width="200"
-            Height="25"
-            ItemsSource="{Binding LoginTypes}" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
 
-        <Button
-            Name="BtnLogin"
-            Grid.Row="3"
-            Width="200"
-            Height="30"
-            Click="BtnLogin_Click"
-            Content="Login" />
+            <ComboBox
+                Width="200"
+                Height="25"
+                ItemsSource="{Binding LoginTypes}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button
+                Name="BtnLogin"
+                Width="200"
+                Height="30"
+                Click="BtnLogin_Click"
+                Content="Login" />
+            <Button
+                Width="200"
+                Height="30"
+                Margin="3"
+                Command="{Binding CancelRemborCommand}"
+                Content="check" />
+        </StackPanel>
+
     </Grid>
 </Window>

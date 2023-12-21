@@ -89,6 +89,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginApp", "WPFSimpleUI\Log
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music", "WPFSimpleUI\Music\Music.csproj", "{60B8381D-94A2-4645-BECD-71329627516B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music.Common", "WPFSimpleUI\Music.Common\Music.Common.csproj", "{F5275D4E-7835-43A8-99B0-791826AA2973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,6 +201,10 @@ Global
 		{60B8381D-94A2-4645-BECD-71329627516B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60B8381D-94A2-4645-BECD-71329627516B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60B8381D-94A2-4645-BECD-71329627516B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5275D4E-7835-43A8-99B0-791826AA2973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5275D4E-7835-43A8-99B0-791826AA2973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5275D4E-7835-43A8-99B0-791826AA2973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5275D4E-7835-43A8-99B0-791826AA2973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -242,6 +248,7 @@ Global
 		{46390DA8-EFF6-4BEE-844C-640DE352201D} = {60B29CBE-73EC-4C00-8364-6A9FEE7DA452}
 		{A0676CA8-8D03-4BB6-AEEC-91684D90947F} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 		{60B8381D-94A2-4645-BECD-71329627516B} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
+		{F5275D4E-7835-43A8-99B0-791826AA2973} = {512B5D44-D307-462C-AE24-ACFACF1DA4D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E10F55A4-CF2E-4E81-8F36-F25DD2E37726}
