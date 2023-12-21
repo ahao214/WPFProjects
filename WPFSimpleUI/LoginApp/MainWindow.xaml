@@ -19,6 +19,13 @@
             <ColumnDefinition Width="1.5*" />
         </Grid.ColumnDefinitions>
 
+        <Image
+            Grid.Column="1"
+            Panel.ZIndex="1"
+            MouseUp="Image_MouseUp"
+            Source="/Images/wrong.jpeg"
+            Style="{StaticResource imgClose}" />
+
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -42,7 +49,7 @@
                         Fill="#4EB1B6" />
                 </Canvas>
 
-                <StackPanel>
+                <StackPanel VerticalAlignment="Center">
                     <TextBlock Style="{StaticResource titleText}" Text="Sign Up" />
                     <TextBlock
                         Margin="20,30"

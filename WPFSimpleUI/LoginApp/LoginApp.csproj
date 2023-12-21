@@ -16,6 +16,7 @@
     <None Remove="Images\longtou.jpeg" />
     <None Remove="Images\pwd.jpg" />
     <None Remove="Images\shan.jpeg" />
+    <None Remove="Images\wrong.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\shan.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\wrong.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

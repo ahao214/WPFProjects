@@ -41,11 +41,11 @@ namespace LoginApp
         {
             if (!string.IsNullOrEmpty(txtPassword.Password) && txtPassword.Password.Length > 0)
             {
-                txtPassword.Visibility = Visibility.Collapsed;
+                textPassword.Visibility = Visibility.Collapsed;
             }
             else
             {
-                txtPassword.Visibility = Visibility.Visible;
+                textPassword.Visibility = Visibility.Visible;
             }
         }
 
@@ -53,7 +53,7 @@ namespace LoginApp
         {
             if(!string .IsNullOrEmpty (txtEmail .Text ) && !string .IsNullOrEmpty (txtPassword .Password))
             {
-                MessageBox.Show("Successful");
+                MessageBox.Show("Successful Signd In");
             }
         }
 
@@ -63,6 +63,11 @@ namespace LoginApp
             { 
                 this.DragMove();
             }
+        }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
