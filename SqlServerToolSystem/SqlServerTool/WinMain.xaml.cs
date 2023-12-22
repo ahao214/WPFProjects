@@ -201,10 +201,19 @@ namespace SqlServerTool
             throw new NotImplementedException();
         }
 
+        #region 生成创建表语句Create脚本
+        /// <summary>
+        /// 生成创建表语句Create脚本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NotImplementedException"></exception>
         private void TbMiTwo_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
-        }
+        } 
+        #endregion
+
         /// <summary>
         /// 查看表结构
         /// </summary>
