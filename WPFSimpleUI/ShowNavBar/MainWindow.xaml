@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:james="https://jamesnet.dev/xaml/presentation"
     xmlns:local="clr-namespace:ShowNavBar"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:navbar="clr-namespace:NavigationBar;assembly=NavigationBar"
@@ -11,6 +12,17 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <navbar:MagicBar />
+        <navbar:MagicBar x:Name="bar">
+
+
+            <ListBoxItem Content="Microsoft" Tag="{x:Static james:IconType.Microsoft}" />
+            <ListBoxItem Content="Apple" Tag="{x:Static james:IconType.Apple}" />
+            <ListBoxItem Content="Google" Tag="{x:Static james:IconType.Google}" />
+            <ListBoxItem Content="Facebook" Tag="{x:Static james:IconType.Facebook}" />
+            <ListBoxItem Content="Instagram" Tag="{x:Static james:IconType.Instagram}" />
+
+        </navbar:MagicBar>
+
+
     </Grid>
 </Window>

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Wpf" Version="1.0.0.110" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NavigationBar\NavigationBar.csproj" />
   </ItemGroup>
 
