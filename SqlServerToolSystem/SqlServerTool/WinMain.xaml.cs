@@ -221,10 +221,10 @@ namespace SqlServerTool
             DataTable dt = db.GetDataTable(sql);
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("CREATE TABLE [{0}]", tbName);
-            sb.AppendLine("\r\n");
+            sb.AppendLine("\r\n(");
             // 自动增长列
-            string sqlIndetity = string.Format(SqlConst.GetIdentity, tbName);
-            DataTable dy = db.GetDataTable(sqlIndetity);
+            sql = string.Format(SqlConst.GetIdentity, tbName);
+            DataTable dy = db.GetDataTable(sql);
             string identity = string.Empty;
             int seed = 1;
             int increment = 1;
@@ -234,12 +234,15 @@ namespace SqlServerTool
                 seed = Convert.ToInt32(dr["Seed"]);
                 increment = Convert.ToInt32(dr["Increment"]);
             }
+            int total = dt.Rows.Count, k = 1;
             // 字段
             foreach (DataRow dr in dt.Rows)
             {
                 string dataType = dr["DataType"].ToString().ToUpper();
                 string fieldName = dr["Name"].ToString().ToUpper();
                 string maxLength = dr["MaxLength"].ToString();
+                string notVal = string.Empty;
+                int isNullable = Convert.ToInt32(dr["IsNullable"]);
                 if (dataType.Equals("INT"))
                 {
                     sb.AppendFormat("\t[{0}] {1}", fieldName, dataType);
@@ -248,9 +251,26 @@ namespace SqlServerTool
                 {
                     sb.AppendFormat("\t[{0}] {1}({2})", fieldName, dataType, maxLength);
                 }
+                if (identity == fieldName)
+                {
+                    sb.AppendFormat("IDENTITY({0},{1})", seed, increment);
+                }
+                notVal = isNullable == 0 ? "NOT " : string.Empty;
+                if (total == k)
+                {
+                    sb.AppendFormat(" {0}NULL", notVal);
+                }
+                else
+                {
+                    sb.AppendFormat(" {0}NULL,", notVal);
+                }
+                sb.AppendLine("");
+                k++;
             }
-            TxtSql.Text = sb.ToString();
+            sb.AppendLine(");\r\n");
+            // 约束
 
+            TxtSql.Text = sb.ToString();
         }
 
         #endregion
