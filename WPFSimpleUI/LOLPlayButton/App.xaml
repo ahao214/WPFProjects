@@ -12,6 +12,17 @@
             <GradientStop Offset="1" Color="#CC0493A7" />
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="ArrowStrokeOver" StartPoint="0.5 0" EndPoint="0.5 1">
+            <GradientStop Offset="0" Color="#FFAFF5FF" />
+            <GradientStop Offset="0.5" Color="#FF46E6FF" />
+            <GradientStop Offset="1" Color="#FF00ADD4" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ArrowFillOver" StartPoint="0.5 0" EndPoint="0.5 1">
+            <GradientStop Offset="0" Color="#FF1D3B4A" />
+            <GradientStop Offset="1" Color="#FF082734" />
+        </LinearGradientBrush>
+
         <Style x:Key="GoldLine" TargetType="{x:Type Border}">
             <Setter Property="Background" Value="#00070E" />
             <Setter Property="BorderBrush" Value="#34291E" />
@@ -68,9 +79,17 @@
                             <Border Style="{StaticResource GoldLine}" />
                             <Image Style="{StaticResource Emblem}" />
                             <Border Style="{StaticResource GreenLine}" />
-                            <Path Style="{StaticResource Arrow}" />
+                            <Path x:Name="path" Style="{StaticResource Arrow}" />
                             <TextBlock Style="{StaticResource Play}" />
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="{StaticResource ArrowFillOver}" />
+                                <Setter TargetName="path" Property="Stroke" Value="{StaticResource ArrowStrokeOver}" />
+                                <Setter Property="Foreground" Value="#FFFCF1DC" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
