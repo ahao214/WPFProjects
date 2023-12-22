@@ -19,6 +19,14 @@ namespace ShowNavBar
         public MainWindow()
         {
             InitializeComponent();
+
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            // 圆圈显示在第一个logo上
+            bar.SelectedIndex = 0;
         }
     }
 }
