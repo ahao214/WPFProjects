@@ -269,6 +269,20 @@ namespace SqlServerTool
             }
             sb.AppendLine(");\r\n");
             // 约束
+            sql = string.Format(SqlConst.GetConstraint, tbName);
+            DataSet ds = db.GetDataSet(sql);
+            if (ds.Tables.Count == 0)
+            {
+                return;
+            }
+            sb.AppendFormat("ALTER TABLE [{0}] WITH NOCHECK ADD ", tbName);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                string type = dr["constraint_type"].ToString();
+                string keys = dr["constraint_keys"].ToString();
+                string name = dr["constraint_name"].ToString();
+                sb.AppendFormat(" CONSTRAINT [{0}]", name);
+            }
 
             TxtSql.Text = sb.ToString();
         }
