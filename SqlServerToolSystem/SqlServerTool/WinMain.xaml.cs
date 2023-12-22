@@ -277,10 +277,26 @@ namespace SqlServerTool
             {
                 TabItem item = new TabItem();
                 item.Header = dt.TableName;
-                item.Content = string.Empty;
+                item.Content = BindGrid(dt);
                 tabCtl.Items.Add(item);
             }
             DocContent.Children.Add(tabCtl);
+        }
+
+        #endregion
+
+        #region 绑定网格数据
+        /// <summary>
+        /// 绑定网格数据
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        private object BindGrid(DataTable dt)
+        {
+            DataGrid dg = new DataGrid();
+            dg.IsReadOnly = true;
+            dg.ItemsSource = dt.DefaultView;
+            return dg;
         }
 
         #endregion
