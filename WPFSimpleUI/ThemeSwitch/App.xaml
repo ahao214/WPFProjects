@@ -27,9 +27,9 @@
 
         <Style x:Key="EllipseStyle" TargetType="{x:Type Ellipse}">
             <Setter Property="Fill" Value="#FFB15F" />
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="Width" Value="42"/>
-            <Setter Property="Height" Value="42"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Width" Value="42" />
+            <Setter Property="Height" Value="42" />
         </Style>
 
         <Style x:Key="CloudStyle" TargetType="{x:Type Control}">
@@ -90,6 +90,75 @@
             </Setter>
         </Style>
 
+        <Style x:Key="GalaxyStyle" TargetType="{x:Type Control}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid Width="80" Height="50">
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="40,34,2,3"
+                                Fill="#FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="48,3,12,3"
+                                Fill="#FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="56,66,6,67"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="74,34,21,13"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="44,34,29,39"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="40,55,28,38"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="48,38,28,56"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="67,45,12,12"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="40,13,12,33"
+                                Fill="#55FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="10,23,30,24"
+                                Fill="#FFFFFF" />
+                            <Rectangle
+                                Width="1"
+                                Height="1"
+                                Margin="40,34,2,3"
+                                Fill="#FFFFFF" />
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -120,6 +189,18 @@
                                     Property="Margin"
                                     To="125 30 0 0"
                                     Duration="0:0:0.5" />
+                                <james:ThickItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="ellipse"
+                                    Property="Margin"
+                                    To="74 4 4 4"
+                                    Duration="0:0:0.5" />
+                                <james:ColorItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="border"
+                                    Property="(Background).Color"
+                                    To="#191C25"
+                                    Duration="0:0:0.5" />
                             </Storyboard>
 
                             <Storyboard x:Key="SlideIn">
@@ -147,13 +228,24 @@
                                     Property="Margin"
                                     To="55 30 0 0"
                                     Duration="0:0:0.5" />
+                                <james:ThickItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="ellipse"
+                                    Property="Margin"
+                                    To="4 4 4 4"
+                                    Duration="0:0:0.5" />
+                                <james:ColorItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="border"
+                                    Property="(Background).Color"
+                                    To="#8CBCFA"
+                                    Duration="0:0:0.5" />
                             </Storyboard>
 
                         </ControlTemplate.Resources>
 
                         <Grid Style="{StaticResource RoundGridStyle}">
-                            <Border Style="{StaticResource BorderStyle}" />
-
+                            <Border x:Name="border" Style="{StaticResource BorderStyle}" />
                             <Control
                                 x:Name="cloud1"
                                 Margin="-10,20,0,0"
@@ -174,7 +266,14 @@
                                 Margin="55,30,0,0"
                                 Opacity="1.0"
                                 Style="{StaticResource CloudStyle}" />
-                            <Ellipse x:Name="ellipse" Style="{StaticResource EllipseStyle}" Margin="4"/>
+                            <Control
+                                x:Name="galaxy"
+                                Opacity="1.0"
+                                Style="{StaticResource GalaxyStyle}" />
+                            <Ellipse
+                                x:Name="ellipse"
+                                Margin="4"
+                                Style="{StaticResource EllipseStyle}" />
                         </Grid>
 
                         <ControlTemplate.Triggers>

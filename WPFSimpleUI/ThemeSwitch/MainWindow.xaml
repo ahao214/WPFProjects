@@ -9,11 +9,10 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid>
-        <ToggleButton
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Content="aaaa" />
+    <Grid Background="#919191">
+        <ToggleButton HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+
     </Grid>
 
 </Window>
