@@ -23,6 +23,13 @@ namespace SqlServerTool
     /// </summary>
     public partial class WinMain : Window
     {
+        #region 对话框标题信息
+        /// <summary>
+        /// 对话框标题信息
+        /// </summary>
+        private const string Caption = "信息提示";
+        #endregion
+
         #region 数据库帮助
         /// <summary>
         /// 数据库帮助
@@ -66,7 +73,7 @@ namespace SqlServerTool
         /// <summary>
         /// 装载右键菜单集合
         /// </summary>
-        private List<ContextMenu> listCm = new List<ContextMenu>();        
+        private List<ContextMenu> listCm = new List<ContextMenu>();
 
         #endregion
 
@@ -163,6 +170,8 @@ namespace SqlServerTool
             tbMenu.Items.Add(fcMi);
         }
 
+        #endregion
+
         #region 自定义函数
         private void FcMi_Click(object sender, RoutedEventArgs e)
         {
@@ -196,12 +205,53 @@ namespace SqlServerTool
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// 查看表结构
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TbMiOne_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("");
-        } 
+            // 前提是我们需要知道选了哪个节点
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.Table);
+            if(tn == null)
+            {
+                return;
+            }
+
+        }
+
+
         #endregion
+
+        #region 执行SQL语句
+        /// <summary>
+        /// 执行SQL语句
+        /// </summary>
+        /// <param name="sql"></param>
+        private void Execute(string sql)
+        {
+
+        }
+
+        #endregion
+
+        #region 返回选中的节点
+        /// <summary>
+        /// 返回选中的节点
+        /// </summary>
+        /// <param name="nType"></param>
+        /// <returns></returns>
+        private TreeNode GetSelectTreeNode(TreeNodeType nType)
+        {
+            TreeNode tn = TvMenu.SelectedItem as TreeNode;
+            if (tn == null || tn.NodeType != nType)
+            {
+                MessageBox.Show("请选择节点对象!", Caption, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return null;
+            }
+            return tn;
+        }
 
         #endregion
 
