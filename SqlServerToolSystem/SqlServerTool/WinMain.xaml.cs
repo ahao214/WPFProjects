@@ -214,7 +214,7 @@ namespace SqlServerTool
         {
             // 前提是我们需要知道选了哪个节点
             TreeNode tn = GetSelectTreeNode(TreeNodeType.Table);
-            if(tn == null)
+            if (tn == null)
             {
                 return;
             }
@@ -231,7 +231,68 @@ namespace SqlServerTool
         /// <param name="sql"></param>
         private void Execute(string sql)
         {
+            if (sql.ToLower().StartsWith("select") || sql.ToLower().StartsWith("sp_help"))
+            {
+                DataSet ds = default;
+                try
+                {
+                    ds = db.GetDataSet(sql);
+                }
+                catch (Exception err)
+                {
+                    OutPutString(err.Message);
+                    return;
+                }
+                ReturnResult(ds);
+            }
+            else
+            {
+                int i = 0;
+                try
+                {
+                    i = db.Execute(sql);
+                }
+                catch (Exception err)
+                {
+                    OutPutString(err.Message);
+                    return;
+                }
+                OutPutString($"执行成功,影响行数：{i}");
+            }
+        }
 
+        #endregion
+
+        #region 返回结果集
+        /// <summary>
+        /// 返回结果集
+        /// </summary>
+        /// <param name="ds"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void ReturnResult(DataSet ds)
+        {
+            DocContent.Children.Clear();
+            TabControl tabCtl = new TabControl();   
+            foreach (DataTable dt in ds.Tables)
+            {
+                TabItem item = new TabItem();
+                item.Header = dt.TableName;
+                item.Content = string.Empty;
+                tabCtl.Items.Add(item);
+            }
+            DocContent.Children.Add(tabCtl);
+        }
+
+        #endregion
+
+        #region 输出各种查看类型的结果
+        /// <summary>
+        /// 输出各种查看类型的结果
+        /// </summary>
+        /// <param name="msg"></param>
+        private void OutPutString(string msg)
+        {
+            TxtSql.Text = msg;
         }
 
         #endregion
