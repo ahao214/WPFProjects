@@ -3,15 +3,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:NavigationBar">
 
+    <Style x:Key="Bar" TargetType="Border">
+        <Setter Property="Background" Value="#DDDDDD" />
+        <Setter Property="Margin" Value="0,40,0,0" />
+        <Setter Property="CornerRadius" Value="10" />
+    </Style>
+
+    <Style x:Key="Circle" TargetType="Grid">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="80" />
+    </Style>
 
     <Style TargetType="{x:Type local:MagicBar}">
+        <Setter Property="Background" Value="Brown" />
+        <Setter Property="Width" Value="440" />
+        <Setter Property="Height" Value="120" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:MagicBar}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                    </Border>
+                    <Grid Background="{TemplateBinding Background}">
+                        <Border Style="{StaticResource Bar}" />
+                        <Canvas>
+                            <Grid Style="{StaticResource Circle}">
+                                <Ellipse Fill="Brown" />
+
+                            </Grid>
+                        </Canvas>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
