@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -210,8 +211,54 @@ namespace SqlServerTool
         /// <exception cref="NotImplementedException"></exception>
         private void TbMiTwo_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        } 
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.Table);
+            if (tn == null)
+            {
+                return;
+            }
+            string tbName = tn.Name;
+            string sql = string.Format(SqlConst.GetColumns, tbName);
+            DataTable dt = db.GetDataTable(sql);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("CREATE TABLE [{0}]", tbName);
+            sb.AppendLine("\r\n");
+            // 自动增长列
+            string sqlIndetity = string.Format(SqlConst.GetIdentity, tbName);
+            DataTable dy = db.GetDataTable(sqlIndetity);
+            string identity = string.Empty;
+            int seed = 1;
+            int increment = 1;
+            foreach (DataRow dr in dy.Rows)
+            {
+                identity = dr["Identity"].ToString();
+                seed = Convert.ToInt32(dr["Seed"]);
+                increment = Convert.ToInt32(dr["Increment"]);
+            }
+            // 字段
+            foreach (DataRow dr in dt.Rows)
+            {
+                string dataType = dr["DataType"].ToString().ToUpper();
+                string fieldName = dr["Name"].ToString().ToUpper();
+                string maxLength = dr["MaxLength"].ToString();
+                if (dataType.Equals("INT"))
+                {
+                    sb.AppendFormat("\t[{0}] {1}", fieldName, dataType);
+                }
+                else
+                {
+                    sb.AppendFormat("\t[{0}] {1}({2})", fieldName, dataType, maxLength);
+                }
+            }
+            TxtSql.Text = sb.ToString();
+
+        }
+
+        #endregion
+
+        #region
+
+
+
         #endregion
 
         /// <summary>
@@ -282,7 +329,7 @@ namespace SqlServerTool
         private void ReturnResult(DataSet ds)
         {
             DocContent.Children.Clear();
-            TabControl tabCtl = new TabControl();   
+            TabControl tabCtl = new TabControl();
             foreach (DataTable dt in ds.Tables)
             {
                 TabItem item = new TabItem();
