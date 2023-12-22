@@ -195,11 +195,29 @@
                                     Property="Margin"
                                     To="74 4 4 4"
                                     Duration="0:0:0.5" />
+                                <james:ThickItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="galaxy"
+                                    Property="Margin"
+                                    To="0 0 0 0"
+                                    Duration="0:0:0.5" />
+                                <james:ColorItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="ellipse"
+                                    Property="(Fill).Color"
+                                    To="#E5B91A"
+                                    Duration="0:0:0.5" />
                                 <james:ColorItem
                                     Mode="CubicEaseInOut"
                                     TargetName="border"
                                     Property="(Background).Color"
                                     To="#191C25"
+                                    Duration="0:0:0.5" />
+                                <james:ValueItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="galaxy"
+                                    Property="Opacity"
+                                    To="1"
                                     Duration="0:0:0.5" />
                             </Storyboard>
 
@@ -234,11 +252,29 @@
                                     Property="Margin"
                                     To="4 4 4 4"
                                     Duration="0:0:0.5" />
+                                <james:ThickItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="galaxy"
+                                    Property="Margin"
+                                    To="0 -60 0 0"
+                                    Duration="0:0:0.5" />
+                                <james:ColorItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="ellipse"
+                                    Property="(Fill).Color"
+                                    To="#FFB14F"
+                                    Duration="0:0:0.5" />
                                 <james:ColorItem
                                     Mode="CubicEaseInOut"
                                     TargetName="border"
                                     Property="(Background).Color"
                                     To="#8CBCFA"
+                                    Duration="0:0:0.5" />
+                                <james:ValueItem
+                                    Mode="CubicEaseInOut"
+                                    TargetName="galaxy"
+                                    Property="Opacity"
+                                    To="0"
                                     Duration="0:0:0.5" />
                             </Storyboard>
 
@@ -268,7 +304,7 @@
                                 Style="{StaticResource CloudStyle}" />
                             <Control
                                 x:Name="galaxy"
-                                Opacity="1.0"
+                                Opacity="0.0"
                                 Style="{StaticResource GalaxyStyle}" />
                             <Ellipse
                                 x:Name="ellipse"
