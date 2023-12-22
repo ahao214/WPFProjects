@@ -27,5 +27,15 @@ namespace SqlServerTool.SqlItem
         public const string GetColumns = @"SELECT c.name as Name,t.name as DataType,c.max_length as MaxLength,c.is_nullable as IsNullable FROM SYSOBJECTS AS o inner join sys.columns AS c ON c.object_id=o.id inner join sys.types AS t ON t.system_type_id=c.system_type_id WHERE o.name='{0}' ORDER BY c.name";
 
         #endregion
+
+        #region 获取自动增长列、表示量、标识种子
+        /// <summary>
+        /// 获取自动增长列、表示量、标识种子
+        /// </summary>
+        public const string GetIdentity = @"SELECT COL_NAME(OBJECT_ID('autoadmin_managed_databases'),column_id) AS [Identity],IDENT_SEED('autoadmin_managed_databases') AS Seed,IDENT_INCR('autoadmin_managed_databases') AS Increment FROM sys.identity_columns WHERE OBJECT_ID=OBJECT_ID('autoadmin_managed_databases')";
+
+        #endregion
+
+
     }
 }
