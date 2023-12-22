@@ -7,7 +7,9 @@
     StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style TargetType="{x:Type Grid}" x:Key="RoundGridStyle">
+        <Style x:Key="RoundGridStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="50" />
             <Setter Property="Clip">
                 <Setter.Value>
                     <RectangleGeometry Rect="0 0 120 50">
@@ -16,7 +18,18 @@
                     </RectangleGeometry>
                 </Setter.Value>
             </Setter>
+        </Style>
 
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#8CBCFA" />
+            <Setter Property="CornerRadius" Value="25" />
+        </Style>
+
+        <Style x:Key="EllipseStyle" TargetType="{x:Type Ellipse}">
+            <Setter Property="Fill" Value="#FFB15F" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
         </Style>
 
         <Style x:Key="CloudStyle" TargetType="{x:Type Control}">
@@ -138,8 +151,8 @@
 
                         </ControlTemplate.Resources>
 
-                        <Grid Width="120" Height="50" Style="{StaticResource RoundGridStyle}">
-                            <Border Background="#8CBCFA" CornerRadius="25" />
+                        <Grid Style="{StaticResource RoundGridStyle}">
+                            <Border Style="{StaticResource BorderStyle}" />
 
                             <Control
                                 x:Name="cloud1"
@@ -161,7 +174,7 @@
                                 Margin="55,30,0,0"
                                 Opacity="1.0"
                                 Style="{StaticResource CloudStyle}" />
-
+                            <Ellipse x:Name="ellipse" Style="{StaticResource EllipseStyle}" Margin="4"/>
                         </Grid>
 
                         <ControlTemplate.Triggers>
