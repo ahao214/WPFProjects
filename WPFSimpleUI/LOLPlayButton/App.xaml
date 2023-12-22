@@ -89,6 +89,12 @@
                                 <Setter Property="Foreground" Value="#FFFCF1DC" />
                                 <Setter Property="Cursor" Value="Hand" />
                             </Trigger>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="path" Property="Fill" Value="#1E2328" />
+                                <Setter TargetName="path" Property="Stroke" Value="#5C5B57" />
+                                <Setter Property="Foreground" Value="#3C3C41" />
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
