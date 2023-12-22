@@ -218,7 +218,8 @@ namespace SqlServerTool
             {
                 return;
             }
-
+            string sql = TxtSql.Text = string.Format(SqlConst.GetColumns, tn.Name);
+            Execute(sql);
         }
 
 
