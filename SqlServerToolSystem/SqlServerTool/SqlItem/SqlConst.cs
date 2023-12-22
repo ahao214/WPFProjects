@@ -36,6 +36,12 @@ namespace SqlServerTool.SqlItem
 
         #endregion
 
+        #region 获取约束
+        /// <summary>
+        /// 获取约束
+        /// </summary>
+        public const string GetConstraint = @"EXEC sys.sp_helpconstraint '{0}','nomsg'";
 
+        #endregion
     }
 }
