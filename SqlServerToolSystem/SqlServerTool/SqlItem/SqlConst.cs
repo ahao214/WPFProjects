@@ -32,7 +32,7 @@ namespace SqlServerTool.SqlItem
         /// <summary>
         /// 获取自动增长列、表示量、标识种子
         /// </summary>
-        public const string GetIdentity = @"SELECT COL_NAME(OBJECT_ID('autoadmin_managed_databases'),column_id) AS [Identity],IDENT_SEED('autoadmin_managed_databases') AS Seed,IDENT_INCR('autoadmin_managed_databases') AS Increment FROM sys.identity_columns WHERE OBJECT_ID=OBJECT_ID('autoadmin_managed_databases')";
+        public const string GetIdentity = @"SELECT COL_NAME(OBJECT_ID('{0}'),column_id) AS [Identity],IDENT_SEED('{0}') AS Seed,IDENT_INCR('{0}') AS Increment FROM sys.identity_columns WHERE OBJECT_ID=OBJECT_ID('{0}')";
 
         #endregion
 
