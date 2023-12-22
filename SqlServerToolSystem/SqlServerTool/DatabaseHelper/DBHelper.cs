@@ -99,6 +99,27 @@ namespace SqlServerTool.DatabaseHelper
         }
 
         #endregion
+
+        #region 执行SQL语句返回受影响的行数
+        /// <summary>
+        /// 执行SQL语句返回受影响的行数
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public int Execute(string sql)
+        {
+            int i = 0;
+            using (SqlConnection conn = CreateConn())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                i = cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            return i;
+        }
+
+        #endregion
     }
 
 }
