@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Wpf" Version="1.0.0.110" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\cloud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
