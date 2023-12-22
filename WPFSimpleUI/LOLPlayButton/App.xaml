@@ -10,6 +10,21 @@
             <Setter Property="Background" Value="#00070E" />
             <Setter Property="BorderBrush" Value="#34291E" />
             <Setter Property="BorderThickness" Value="1,1,1,1" />
+            <Setter Property="Margin" Value="10,0,0,0" />
+        </Style>
+
+        <Style x:Key="GreenLine" TargetType="Border">
+            <Setter Property="Background" Value="#1E2328" />
+            <Setter Property="BorderBrush" Value="#09343D" />
+            <Setter Property="BorderThickness" Value="2,2,2,2" />
+            <Setter Property="Margin" Value="50,4,4,4" />
+        </Style>
+
+        <Style x:Key="Emblem" TargetType="{x:Type Image}">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant" />
+            <Setter Property="Source" Value="Images/Logo.png" />
+            <Setter Property="Height" Value="38" />
         </Style>
 
         <Style TargetType="{x:Type ToggleButton}">
@@ -22,8 +37,8 @@
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Grid Background="{Binding Background}">
                             <Border Style="{StaticResource GoldLine}" />
-                            <Image />
-                            <TextBlock Text="{TemplateBinding Content}" />
+                            <Image Style="{StaticResource Emblem}" />
+                            <Border Style="{StaticResource GreenLine}" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
