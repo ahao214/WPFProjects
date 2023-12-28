@@ -7,6 +7,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:MyToDo.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     d:DesignHeight="450"
@@ -25,7 +26,7 @@
 
         <Border BorderBrush="#DDDDDD" BorderThickness="0,0,0,0.3" />
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Margin="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition />
@@ -49,7 +50,10 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
+            <ContentControl
+                Grid.Column="1"
+                Margin="10,0"
+                prism:RegionManager.RegionName="{x:Static ext:PrismManager.SettingsViewRegionName}" />
 
         </Grid>
 
