@@ -1,22 +1,19 @@
-﻿using MyToDo.Common.Models;
+﻿using MyToDo.Services;
 using Prism.Commands;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MyToDo.Shared.Dtos;
 
 namespace MyToDo.ViewModels
 {
     public class ToDoViewModel : BindableBase
     {
-        public ToDoViewModel()
+        public ToDoViewModel(IToDoService service)
         {
-            ToDoDtos = new ObservableCollection<ToDoDto>();
-            CreateToDoList();
+            ToDoDtos = new ObservableCollection<ToDoDto>();           
             AddCommand = new DelegateCommand(Add);
+            _service = service;
+            CreateToDoList();
         }
 
         private bool isRightDrawerOpen;
@@ -41,6 +38,7 @@ namespace MyToDo.ViewModels
         public DelegateCommand AddCommand { get; private set; }
 
         private ObservableCollection<ToDoDto> toDoDtos;
+        private readonly IToDoService _service;
 
         public ObservableCollection<ToDoDto> ToDoDtos
         {
@@ -49,15 +47,20 @@ namespace MyToDo.ViewModels
         }
 
 
-        void CreateToDoList()
+        async void CreateToDoList()
         {
-            for (int i = 0; i < 25; i++)
+            var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
             {
-                ToDoDtos.Add(new ToDoDto
+                PageIndex = 0,
+                PageSize = 100
+            });
+
+            if (todoResult.Status)
+            {
+                foreach (var item in todoResult.Result.Items)
                 {
-                    Title = "标题" + i,
-                    Content = "内容" + i
-                });
+                    ToDoDtos.Add(item);
+                }
             }
         }
     }

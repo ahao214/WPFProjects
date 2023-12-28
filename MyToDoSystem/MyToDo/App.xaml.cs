@@ -1,4 +1,6 @@
-﻿using MyToDo.ViewModels;
+﻿using DryIoc;
+using MyToDo.Services;
+using MyToDo.ViewModels;
 using MyToDo.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
@@ -21,6 +23,15 @@ namespace MyToDo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.GetContainer()
+                .Register<HttpRestClient>(made: Parameters.Of.Type<string>(serviceKey: "webUrl"));
+            containerRegistry.GetContainer().RegisterInstance(@"http://localhost:3389/", serviceKey: "webUrl");
+
+            //containerRegistry.Register<ILoginService, LoginService>();
+            containerRegistry.Register<IToDoService, ToDoService>();
+            //containerRegistry.Register<IMemoService, MemoService>();
+            //containerRegistry.Register<IDialogHostService, DialogHostService>();
+
             // 导航注册
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
             containerRegistry.RegisterForNavigation<ToDoView, ToDoViewModel>();

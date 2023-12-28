@@ -22,7 +22,7 @@ namespace MyToDo.Services
         public async Task<ApiResponse<TEntity>> AddAsync(TEntity entity)
         {
             BaseRequest request = new BaseRequest();
-            request.Method = RestSharp.Method.Post;
+            request.Method = RestSharp.Method.POST;
             request.Route = $"api/{_serviceName}/Add";
             request.Parameter = entity;
             return await _client.ExecuteAsync<TEntity>(request);
@@ -31,7 +31,7 @@ namespace MyToDo.Services
         public async Task<ApiResponse> DeleteAsync(int id)
         {
             BaseRequest request = new BaseRequest();
-            request.Method = RestSharp.Method.Delete;
+            request.Method = RestSharp.Method.DELETE;
             request.Route = $"api/{_serviceName}/Delete={id}";
             return await _client.ExecuteAsync(request);
         }
@@ -39,7 +39,7 @@ namespace MyToDo.Services
         public async Task<ApiResponse<PagedList<TEntity>>> GetAllAsync(QueryParameter parameter)
         {
             BaseRequest request = new BaseRequest();
-            request.Method = RestSharp.Method.Get;
+            request.Method = RestSharp.Method.GET;
             request.Route = $"api/{_serviceName}/GetAll?pageIndex={parameter.PageIndex}" +
                 $"&pageSize={parameter.PageSize}" +
                 $"&search={parameter.Search}";
@@ -49,7 +49,7 @@ namespace MyToDo.Services
         public async Task<ApiResponse<TEntity>> GetFirstOrDefaultAsync(int id)
         {
             BaseRequest request = new BaseRequest();
-            request.Method = RestSharp.Method.Get;
+            request.Method = RestSharp.Method.GET;
             request.Route = $"api/{_serviceName}/id={id}";
             return await _client.ExecuteAsync<TEntity>(request);
         }
@@ -57,7 +57,7 @@ namespace MyToDo.Services
         public async Task<ApiResponse<TEntity>> UpdateAsync(TEntity entity)
         {
             BaseRequest request = new BaseRequest();
-            request.Method = RestSharp.Method.Post;
+            request.Method = RestSharp.Method.POST;
             request.Route = $"api/{_serviceName}/Update";
             request.Parameter = entity;
             return await _client.ExecuteAsync<TEntity>(request);

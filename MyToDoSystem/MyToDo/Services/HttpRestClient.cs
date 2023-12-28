@@ -1,20 +1,16 @@
 ﻿using MyToDo.Shared;
 using Newtonsoft.Json;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace MyToDo.Services
 {
-  public  class HttpRestClient
+    public class HttpRestClient
     {
         private readonly string apiUrl;
         protected readonly RestClient client;
 
-        public HttpRestClient( string apiUrl)
+        public HttpRestClient(string apiUrl)
         {
             this.apiUrl = apiUrl;
             client = new RestClient();
