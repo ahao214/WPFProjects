@@ -16,22 +16,39 @@
             <md:DrawerHost.RightDrawerContent>
                 <DockPanel Width="300" LastChildFill="False">
                     <TextBlock
+                        Margin="20,10"
                         DockPanel.Dock="Top"
                         FontSize="20"
                         FontWeight="Bold"
                         Text="添加待办" />
 
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                        <TextBlock Text="状态:" />
-                        <ComboBox>
+                    <StackPanel
+                        Margin="20"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontWeight="Bold"
+                            Text="状态：" />
+                        <ComboBox Margin="10,0" SelectedIndex="0">
                             <ComboBoxItem>待办</ComboBoxItem>
                             <ComboBoxItem>已完成</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
 
-                    <TextBox md:HintAssist.Hint="请输入待办该要" DockPanel.Dock="Top" />
-                    <TextBox md:HintAssist.Hint="请输入待办内容" DockPanel.Dock="Top" />
-                    <Button Content="添加到待办" DockPanel.Dock="Top" />
+                    <TextBox
+                        Margin="20,0"
+                        md:HintAssist.Hint="请输入待办该要"
+                        DockPanel.Dock="Top" />
+                    <TextBox
+                        MinHeight="100"
+                        Margin="20"
+                        md:HintAssist.Hint="请输入待办内容"
+                        DockPanel.Dock="Top" />
+                    <Button
+                        Margin="20,0"
+                        Content="添加到待办"
+                        DockPanel.Dock="Top" />
 
                 </DockPanel>
             </md:DrawerHost.RightDrawerContent>
