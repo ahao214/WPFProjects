@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MyToDo.Api.Context;
 using MyToDo.Api.Service;
+using MyToDo.Shared.Parameters;
 
 namespace MyToDo.Api.Controllers
 {
@@ -22,8 +23,8 @@ namespace MyToDo.Api.Controllers
         [HttpGet]
         public async Task<ApiResponse> Get(int id) => await _service.GetSingleAsync(id);
 
-        //[HttpGet]
-        //public async Task<ApiResponse> GetAll(int id) => await _service.GetAllAsync(id);
+        [HttpGet]
+        public async Task<ApiResponse> GetAll([FromQuery] ToDoParameter param) => await _service.GetAllAsync(param);
 
         [HttpPost]
         public async Task<ApiResponse> Add([FromBody] ToDo model) => await _service.AddAsync(model);
