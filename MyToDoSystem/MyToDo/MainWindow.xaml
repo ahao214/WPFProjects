@@ -33,16 +33,36 @@
 
             <DockPanel>
                 <materialDesign:ColorZone
+                    x:Name="ColorZone"
                     Padding="16"
                     materialDesign:ElevationAssist.Elevation="Dp4"
                     DockPanel.Dock="Top"
                     Mode="PrimaryMid">
-                    <DockPanel LastChildFill="False">
-                        <Image Width="25" Height="25" Source="/Images/user.jpg"/>
+                    <DockPanel LastChildFill="True">
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                            <Button Content="⊟" Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-                            <Button Content="⊞" Style="{StaticResource MaterialDesignFlatMidBgButton}" />
-                            <Button Content="⊠" Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                            <Image
+                                Width="25"
+                                Height="25"
+                                Source="/Images/user.jpg">
+                                <Image.Clip>
+                                    <EllipseGeometry
+                                        Center="12.5 12.5"
+                                        RadiusX="12.5"
+                                        RadiusY="12.5" />
+                                </Image.Clip>
+                            </Image>
+                            <Button
+                                x:Name="btnMin"
+                                Content="⊟"
+                                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                            <Button
+                                x:Name="btnMax"
+                                Content="⊞"
+                                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                            <Button
+                                x:Name="btnClose"
+                                Content="⊠"
+                                Style="{StaticResource MaterialDesignFlatMidBgButton}" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
