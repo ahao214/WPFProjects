@@ -29,7 +29,7 @@ namespace MyToDo
 
             //containerRegistry.Register<ILoginService, LoginService>();
             containerRegistry.Register<IToDoService, ToDoService>();
-            //containerRegistry.Register<IMemoService, MemoService>();
+            containerRegistry.Register<IMemoService, MemoService>();
             //containerRegistry.Register<IDialogHostService, DialogHostService>();
 
             // 导航注册
