@@ -1,4 +1,5 @@
-﻿using Prism.DryIoc;
+﻿using MyToDo.Views;
+using Prism.DryIoc;
 using Prism.Ioc;
 using System.Configuration;
 using System.Data;
@@ -14,7 +15,7 @@ namespace MyToDo
         protected override Window CreateShell()
         {
             //设置启动窗口:MainWindow
-            return Container.Resolve<MainWindow>();
+            return Container.Resolve<MainView>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

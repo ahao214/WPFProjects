@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\use.jpg" />
     <None Remove="Images\user.jpg" />
   </ItemGroup>
 
@@ -18,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\use.jpg" />
     <Resource Include="Images\user.jpg" />
   </ItemGroup>
 

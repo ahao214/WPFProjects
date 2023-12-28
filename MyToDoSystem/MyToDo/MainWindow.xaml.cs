@@ -43,7 +43,7 @@ namespace MyToDo
             {
                 if (this.WindowState == WindowState.Normal)
                 {
-                    this.WindowState = WindowState.Maximized
+                    this.WindowState = WindowState.Maximized;
                 }
                 else
                 {
