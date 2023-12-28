@@ -1,7 +1,9 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MyToDo.Api;
 using MyToDo.Api.Context;
 using MyToDo.Api.Context.Repository;
+using MyToDo.Api.Extensions;
 using MyToDo.Api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,9 +24,14 @@ builder.Services.AddDbContext<MyToDoContext>(options =>
 .AddCustomRepository<User, UserRepository>()
 .AddCustomRepository<Memo, MemoRepository>();
 
+
+// Ìí¼ÓAutoMapper
 builder.Services.AddTransient<IToDoService, ToDoService>();
-
-
+var automapperConfig = new MapperConfiguration(config =>
+{
+    config.AddProfile(new AutoMapperProFile());
+});
+builder.Services.AddSingleton(automapperConfig.CreateMapper());
 
 var app = builder.Build();
 
