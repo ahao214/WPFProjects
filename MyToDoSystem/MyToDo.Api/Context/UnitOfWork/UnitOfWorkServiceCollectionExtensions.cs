@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MyToDo.Api.Context.UnitOfWork
+namespace MyToDo.Api
 {
     
 

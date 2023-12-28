@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace MyToDo.Api.Context.UnitOfWork
+namespace MyToDo.Api
 {
    
 

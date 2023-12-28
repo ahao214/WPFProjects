@@ -1,12 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Query;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using MyToDo.Shared;
 
-namespace MyToDo.Api.Context.UnitOfWork
+
+namespace MyToDo.Api
 {
+    /// <summary>
+    /// Represents a default generic repository implements the <see cref="IRepository{TEntity}"/> interface.
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext _dbContext;

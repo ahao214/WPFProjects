@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace MyToDo.Api.Context.UnitOfWork
+namespace MyToDo.Api
 {
    
 

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyToDo.Api;
 using MyToDo.Api.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,7 @@ builder.Services.AddDbContext<MyToDoContext>(options =>
 {
     var connectionString = builder .Configuration.GetConnectionString("ToDoConnection");
     options.UseSqlite(connectionString);
-});
+}).AddUnitOfWork<MyToDoContext>();
 
 
 

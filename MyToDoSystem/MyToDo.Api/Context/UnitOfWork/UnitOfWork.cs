@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-namespace MyToDo.Api.Context.UnitOfWork
+
+namespace MyToDo.Api
 {
     
 

@@ -1,8 +1,10 @@
-﻿namespace MyToDo.Api.Context.UnitOfWork
+﻿using MyToDo.Shared;
+using System;
+using System.Collections.Generic;
+
+namespace MyToDo.Api
 {
-    using MyToDo.Shared.Contact;
-    using System;
-    using System.Collections.Generic;
+
 
     /// <summary>
     /// Provides some extension methods for <see cref="IEnumerable{T}"/> to provide paging capability.

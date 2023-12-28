@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyToDo.Api.Context.UnitOfWork
+namespace MyToDo.Api
 {
     /// <summary>
     /// Defines the interfaces for <see cref="IRepository{TEntity}"/> interfaces.
