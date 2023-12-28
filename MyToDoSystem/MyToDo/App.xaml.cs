@@ -28,6 +28,8 @@ namespace MyToDo
             containerRegistry.RegisterForNavigation<SettingsView, SettingsViewModel>();
 
             containerRegistry.RegisterForNavigation<SkinView, SkinViewModel>();
+
+            containerRegistry.RegisterForNavigation<AboutView>();
         }
     }
 
