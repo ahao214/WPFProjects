@@ -57,6 +57,7 @@ namespace MyToDo.Views
 
             menuBar.SelectionChanged += (s, e) =>
             {
+                // 菜单点击之后，菜单隐藏
                 drawerHost.IsLeftDrawerOpen = false;
             };
         }
