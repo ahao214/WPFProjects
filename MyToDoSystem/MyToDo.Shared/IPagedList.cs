@@ -7,7 +7,7 @@ namespace MyToDo.Shared
     /// 为任何类型的分页列表提供接口
     /// </summary>
     /// <typeparam name="T">The type for paging.分页的类型</typeparam>
-    public interface IPagedList
+    public interface IPagedList<T>
     {
         /// <summary>
         /// Gets the index start value.
