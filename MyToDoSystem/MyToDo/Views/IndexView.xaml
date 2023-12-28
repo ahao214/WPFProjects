@@ -57,7 +57,6 @@
                                 <materialDesign:PackIcon
                                     Width="30"
                                     Height="30"
-                                    Margin="15,0"
                                     Kind="{Binding Icon}" />
                                 <TextBlock
                                     Margin="0,15"
