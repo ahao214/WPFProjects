@@ -9,6 +9,6 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <TextBlock FontSize="80" Text="index" />
+        <TextBlock FontSize="80" Text="首页" />
     </Grid>
 </UserControl>

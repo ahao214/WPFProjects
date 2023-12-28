@@ -1,5 +1,8 @@
 ﻿using MyToDo.Common.Models;
+using MyToDo.Extensions;
+using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,14 +14,53 @@ namespace MyToDo.ViewModels
 {
     public class MainViewModel : BindableBase
     {
+        private ObservableCollection<MenuBar> menuBars;
+        private readonly IRegionManager _regionManager;
 
-        public MainViewModel()
+        public MainViewModel(IRegionManager regionManager)
         {
             MenuBars = new ObservableCollection<MenuBar>();
             CreateMenuBar();
+            NavigateCommand = new DelegateCommand<MenuBar>(Navigate);
+           
+
+            GoBackCommand = new DelegateCommand(() =>
+            {
+                if (journal != null && journal.CanGoBack)
+                    journal.GoBack();
+            });
+            GoForwardCommand = new DelegateCommand(() =>
+            {
+                if (journal != null && journal.CanGoForward)
+                    journal.GoForward();
+            });
+            _regionManager = regionManager;
         }
 
-        private ObservableCollection<MenuBar> menuBars;
+        /// <summary>
+        /// 切换导航
+        /// </summary>
+        /// <param name="bar"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void Navigate(MenuBar obj)
+        {
+            if (obj == null || string.IsNullOrWhiteSpace(obj.NameSpace))
+                return;
+            _regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.NameSpace, back =>
+            {
+                journal = back.Context.NavigationService.Journal;
+            });
+
+        }
+
+        public DelegateCommand<MenuBar> NavigateCommand { get; private set; }
+        // 向后走命令
+        public DelegateCommand GoBackCommand { get; private set; }
+        // 向前走命令
+        public DelegateCommand GoForwardCommand { get; private set; }
+
+        private IRegionNavigationJournal journal;
+
 
         public ObservableCollection<MenuBar> MenuBars
         {
