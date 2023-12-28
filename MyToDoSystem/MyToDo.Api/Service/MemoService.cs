@@ -2,7 +2,10 @@
 using MyToDo.Api.Context;
 using MyToDo.Shared.Dtos;
 using MyToDo.Shared.Parameters;
-using System.Reflection.Metadata;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyToDo.Api.Service
 {
@@ -35,8 +38,6 @@ namespace MyToDo.Api.Service
                 return new ApiResponse(ex.Message);
             }
         }
-
-
 
         public async Task<ApiResponse> DeleteAsync(int id)
         {
@@ -111,7 +112,5 @@ namespace MyToDo.Api.Service
                 return new ApiResponse(ex.Message);
             }
         }
-
-      
     }
 }

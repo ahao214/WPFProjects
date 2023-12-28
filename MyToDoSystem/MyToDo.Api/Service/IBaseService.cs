@@ -1,11 +1,11 @@
 ﻿using MyToDo.Shared.Parameters;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyToDo.Api.Service
 {
-    /// <summary>
-    /// 通用接口
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
     public interface IBaseService<T>
     {
         Task<ApiResponse> GetAllAsync(QueryParameter query);
@@ -17,6 +17,5 @@ namespace MyToDo.Api.Service
         Task<ApiResponse> UpdateAsync(T model);
 
         Task<ApiResponse> DeleteAsync(int id);
-
     }
 }

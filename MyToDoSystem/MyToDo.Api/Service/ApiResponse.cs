@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyToDo.Api.Service
 {
@@ -17,8 +20,9 @@ namespace MyToDo.Api.Service
         }
 
         public string Message { get; set; }
+
         public bool Status { get; set; }
+
         public object Result { get; set; }
     }
-
 }
