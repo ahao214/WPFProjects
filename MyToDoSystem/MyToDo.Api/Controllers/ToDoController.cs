@@ -1,28 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyToDo.Api.Context;
+using MyToDo.Api.Service;
 
 namespace MyToDo.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class ToDoController : ControllerBase
-    {
-        private readonly IUnitOfWork _unitOfWork;
+    {        
+        private readonly IToDoService _service;
 
-        public ToDoController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
+        public ToDoController(IToDoService service)
+        {            
+            _service = service;
         }
 
         [HttpGet]
-        public async Task <IActionResult> Get(int id)
-        {
-            var repository = _unitOfWork.GetRepository<ToDo>();
-
-
-            return null;
-        }
+        public async Task<ApiResponse> Get(int id) =>await _service.GetSingleAsync(id);       
 
 
     }

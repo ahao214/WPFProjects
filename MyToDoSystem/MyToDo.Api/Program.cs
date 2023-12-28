@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MyToDo.Api;
 using MyToDo.Api.Context;
 using MyToDo.Api.Context.Repository;
+using MyToDo.Api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<MyToDoContext>(options =>
 .AddCustomRepository<ToDo, ToDoRepository>()
 .AddCustomRepository<User, UserRepository>()
 .AddCustomRepository<Memo, MemoRepository>();
+
+builder.Services.AddTransient<IToDoService, ToDoService>();
 
 
 

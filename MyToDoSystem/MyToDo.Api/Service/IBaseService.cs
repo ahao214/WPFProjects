@@ -2,6 +2,10 @@
 
 namespace MyToDo.Api.Service
 {
+    /// <summary>
+    /// 通用接口
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IBaseService<T>
     {
         Task<ApiResponse> GetAllAsync(QueryParameter query);
