@@ -7,30 +7,25 @@ using System.Threading.Tasks;
 namespace MyToDo.Common.Models
 {
     /// <summary>
-    /// 
+    /// 待办实体
     /// </summary>
-    public class ToDoDto
+    public class ToDoDto : BaseDto
     {
-
-        private int id;
         private string title;
         private string content;
         private int status;
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string Title
         {
             get { return title; }
             set { title = value; }
         }
 
-
+        /// <summary>
+        /// 内容
+        /// </summary>
 
         public string Content
         {
@@ -38,7 +33,9 @@ namespace MyToDo.Common.Models
             set { content = value; }
         }
 
-
+        /// <summary>
+        /// 状态
+        /// </summary>
         public int Status
         {
             get { return status; }
