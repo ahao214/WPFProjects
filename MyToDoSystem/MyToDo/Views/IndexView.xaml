@@ -104,7 +104,16 @@
                         <materialDesign:PackIcon Kind="Add" />
                     </Button>
                 </DockPanel>
-                <ListBox />
+                <ListBox ItemsSource="{Binding ToDoDtos}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" />
+                                <TextBlock Text="{Binding Content}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </DockPanel>
 
             <Border
@@ -131,7 +140,16 @@
                         <materialDesign:PackIcon Kind="Add" />
                     </Button>
                 </DockPanel>
-                <ListBox />
+                <ListBox ItemsSource="{Binding MemoDtos}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" />
+                                <TextBlock Text="{Binding Content}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </DockPanel>
         </Grid>
 
