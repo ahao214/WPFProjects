@@ -1,4 +1,7 @@
-﻿using MyToDo.Services;
+﻿using MaterialDesignThemes.Wpf;
+using MyToDo.Common;
+using MyToDo.Extensions;
+using MyToDo.Services;
 using MyToDo.Shared.Dtos;
 using MyToDo.Shared.Parameters;
 using Prism.Commands;
@@ -12,12 +15,14 @@ namespace MyToDo.ViewModels
 {
     public class MemoViewModel : NavigationViewModel
     {
+        private readonly IDialogHostService dialogHost;
         public MemoViewModel(IMemoService service, IContainerProvider provider) : base(provider)
         {
             MemoDtos = new ObservableCollection<MemoDto>();
             ExecuteCommand = new DelegateCommand<string>(Execute);
             SelectedCommand = new DelegateCommand<MemoDto>(Selected);
             DeleteCommand = new DelegateCommand<MemoDto>(Delete);
+            dialogHost = provider.Resolve<IDialogHostService>();
             _service = service;
         }
         private bool isRightDrawerOpen;
@@ -66,6 +71,9 @@ namespace MyToDo.ViewModels
         {
             try
             {
+                var dialogResult = await dialogHost.Question("温馨提示", $"确认删除备忘录:{dto.Title} ?");
+                if (dialogResult.Result != Prism.Services.Dialogs.ButtonResult.OK) return;
+
                 UpdateLoading(true);
                 var result = await _service.DeleteAsync(dto.Id);
                 if (result.Status)
@@ -217,7 +225,7 @@ namespace MyToDo.ViewModels
             {
                 PageIndex = 0,
                 PageSize = 100,
-                Search = Search                
+                Search = Search
             });
 
             if (todoResult.Status)
