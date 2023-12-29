@@ -1,4 +1,5 @@
 ﻿using DryIoc;
+using MyToDo.Common;
 using MyToDo.Services;
 using MyToDo.ViewModels;
 using MyToDo.Views;
@@ -19,6 +20,17 @@ namespace MyToDo
         {
             //设置启动窗口:MainWindow
             return Container.Resolve<MainView>();
+        }
+
+        protected override void OnInitialized()
+        {
+            var service = App.Current.MainWindow.DataContext as IConfigureService;
+            if (service != null)
+            {
+                service.Configure();
+            }
+
+            base.OnInitialized();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
