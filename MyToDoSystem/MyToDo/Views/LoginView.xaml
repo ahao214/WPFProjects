@@ -30,15 +30,15 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <md:Snackbar
+        <!--<md:Snackbar
             x:Name="LoginSnakeBar"
             Grid.ColumnSpan="2"
             Panel.ZIndex="1"
-            MessageQueue="{md:MessageQueue}" />
+            MessageQueue="{md:MessageQueue}" />-->
 
         <Image Margin="50" Source="/Images/login.png" />
 
-        <md:Transitioner Grid.Column="1" SelectedIndex="{Binding SelectIndex, FallbackValue=0}">
+        <md:Transitioner Grid.Column="1" SelectedIndex="{Binding SelectedIndex, FallbackValue=0}">
             <md:TransitionerSlide>
                 <DockPanel Margin="15" VerticalAlignment="Center">
                     <TextBlock

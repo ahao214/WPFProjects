@@ -25,7 +25,7 @@ namespace MyToDo.Api.Controllers
 
 
         [HttpPost]
-        public async Task<ApiResponse> Resgiter([FromBody] UserDto param) =>
-            await service.Resgiter(param);
+        public async Task<ApiResponse> Register([FromBody] UserDto param) =>
+            await service.Register(param);
     }
 }
