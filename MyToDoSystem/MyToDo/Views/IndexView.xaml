@@ -24,7 +24,7 @@
         <TextBlock
             Margin="15,10"
             FontSize="22"
-            Text="你好,Joker!今天是2023年12月28日" />
+            Text="{Binding Title}" />
 
         <ItemsControl Grid.Row="1" ItemsSource="{Binding TaskBars}">
             <ItemsControl.ItemsPanel>

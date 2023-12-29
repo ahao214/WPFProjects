@@ -21,6 +21,7 @@ namespace MyToDo.ViewModels
         public IndexViewModel(IContainerProvider provider,
             IDialogHostService dialog) : base(provider)
         {
+            Title = $"你好，Joker，欢迎使用备忘录!{DateTime.Now.GetDateTimeFormats('D')[1].ToString()}";
             CreateTaskBars();
             //TaskBars = new ObservableCollection<TaskBar>();
 
@@ -62,6 +63,16 @@ namespace MyToDo.ViewModels
         {
             get { return summary; }
             set { summary = value; RaisePropertyChanged(); }
+        }
+
+        private string title;
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public string Title
+        {
+            get { return title; }
+            set { title = value; RaisePropertyChanged(); }
         }
 
 
