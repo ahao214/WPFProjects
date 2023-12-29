@@ -2,10 +2,6 @@
 using MyToDo.Api.Context;
 using MyToDo.Shared;
 using MyToDo.Shared.Dtos; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyToDo.Api.Service
 {
@@ -24,7 +20,7 @@ namespace MyToDo.Api.Service
         {
             try
             {
-                //Password = Password.GetMD5();
+                Password = Password.GetMD5();
 
                 var model = await work.GetRepository<User>().GetFirstOrDefaultAsync(predicate:
                     x => (x.Account.Equals(Account)) &&
@@ -60,7 +56,7 @@ namespace MyToDo.Api.Service
                     return new ApiResponse($"当前账号:{model.Account}已存在,请重新注册！");
 
                 model.CreateDate = DateTime.Now;
-                model.Password = model.Password;//.GetMD5();
+                model.Password = model.Password.GetMD5();
                 await repository.InsertAsync(model);
 
                 if (await work.SaveChangesAsync() > 0)
