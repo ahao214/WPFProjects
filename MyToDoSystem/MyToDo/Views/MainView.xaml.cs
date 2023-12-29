@@ -27,7 +27,7 @@ namespace MyToDo.Views
             InitializeComponent();
 
             // 注册等待消息窗口
-            aggregator.Resgiter(arg =>
+            aggregator.Register(arg =>
             {
                 DialogHost.IsOpen = arg.IsOpen;
                 if (DialogHost.IsOpen)

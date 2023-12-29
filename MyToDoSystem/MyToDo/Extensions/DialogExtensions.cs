@@ -25,7 +25,7 @@ namespace MyToDo.Extensions
         /// </summary>
         /// <param name="aggregator"></param>
         /// <param name="action"></param>
-        public static void Resgiter(this IEventAggregator aggregator, Action<UpdateModel> action)
+        public static void Register(this IEventAggregator aggregator, Action<UpdateModel> action)
         {
             aggregator.GetEvent<UpdateLoadingEvent>().Subscribe(action);
         }

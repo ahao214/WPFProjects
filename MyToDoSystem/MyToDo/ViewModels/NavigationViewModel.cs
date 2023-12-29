@@ -18,7 +18,7 @@ namespace MyToDo.ViewModels
 
         public virtual bool IsNavigationTarget(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public virtual void OnNavigatedFrom(NavigationContext navigationContext)
