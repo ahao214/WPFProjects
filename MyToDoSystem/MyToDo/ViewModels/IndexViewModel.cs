@@ -1,22 +1,17 @@
 ﻿using Prism.Mvvm;
 using MyToDo.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Configuration;
 using MyToDo.Shared.Dtos;
 using Prism.Commands;
 using Prism.Services.Dialogs;
+using MyToDo.Common;
 
 namespace MyToDo.ViewModels
 {
     public class IndexViewModel : BindableBase
     {
 
-        public IndexViewModel(IDialogService dialog)
+        public IndexViewModel(IDialogHostService dialog)
         {
             CreateTaskBars();
             TaskBars = new ObservableCollection<TaskBar>();
@@ -48,7 +43,7 @@ namespace MyToDo.ViewModels
         }
 
         private ObservableCollection<MemoDto> memoDtos;
-        private readonly IDialogService _dialog;
+        private readonly IDialogHostService _dialog;
 
         public ObservableCollection<MemoDto> MemoDtos
         {
@@ -85,7 +80,7 @@ namespace MyToDo.ViewModels
 
         void AddMemo()
         {
-            _dialog.ShowDialog("AddMemoView");
+            _dialog.ShowDialog("AddMemoView",null);
         }
 
         #endregion

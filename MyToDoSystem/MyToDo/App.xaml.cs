@@ -42,10 +42,10 @@ namespace MyToDo
             //containerRegistry.Register<ILoginService, LoginService>();
             containerRegistry.Register<IToDoService, ToDoService>();
             containerRegistry.Register<IMemoService, MemoService>();
-            //containerRegistry.Register<IDialogHostService, DialogHostService>();
+            containerRegistry.Register<IDialogHostService, DialogHostService>();
 
-            containerRegistry.RegisterDialog<AddToDoView,AddToDoViewModel>();
-            containerRegistry.RegisterDialog<AddMemoView,AdddMemoViewModel>();
+            containerRegistry.RegisterForNavigation<AddToDoView,AddToDoViewModel>();
+            containerRegistry.RegisterForNavigation<AddMemoView,AdddMemoViewModel>();
 
             // 导航注册
             containerRegistry.RegisterForNavigation<IndexView, IndexViewModel>();
