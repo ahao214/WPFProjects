@@ -15,8 +15,10 @@ namespace MyToDo.ViewModels
             ToDoDtos = new ObservableCollection<ToDoDto>();
             ExecuteCommand = new DelegateCommand<string>(Execute);
             SelectedCommand = new DelegateCommand<ToDoDto>(Selected);
-            _service = service;            
+            DeleteCommand = new DelegateCommand<ToDoDto>(Delete);
+            _service = service;
         }
+
 
         private void Execute(string obj)
         {
@@ -52,6 +54,27 @@ namespace MyToDo.ViewModels
             get { return toDoDtos; }
             set { toDoDtos = value; RaisePropertyChanged(); }
         }
+
+        #region 删除待办事项
+        /// <summary>
+        /// 删除待办事项
+        /// </summary>
+        /// <param name="dto"></param>
+        private async void Delete(ToDoDto dto)
+        {
+            var result = await _service.DeleteAsync(dto.Id);
+            if (result.Status)
+            {
+                var model = ToDoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
+                if(model != null)
+                {
+                    ToDoDtos.Remove(model);
+                }
+            }
+
+        }
+
+        #endregion
 
         #region 添加待办事项
 
