@@ -17,7 +17,7 @@ namespace MyToDo.Extensions
         }
 
         public static readonly DependencyProperty PassWordProperty =
-            DependencyProperty.RegisterAttached("PassWord", typeof(string), typeof(PassWordExtensions), new FrameworkPropertyMetadata(string.Empty, OnPassWordPropertyChanged));
+            DependencyProperty.RegisterAttached("PassWord", typeof(string), typeof(PassWordExtensions), new PropertyMetadata(string.Empty, OnPassWordPropertyChanged));
 
         /// <summary>
         /// 密码属性变更事件
@@ -48,7 +48,7 @@ namespace MyToDo.Extensions
             string password = PassWordExtensions.GetPassWord(passwordBox);
 
             if (passwordBox != null && passwordBox.Password != password)
-                PassWordExtensions.SetPassWord(passwordBox, passwordBox.Password);
+                PassWordExtensions.SetPassWord(passwordBox, password);
         }
 
         protected override void OnDetaching()

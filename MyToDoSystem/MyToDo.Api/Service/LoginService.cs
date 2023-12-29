@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MyToDo.Api.Context;
-using MyToDo.Shared;
-using MyToDo.Shared.Dtos; 
+using MyToDo.Shared.Dtos;
+using MyToDo.Shared.Extensions;
 
 namespace MyToDo.Api.Service
 {
@@ -24,7 +24,7 @@ namespace MyToDo.Api.Service
 
                 var model = await work.GetRepository<User>().GetFirstOrDefaultAsync(predicate:
                     x => (x.Account.Equals(Account)) &&
-                    (x.Password.Equals(Password)));
+                    (x.PassWord.Equals(Password)));
 
                 if (model == null)
                     return new ApiResponse("账号或密码错误,请重试！");
@@ -56,7 +56,7 @@ namespace MyToDo.Api.Service
                     return new ApiResponse($"当前账号:{model.Account}已存在,请重新注册！");
 
                 model.CreateDate = DateTime.Now;
-                model.Password = model.Password.GetMD5();
+                model.PassWord = model.PassWord.GetMD5();
                 await repository.InsertAsync(model);
 
                 if (await work.SaveChangesAsync() > 0)

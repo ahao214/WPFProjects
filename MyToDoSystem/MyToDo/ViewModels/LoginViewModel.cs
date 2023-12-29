@@ -1,24 +1,21 @@
-﻿using MyToDo.Services;
+﻿using MyToDo.Extensions;
+using MyToDo.Services;
 using MyToDo.Shared.Dtos;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace MyToDo.ViewModels
 {
     public class LoginViewModel : BindableBase, IDialogAware
     {
-        public LoginViewModel(ILoginService loginService)
+        public LoginViewModel(ILoginService loginService, IEventAggregator aggregator)
         {
+            UserDto = new ResgiterUserDto();
             ExecuteCommand = new DelegateCommand<string>(Execute);
-            _loginService = loginService;
+            this.loginService = loginService;
+            this.aggregator = aggregator;
         }
 
         public string Title { get; set; } = "ToDo";
@@ -37,17 +34,28 @@ namespace MyToDo.ViewModels
 
         public void OnDialogOpened(IDialogParameters parameters)
         {
-
         }
+
+        #region Login
+
+        private int selectIndex;
+
+        public int SelectIndex
+        {
+            get { return selectIndex; }
+            set { selectIndex = value; RaisePropertyChanged(); }
+        }
+
 
         public DelegateCommand<string> ExecuteCommand { get; private set; }
 
-        private int selectedIndex;
 
-        public int SelectedIndex
+        private string userName;
+
+        public string UserName
         {
-            get { return selectedIndex; }
-            set { selectedIndex = value; RaisePropertyChanged(); }
+            get { return userName; }
+            set { userName = value; RaisePropertyChanged(); }
         }
 
         private string account;
@@ -55,18 +63,30 @@ namespace MyToDo.ViewModels
         public string Account
         {
             get { return account; }
-            set { account = value; }
+            set { account = value; RaisePropertyChanged(); }
         }
 
-        private string password;
-        private readonly ILoginService _loginService;
-        private readonly IEventAggregator _aggregator;
-        public string Password
+        private string passWord;
+        private readonly ILoginService loginService;
+        private readonly IEventAggregator aggregator;
+
+        public string PassWord
         {
-            get { return password; }
-            set { password = value; }
+            get { return passWord; }
+            set { passWord = value; RaisePropertyChanged(); }
         }
 
+        private void Execute(string obj)
+        {
+            switch (obj)
+            {
+                case "Login": Login(); break;
+                case "LoginOut": LoginOut(); break;
+                case "Resgiter": Resgiter(); break;
+                case "ResgiterPage": SelectIndex = 1; break;
+                case "Return": SelectIndex = 0; break;
+            }
+        }
 
         private ResgiterUserDto userDto;
 
@@ -76,78 +96,67 @@ namespace MyToDo.ViewModels
             set { userDto = value; RaisePropertyChanged(); }
         }
 
-
-        private void Execute(string obj)
+        async void Login()
         {
-            switch (obj)
+            if (string.IsNullOrWhiteSpace(UserName) ||
+                string.IsNullOrWhiteSpace(PassWord))
             {
-                case "Login": Login(); break;
-                case "LoginOut": LoginOut(); break;
-                // 返回登录页面
-                case "ResgiterPage": SelectedIndex = 1; break;
-                // 注册账号
-                case "Register": Register(); break;
-                // 跳转注册页面
-                case "Return": SelectedIndex = 0; break;
+                return;
+            }
+
+            var loginResult = await loginService.LoginAsync(new Shared.Dtos.UserDto()
+            {
+                Account = UserName,
+                PassWord = PassWord
+            });
+
+            if (loginResult != null && !loginResult.Status)
+            {
+                RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
+                return;
+            }
+            else
+            {
+                //登录失败提示...
+                aggregator.SendMessage(loginResult.Message, "Login");
             }
         }
 
-        private async void Register()
+        private async void Resgiter()
         {
-            if (string.IsNullOrEmpty(UserDto.UserName) || string.IsNullOrEmpty(UserDto.Account) || string.IsNullOrEmpty(UserDto.PassWord) || string.IsNullOrEmpty(UserDto.NewPassWord))
+            if (string.IsNullOrWhiteSpace(UserDto.Account) ||
+                string.IsNullOrWhiteSpace(UserDto.UserName) ||
+                string.IsNullOrWhiteSpace(UserDto.PassWord) ||
+                string.IsNullOrWhiteSpace(UserDto.NewPassWord))
             {
-                return;
-            }
-            if (UserDto.PassWord != UserDto.NewPassWord)
-            {
+                aggregator.SendMessage("请输入完整的注册信息！", "Login");
                 return;
             }
 
-            var regResult = await _loginService.ResgiterAsync(new Shared.Dtos.UserDto()
+            if (UserDto.PassWord != UserDto.NewPassWord)
+            {
+                aggregator.SendMessage("密码不一致,请重新输入！", "Login");
+                return;
+            }
+
+            var resgiterResult = await loginService.RegisterAsync(new Shared.Dtos.UserDto()
             {
                 Account = UserDto.Account,
                 UserName = UserDto.UserName,
                 PassWord = UserDto.PassWord
             });
 
-            if (regResult != null || regResult.Status)
+            if (resgiterResult != null && resgiterResult.Status)
             {
-                SelectedIndex = 0;
-
+                aggregator.SendMessage("注册成功", "Login");
+                //注册成功,返回登录页页面
+                SelectIndex = 0;
             }
-
+            else
+                aggregator.SendMessage(resgiterResult.Message, "Login");
         }
 
-        
-
-        #region 登录方法
-
-        private async void Login()
-        {
-            if (string.IsNullOrEmpty(Account) || string.IsNullOrEmpty(Password))
-            {
-                return;
-            }
-
-            var loginResult = await _loginService.LoginAsync(new Shared.Dtos.UserDto()
-            {
-                Account = Account,
-                PassWord = Password
-            });
-
-            if (loginResult.Status)
-            {
-                RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
-            }
-            // 登录失败
-
-        }
-
-        #endregion
-
-        #region 退出方法 
-
-        private void LoginOut()
+        void LoginOut()
         {
             RequestClose?.Invoke(new DialogResult(ButtonResult.No));
         }
