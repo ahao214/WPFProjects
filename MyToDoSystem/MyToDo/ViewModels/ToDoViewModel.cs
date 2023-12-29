@@ -1,12 +1,10 @@
 ﻿using MyToDo.Services;
 using Prism.Commands;
-using Prism.Mvvm;
 using System.Collections.ObjectModel;
 using MyToDo.Shared.Dtos;
 using Prism.Ioc;
 using Prism.Regions;
-using System.Windows.Controls.Primitives;
-using System.DirectoryServices.ActiveDirectory;
+
 
 namespace MyToDo.ViewModels
 {
@@ -107,6 +105,8 @@ namespace MyToDo.ViewModels
             set { toDoDtos = value; RaisePropertyChanged(); }
         }
 
+        #region 搜索条件
+
         private string search;
         /// <summary>
         /// 搜索条件
@@ -117,7 +117,9 @@ namespace MyToDo.ViewModels
             set { search = value; }
         }
 
+        #endregion
 
+        #region 选中ToDo事项的事件
 
         private ToDoDto currentDto;
 
@@ -130,6 +132,10 @@ namespace MyToDo.ViewModels
             set { currentDto = value; RaisePropertyChanged(); }
         }
 
+        /// <summary>
+        /// 选中ToDo事项的事件
+        /// </summary>
+        /// <param name="obj"></param>
         private async void Selected(ToDoDto obj)
         {
             try
@@ -152,6 +158,8 @@ namespace MyToDo.ViewModels
             }
         }
 
+        #endregion
+
         #region 获取数据
 
         /// <summary>
@@ -164,12 +172,13 @@ namespace MyToDo.ViewModels
             var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
             {
                 PageIndex = 0,
-                PageSize = 100
-                //Search = Search
+                PageSize = 100,
+                Search = Search
             });
 
             if (todoResult.Status)
             {
+                ToDoDtos.Clear();
                 foreach (var item in todoResult.Result.Items)
                 {
                     ToDoDtos.Add(item);
@@ -180,6 +189,8 @@ namespace MyToDo.ViewModels
 
         #endregion
 
+        #region 导航数据
+
         /// <summary>
         /// 导航数据
         /// </summary>
@@ -189,5 +200,7 @@ namespace MyToDo.ViewModels
             base.OnNavigatedTo(navigationContext);
             GetDataAsync();
         }
+
+        #endregion
     }
 }
