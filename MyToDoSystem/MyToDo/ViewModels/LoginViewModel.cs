@@ -10,7 +10,7 @@ namespace MyToDo.ViewModels
 {
     public class LoginViewModel : BindableBase, IDialogAware
     {
-        public string Title {  get; set; }  
+        public string Title { get; set; } = "ToDo";
 
         public event Action<IDialogResult> RequestClose;
 
