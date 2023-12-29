@@ -35,5 +35,12 @@ namespace MyToDo.Api.Controllers
 
         [HttpDelete]
         public async Task<ApiResponse> Delete(int id) => await _service.DeleteAsync(id);
+
+        /// <summary>
+        /// 获取统计结果
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ApiResponse> Summary() => await _service.Summary();
     }
 }

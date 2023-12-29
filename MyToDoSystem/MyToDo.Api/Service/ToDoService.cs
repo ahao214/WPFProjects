@@ -124,11 +124,17 @@ namespace MyToDo.Api.Service
                     orderBy: source => source.OrderByDescending(t => t.CreateDate));
 
                 SummaryDto summary = new SummaryDto();
-                summary.Sum = todos.Count(); //汇总待办事项数量
-                summary.CompletedCount = todos.Where(t => t.Status == 1).Count(); //统计完成数量
-                summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%"); //统计完成率
-                summary.MemoeCount = memos.Count();  //汇总备忘录数量
+                //汇总待办事项数量
+                summary.Sum = todos.Count();
+                //统计完成数量
+                summary.CompletedCount = todos.Where(t => t.Status == 1).Count();
+                //统计完成率
+                summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
+                //汇总备忘录数量
+                summary.MemoeCount = memos.Count();  
+
                 summary.ToDoList = new ObservableCollection<ToDoDto>(Mapper.Map<List<ToDoDto>>(todos.Where(t => t.Status == 0)));
+
                 summary.MemoList = new ObservableCollection<MemoDto>(Mapper.Map<List<MemoDto>>(memos));
 
                 return new ApiResponse(true, summary);
