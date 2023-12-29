@@ -7,6 +7,7 @@ using MyToDo.Common;
 using Prism.Ioc;
 using MyToDo.Services;
 using Prism.Regions;
+using MyToDo.Extensions;
 
 namespace MyToDo.ViewModels
 {
@@ -15,7 +16,8 @@ namespace MyToDo.ViewModels
         private readonly IToDoService toDoService;
         private readonly IMemoService memoService;
         private readonly IDialogHostService dialog;
-        //private readonly IRegionManager regionManager;
+        private readonly IRegionManager regionManager;
+
         public IndexViewModel(IContainerProvider provider,
             IDialogHostService dialog) : base(provider)
         {
@@ -25,26 +27,14 @@ namespace MyToDo.ViewModels
             ExecuteCommand = new DelegateCommand<string>(Execute);
             this.toDoService = provider.Resolve<IToDoService>();
             this.memoService = provider.Resolve<IMemoService>();
-            //this.regionManager = provider.Resolve<IRegionManager>();
+            this.regionManager = provider.Resolve<IRegionManager>();
             _dialog = dialog;
             EditMemoCommand = new DelegateCommand<MemoDto>(AddMemo);
             EditToDoCommand = new DelegateCommand<ToDoDto>(AddToDo);
             ToDoCompltedCommand = new DelegateCommand<ToDoDto>(Complted);
-            //NavigateCommand = new DelegateCommand<TaskBar>(Navigate);
+            NavigateCommand = new DelegateCommand<TaskBar>(Navigate);
         }
 
-        private void Navigate(TaskBar obj)
-        {
-            //if (string.IsNullOrWhiteSpace(obj.Target)) return;
-
-            //NavigationParameters param = new NavigationParameters();
-
-            //if (obj.Title == "已完成")
-            //{
-            //    param.Add("Value", 2);
-            //}
-            //regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.Target, param);
-        }
 
         #region 属性
 
@@ -77,40 +67,49 @@ namespace MyToDo.ViewModels
 
         #endregion
 
+        #region 模块点击跳转
+
+        private void Navigate(TaskBar obj)
+        {
+            if (string.IsNullOrWhiteSpace(obj.Target)) return;
+
+            NavigationParameters param = new NavigationParameters();
+
+            if (obj.Title == "已完成")
+            {
+                param.Add("Value", 2);
+            }
+            regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.Target, param);
+        }
+
+        #endregion
+
+
         #region 完成
 
         private async void Complted(ToDoDto obj)
         {
-            var updateResult = await toDoService.UpdateAsync(obj);
-            if (updateResult.Status)
+            try
             {
-                var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
-                if (todo != null)
+                UpdateLoading(true);
+                var updateResult = await toDoService.UpdateAsync(obj);
+                if (updateResult.Status)
                 {
-                    summary.ToDoList.Remove(obj);
+                    var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
+                    if (todo != null)
+                    {
+                        summary.ToDoList.Remove(todo);
+                        summary.CompletedCount += 1;
+                        summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
+                        this.Refresh();
+                    }
+                    aggregator.SendMessage("已完成!");
                 }
             }
-            //try
-            //{
-            //    UpdateLoading(true);
-            //    var updateResult = await toDoService.UpdateAsync(obj);
-            //    if (updateResult.Status)
-            //    {
-            //        var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
-            //        if (todo != null)
-            //        {
-            //            summary.ToDoList.Remove(todo);
-            //            summary.CompletedCount += 1;
-            //            summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
-            //            this.Refresh();
-            //        }
-            //        aggregator.SendMessage("已完成!");
-            //    }
-            //}
-            //finally
-            //{
-            //    UpdateLoading(false);
-            //}
+            finally
+            {
+                UpdateLoading(false);
+            }
         }
 
         #endregion
@@ -159,7 +158,10 @@ namespace MyToDo.ViewModels
                     var addResult = await toDoService.AddAsync(todo);
                     if (addResult.Status)
                     {
+                        summary.Sum += 1;
                         summary.ToDoList.Add(addResult.Result);
+                        summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
+                        this.Refresh();
                     }
                 }
             }
@@ -200,7 +202,9 @@ namespace MyToDo.ViewModels
                     var memoResult = await memoService.AddAsync(memo);
                     if (memoResult.Status)
                     {
+                        summary.MemoeCount += 1;
                         summary.MemoList.Add(memoResult.Result);
+                        this.Refresh();
                     }
                 }
             }
@@ -214,10 +218,10 @@ namespace MyToDo.ViewModels
         void CreateTaskBars()
         {
             TaskBars = new ObservableCollection<TaskBar>();
-            TaskBars.Add(new TaskBar { Icon = "ClockFast", Title = "汇总", Color = "#FF0CA0FF", Target = "" });
-            TaskBars.Add(new TaskBar { Icon = "ClockCheckOutline", Title = "已完成", Color = "#FF1ECA3A", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "ClockFast", Title = "汇总", Color = "#FF0CA0FF", Target = "ToDoView" });
+            TaskBars.Add(new TaskBar { Icon = "ClockCheckOutline", Title = "已完成", Color = "#FF1ECA3A", Target = "ToDoView" });
             TaskBars.Add(new TaskBar { Icon = "ChartLineVariant", Title = "完成比例", Color = "#FF02C6DC", Target = "" });
-            TaskBars.Add(new TaskBar { Icon = "PlaylistStar", Title = "备忘录", Color = "#FFFFA000", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "PlaylistStar", Title = "备忘录", Color = "#FFFFA000", Target = "MemoView" });
 
         }
 
