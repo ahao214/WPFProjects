@@ -5,24 +5,83 @@ using MyToDo.Shared.Dtos;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using MyToDo.Common;
+using Prism.Ioc;
+using MyToDo.Services;
+using Prism.Regions;
+using System.Numerics;
+using MyToDo.Extensions;
 
 namespace MyToDo.ViewModels
 {
-    public class IndexViewModel : BindableBase
+    public class IndexViewModel : NavigationViewModel
     {
-
-        public IndexViewModel(IDialogHostService dialog)
+        private readonly IToDoService toDoService;
+        private readonly IMemoService memoService;
+        private readonly IDialogHostService dialog;
+        //private readonly IRegionManager regionManager;
+        public IndexViewModel(IContainerProvider provider,
+            IDialogHostService dialog) : base(provider)
         {
             CreateTaskBars();
-            TaskBars = new ObservableCollection<TaskBar>();
+            //TaskBars = new ObservableCollection<TaskBar>();
             ToDoDtos = new ObservableCollection<ToDoDto>();
             MemoDtos = new ObservableCollection<MemoDto>();
 
             ExecuteCommand = new DelegateCommand<string>(Execute);
+            this.toDoService = provider.Resolve<IToDoService>();
+            this.memoService = provider.Resolve<IMemoService>();
+            //this.regionManager = provider.Resolve<IRegionManager>();
             _dialog = dialog;
+            //EditMemoCommand = new DelegateCommand<MemoDto>(AddMemo);
+            //EditToDoCommand = new DelegateCommand<ToDoDto>(AddToDo);
+            //ToDoCompltedCommand = new DelegateCommand<ToDoDto>(Complted);
+            //NavigateCommand = new DelegateCommand<TaskBar>(Navigate);
         }
 
+        private void Navigate(TaskBar obj)
+        {
+            //if (string.IsNullOrWhiteSpace(obj.Target)) return;
+
+            //NavigationParameters param = new NavigationParameters();
+
+            //if (obj.Title == "已完成")
+            //{
+            //    param.Add("Value", 2);
+            //}
+            //regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.Target, param);
+        }
+
+        private async void Complted(ToDoDto obj)
+        {
+            //try
+            //{
+            //    UpdateLoading(true);
+            //    var updateResult = await toDoService.UpdateAsync(obj);
+            //    if (updateResult.Status)
+            //    {
+            //        var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
+            //        if (todo != null)
+            //        {
+            //            summary.ToDoList.Remove(todo);
+            //            summary.CompletedCount += 1;
+            //            summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
+            //            this.Refresh();
+            //        }
+            //        aggregator.SendMessage("已完成!");
+            //    }
+            //}
+            //finally
+            //{
+            //    UpdateLoading(false);
+            //}
+        }
+
+        public DelegateCommand<ToDoDto> ToDoCompltedCommand { get; private set; }
+        public DelegateCommand<ToDoDto> EditToDoCommand { get; private set; }
+        public DelegateCommand<MemoDto> EditMemoCommand { get; private set; }
         public DelegateCommand<string> ExecuteCommand { get; private set; }
+
+        public DelegateCommand<TaskBar> NavigateCommand { get; private set; }
 
         #region 属性
 
@@ -68,9 +127,25 @@ namespace MyToDo.ViewModels
 
         #region 新增待办
 
-        void AddToDo()
+        async void AddToDo()
         {
-            _dialog.ShowDialog("AddToDoView",null);
+            var dialog = await _dialog.ShowDialog("AddToDoView", null);
+            if (dialog.Result == ButtonResult.OK)
+            {
+                var todo = dialog.Parameters.GetValue<ToDoDto>("Value");
+                if (todo.Id > 0)
+                {
+
+                }
+                else
+                {
+                    var addResult = await toDoService.AddAsync(todo);
+                    if (addResult.Status)
+                    {
+                        ToDoDtos.Add(addResult.Result);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -78,9 +153,25 @@ namespace MyToDo.ViewModels
 
         #region 新增备忘录
 
-        void AddMemo()
+        async void AddMemo()
         {
-            _dialog.ShowDialog("AddMemoView",null);
+            var dialog = await _dialog.ShowDialog("AddMemoView", null);
+            if (dialog.Result == ButtonResult.OK)
+            {
+                var memo = dialog.Parameters.GetValue<MemoDto>("Value");
+                if (memo.Id > 0)
+                {
+
+                }
+                else
+                {
+                    var memoResult = await memoService.AddAsync(memo);
+                    if (memoResult.Status)
+                    {
+                        MemoDtos.Add(memoResult.Result);
+                    }
+                }
+            }
         }
 
         #endregion

@@ -39,7 +39,7 @@ namespace MyToDo
                 .Register<HttpRestClient>(made: Parameters.Of.Type<string>(serviceKey: "webUrl"));
             containerRegistry.GetContainer().RegisterInstance(@"http://localhost:5074/", serviceKey: "webUrl");
 
-            //containerRegistry.Register<ILoginService, LoginService>();
+            containerRegistry.Register<ILoginService, LoginService>();
             containerRegistry.Register<IToDoService, ToDoService>();
             containerRegistry.Register<IMemoService, MemoService>();
             containerRegistry.Register<IDialogHostService, DialogHostService>();
@@ -56,6 +56,7 @@ namespace MyToDo
             containerRegistry.RegisterForNavigation<SkinView, SkinViewModel>();
 
             containerRegistry.RegisterForNavigation<AboutView>();
+            containerRegistry.RegisterForNavigation<MsgView,MsgViewModel>();
         }
     }
 
