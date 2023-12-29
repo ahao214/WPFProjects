@@ -21,7 +21,7 @@ namespace MyToDo.ViewModels
         public IndexViewModel(IContainerProvider provider,
             IDialogHostService dialog) : base(provider)
         {
-            Title = $"你好，Joker，欢迎使用备忘录!{DateTime.Now.GetDateTimeFormats('D')[1].ToString()}";
+            Title = $"你好，{AppSession.UserName}，欢迎使用备忘录!{DateTime.Now.GetDateTimeFormats('D')[1].ToString()}";
             CreateTaskBars();
             //TaskBars = new ObservableCollection<TaskBar>();
 

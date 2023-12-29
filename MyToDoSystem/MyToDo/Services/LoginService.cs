@@ -16,13 +16,13 @@ namespace MyToDo.Services
             this.client = client;
         }
 
-        public async Task<ApiResponse> LoginAsync(UserDto user)
+        public async Task<ApiResponse<UserDto>> LoginAsync(UserDto user)
         {
             BaseRequest request = new BaseRequest();
             request.Method = RestSharp.Method.POST;
             request.Route = $"api/{serviceName}/Login";
             request.Parameter = user;
-            return await client.ExecuteAsync(request);
+            return await client.ExecuteAsync<UserDto>(request);
         }
 
         public async Task<ApiResponse> RegisterAsync(UserDto user)

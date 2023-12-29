@@ -28,7 +28,7 @@ namespace MyToDo
             Current.MainWindow.Hide();
 
             var dialog = containerProvider.Resolve<IDialogService>();
-
+            
             dialog.ShowDialog("LoginView", callback =>
             {
                 if (callback.Result != ButtonResult.OK)
@@ -49,8 +49,8 @@ namespace MyToDo
             {
                 if (callback.Result != ButtonResult.OK)
                 {
-                    //Environment.Exit(0);
-                    Application.Current.Shutdown();
+                    Environment.Exit(0);
+                    
                     return;
                 }
 

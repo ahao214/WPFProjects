@@ -8,7 +8,7 @@ namespace MyToDo.Services
     /// </summary>
     public interface ILoginService 
     {
-        Task<ApiResponse> LoginAsync(UserDto dto);
+        Task<ApiResponse<UserDto>> LoginAsync(UserDto dto);
 
         Task<ApiResponse> RegisterAsync(UserDto user);
 
