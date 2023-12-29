@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyToDo.Views.Dialog
+namespace MyToDo.Views.Dialogs
 {
     /// <summary>
     /// AddToDoView.xaml 的交互逻辑
