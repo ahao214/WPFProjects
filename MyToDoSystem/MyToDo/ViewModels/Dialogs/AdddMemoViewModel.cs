@@ -4,18 +4,13 @@ using MyToDo.Shared.Dtos;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyToDo.ViewModels.Dialogs
 {
     /// <summary>
     /// Memo弹出框
     /// </summary>
-    public class AdddMemoViewModel : BindableBase, IDialogHostAware
+    public class AdddMemoViewModel : IDialogHostAware
     {
         public AdddMemoViewModel()
         {
@@ -23,30 +18,17 @@ namespace MyToDo.ViewModels.Dialogs
             CancelCommand = new DelegateCommand(Cancel);
         }
 
-        private MemoDto model;
-
-        public MemoDto Model
-        {
-            get { return model; }
-            set { model = value; RaisePropertyChanged(); }
-        }
-
         private void Cancel()
         {
             if (DialogHost.IsDialogOpen(DialogHostName))
-                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.No));
+                DialogHost.Close(DialogHostName);
         }
 
         private void Save()
         {
-            if (string.IsNullOrWhiteSpace(Model.Title) ||
-                string.IsNullOrWhiteSpace(model.Content)) return;
-
             if (DialogHost.IsDialogOpen(DialogHostName))
             {
-                //确定时,把编辑的实体返回并且返回OK
                 DialogParameters param = new DialogParameters();
-                param.Add("Value", Model);
                 DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, param));
             }
         }
@@ -57,13 +39,7 @@ namespace MyToDo.ViewModels.Dialogs
 
         public void OnDialogOpend(IDialogParameters parameters)
         {
-            if (parameters.ContainsKey("Value"))
-            {
-                Model = parameters.GetValue<MemoDto>("Value");
-            }
-            else
-                Model = new MemoDto();
+            throw new NotImplementedException();
         }
-
     }
 }

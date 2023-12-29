@@ -70,7 +70,7 @@ namespace MyToDo.ViewModels
 
         void AddToDo()
         {
-            _dialog.ShowDialog("AddToDoView");
+            _dialog.ShowDialog("AddToDoView",null);
         }
 
         #endregion
