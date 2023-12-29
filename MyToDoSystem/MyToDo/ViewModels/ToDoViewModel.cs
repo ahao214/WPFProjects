@@ -38,15 +38,39 @@ namespace MyToDo.ViewModels
             set { isRightDrawerOpen = value; RaisePropertyChanged(); }
         }
 
+
+
+        public DelegateCommand<string> ExecuteCommand { get; private set; }
+        public DelegateCommand<ToDoDto> SelectedCommand { get; private set; }
+        public DelegateCommand<ToDoDto> DeleteCommand { get; private set; }
+        private ObservableCollection<ToDoDto> toDoDtos;
+        private readonly IToDoService _service;
+
+
+        public ObservableCollection<ToDoDto> ToDoDtos
+        {
+            get { return toDoDtos; }
+            set { toDoDtos = value; RaisePropertyChanged(); }
+        }
+
+        #region 添加待办事项
+
         /// <summary>
         /// 添加待办事项
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         private void Add()
         {
+            CurrentDto = new ToDoDto();
             IsRightDrawerOpen = true;
         }
 
+        #endregion
+
+        #region 保存待办事项
+        /// <summary>
+        /// 保存待办事项
+        /// </summary>
         private async void Save()
         {
             if (string.IsNullOrWhiteSpace(CurrentDto.Title) ||
@@ -92,18 +116,7 @@ namespace MyToDo.ViewModels
             }
         }
 
-        public DelegateCommand<string> ExecuteCommand { get; private set; }
-        public DelegateCommand<ToDoDto> SelectedCommand { get; private set; }
-        public DelegateCommand<ToDoDto> DeleteCommand { get; private set; }
-        private ObservableCollection<ToDoDto> toDoDtos;
-        private readonly IToDoService _service;
-
-
-        public ObservableCollection<ToDoDto> ToDoDtos
-        {
-            get { return toDoDtos; }
-            set { toDoDtos = value; RaisePropertyChanged(); }
-        }
+        #endregion
 
         #region 搜索条件
 
