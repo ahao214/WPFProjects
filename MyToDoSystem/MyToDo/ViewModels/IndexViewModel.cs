@@ -76,14 +76,16 @@ namespace MyToDo.ViewModels
             //}
         }
 
+
+
+        #region 属性
+
         public DelegateCommand<ToDoDto> ToDoCompltedCommand { get; private set; }
         public DelegateCommand<ToDoDto> EditToDoCommand { get; private set; }
         public DelegateCommand<MemoDto> EditMemoCommand { get; private set; }
         public DelegateCommand<string> ExecuteCommand { get; private set; }
 
         public DelegateCommand<TaskBar> NavigateCommand { get; private set; }
-
-        #region 属性
 
         private ObservableCollection<TaskBar> taskBars;
 
@@ -125,7 +127,10 @@ namespace MyToDo.ViewModels
         #endregion
 
 
-        #region 新增待办
+
+
+
+        #region 新增待办事项
 
         async void AddToDo()
         {

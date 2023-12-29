@@ -10,13 +10,22 @@ namespace MyToDo.ViewModels.Dialogs
     /// <summary>
     /// Memo弹出框
     /// </summary>
-    public class AdddMemoViewModel : IDialogHostAware
+    public class AdddMemoViewModel :BindableBase, IDialogHostAware
     {
         public AdddMemoViewModel()
         {
             SaveCommand = new DelegateCommand(Save);
             CancelCommand = new DelegateCommand(Cancel);
         }
+
+        private MemoDto model;
+
+        public MemoDto Model
+        {
+            get { return model; }
+            set { model = value; RaisePropertyChanged(); }
+        }
+
 
         private void Cancel()
         {
@@ -26,9 +35,13 @@ namespace MyToDo.ViewModels.Dialogs
 
         private void Save()
         {
+            if (string.IsNullOrWhiteSpace(Model.Title) || string.IsNullOrWhiteSpace(Model.Content))
+                return;
+
             if (DialogHost.IsDialogOpen(DialogHostName))
             {
                 DialogParameters param = new DialogParameters();
+                param.Add("Value", Model);
                 DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, param));
             }
         }
@@ -39,7 +52,14 @@ namespace MyToDo.ViewModels.Dialogs
 
         public void OnDialogOpend(IDialogParameters parameters)
         {
-            throw new NotImplementedException();
+            if (parameters.ContainsKey("Value"))
+            {
+                Model = parameters.GetValue<MemoDto>("Value");
+            }
+            else
+            {
+                Model = new MemoDto();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MyToDo.ViewModels.Dialogs
     /// <summary>
     /// ToDo对话框
     /// </summary>
-    public class AddToDoViewModel : IDialogHostAware
+    public class AddToDoViewModel :BindableBase, IDialogHostAware
     {
         public AddToDoViewModel()
         {
@@ -19,18 +19,35 @@ namespace MyToDo.ViewModels.Dialogs
             CancelCommand = new DelegateCommand(Cancel);
         }
 
+        private ToDoDto model;
 
+        public ToDoDto Model
+        {
+            get { return model; }
+            set { model = value; RaisePropertyChanged(); }
+        }
+
+        /// <summary>
+        /// 取消
+        /// </summary>
         private void Cancel()
         {
             if (DialogHost.IsDialogOpen(DialogHostName))
                 DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.No));
         }
 
+        /// <summary>
+        /// 确定
+        /// </summary>
         private void Save()
         {
+            if (string.IsNullOrWhiteSpace(Model.Title) || string.IsNullOrWhiteSpace(Model.Content))
+                return;
+
             if (DialogHost.IsDialogOpen(DialogHostName))
             {
                 DialogParameters param = new DialogParameters();
+                param.Add("Value", Model);
                 DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, param));
             }
         }
@@ -41,7 +58,14 @@ namespace MyToDo.ViewModels.Dialogs
 
         public void OnDialogOpend(IDialogParameters parameters)
         {
-            throw new NotImplementedException();
+            if (parameters.ContainsKey("Value"))
+            {
+                Model = parameters.GetValue<ToDoDto>("Value");
+            }
+            else
+            {
+                Model = new ToDoDto();
+            }
         }
     }
 }
