@@ -5,6 +5,7 @@ using Prism.Commands;
 using Prism.Ioc;
 using Prism.Regions;
 using System.Collections.ObjectModel;
+using System.Net;
 
 
 namespace MyToDo.ViewModels
@@ -63,16 +64,23 @@ namespace MyToDo.ViewModels
         /// <param name="dto"></param>
         private async void Delete(MemoDto dto)
         {
-            var result = await _service.DeleteAsync(dto.Id);
-            if (result.Status)
+            try
             {
-                var model = MemoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
-                if (model != null)
+                UpdateLoading(true);
+                var result = await _service.DeleteAsync(dto.Id);
+                if (result.Status)
                 {
-                    MemoDtos.Remove(model);
+                    var model = MemoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
+                    if (model != null)
+                    {
+                        MemoDtos.Remove(model);
+                    }
                 }
             }
-
+            finally
+            {
+                UpdateLoading(false);
+            }
         }
 
         #endregion
