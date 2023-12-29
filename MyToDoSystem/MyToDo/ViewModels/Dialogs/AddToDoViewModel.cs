@@ -1,4 +1,9 @@
-﻿using Prism.Services.Dialogs;
+﻿using MaterialDesignThemes.Wpf;
+using MyToDo.Common;
+using MyToDo.Shared.Dtos;
+using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Services.Dialogs;
 using System.Windows.Ink;
 
 namespace MyToDo.ViewModels.Dialogs
@@ -6,25 +11,63 @@ namespace MyToDo.ViewModels.Dialogs
     /// <summary>
     /// ToDo对话框
     /// </summary>
-    public class AddToDoViewModel : IDialogAware
+    public class AddToDoViewModel : BindableBase, IDialogHostAware
     {
-        public string Title { get; set; }
-
-        public event Action<IDialogResult> RequestClose;
-
-        public bool CanCloseDialog()
+        public AddToDoViewModel()
         {
-            return true;
+            SaveCommand = new DelegateCommand(Save);
+            CancelCommand = new DelegateCommand(Cancel);
         }
 
-        public void OnDialogClosed()
+        private ToDoDto model;
+
+        /// <summary>
+        /// 新增或编辑的实体
+        /// </summary>
+        public ToDoDto Model
         {
-            
+            get { return model; }
+            set { model = value; RaisePropertyChanged(); }
         }
 
-        public void OnDialogOpened(IDialogParameters parameters)
+        /// <summary>
+        /// 取消
+        /// </summary>
+        private void Cancel()
         {
-            
+            if (DialogHost.IsDialogOpen(DialogHostName))
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.No)); //取消返回NO告诉操作结束
+        }
+
+        /// <summary>
+        /// 确定
+        /// </summary>
+        private void Save()
+        {
+            if (string.IsNullOrWhiteSpace(Model.Title) ||
+                string.IsNullOrWhiteSpace(model.Content)) return;
+
+            if (DialogHost.IsDialogOpen(DialogHostName))
+            {
+                //确定时,把编辑的实体返回并且返回OK
+                DialogParameters param = new DialogParameters();
+                param.Add("Value", Model);
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, param));
+            }
+        }
+
+        public string DialogHostName { get; set; }
+        public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
+
+        public void OnDialogOpend(IDialogParameters parameters)
+        {
+            if (parameters.ContainsKey("Value"))
+            {
+                Model = parameters.GetValue<ToDoDto>("Value");
+            }
+            else
+                Model = new ToDoDto();
         }
     }
 }
