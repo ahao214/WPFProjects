@@ -23,7 +23,7 @@ namespace MyToDo.Common
             this.containerExtension = containerExtension;
         }
 
-        public Task<IDialogResult> ShowDialog(string name, IDialogParameters parameters, string dialogHostName = "Root")
+        public async Task<IDialogResult> ShowDialog(string name, IDialogParameters parameters, string dialogHostName = "Root")
         {
             if (parameters == null)
                 parameters = new DialogParameters();
@@ -52,7 +52,7 @@ namespace MyToDo.Common
                 eventArgs.Session.UpdateContent(content);
             };
 
-            return (IDialogResult)await DialogHost.Show(dialogContent, viewModel.DialogHostName, eventHandler);
+            return (IDialogResult) await DialogHost.Show(dialogContent, viewModel.DialogHostName, eventHandler);
         }
     }
 }
