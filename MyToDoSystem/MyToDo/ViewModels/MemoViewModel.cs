@@ -52,7 +52,7 @@ namespace MyToDo.ViewModels
             var memoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
             {
                 PageIndex = 0,
-                PageSize = 10,
+                PageSize = 100,
             });
             if (memoResult.Status)
             {
