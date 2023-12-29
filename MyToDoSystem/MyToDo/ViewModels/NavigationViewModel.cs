@@ -23,12 +23,12 @@ namespace MyToDo.ViewModels
 
         public virtual void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            
         }
 
         public virtual void OnNavigatedTo(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            
         }
 
 

@@ -12,13 +12,12 @@ namespace MyToDo.ViewModels
 {
     public class ToDoViewModel : NavigationViewModel
     {
-        public ToDoViewModel(IToDoService service, IContainerProvider containerProvider) : base(containerProvider)
+        public ToDoViewModel(IToDoService service, IContainerProvider provider) : base(provider)
         {
             ToDoDtos = new ObservableCollection<ToDoDto>();
             ExecuteCommand = new DelegateCommand<string>(Execute);
             SelectedCommand = new DelegateCommand<ToDoDto>(Selected);
-            _service = service;
-            CreateToDoList();
+            _service = service;            
         }
 
         private void Execute(string obj)
@@ -153,23 +152,7 @@ namespace MyToDo.ViewModels
             }
         }
 
-        async void CreateToDoList()
-        {
-            var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
-            {
-                PageIndex = 0,
-                PageSize = 100             
-            });
-            if(todoResult!=null)
-            {
-                ToDoDtos.Clear();
-                foreach (var item in todoResult.Result .Items)
-                {
-                    ToDoDtos.Add(item);
-                }
-            }
-        }
-
+        #region 获取数据
 
         /// <summary>
         /// 获取数据
@@ -181,8 +164,8 @@ namespace MyToDo.ViewModels
             var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
             {
                 PageIndex = 0,
-                PageSize = 100,
-                Search = Search
+                PageSize = 100
+                //Search = Search
             });
 
             if (todoResult.Status)
@@ -195,6 +178,12 @@ namespace MyToDo.ViewModels
             UpdateLoading(false);
         }
 
+        #endregion
+
+        /// <summary>
+        /// 导航数据
+        /// </summary>
+        /// <param name="navigationContext"></param>
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
             base.OnNavigatedTo(navigationContext);
