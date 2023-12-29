@@ -23,6 +23,7 @@
             <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterScreen" />
         </Style>
     </prism:Dialog.WindowStyle>
+
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*" />
@@ -93,15 +94,18 @@
                     <TextBox
                         Margin="0,5"
                         md:HintAssist.Hint="请输入用户名"
-                        DockPanel.Dock="Top" />
+                        DockPanel.Dock="Top"
+                        Text="{Binding UserDto.Account}" />
                     <TextBox
                         Margin="0,5"
                         md:HintAssist.Hint="请输入账号"
-                        DockPanel.Dock="Top" />
+                        DockPanel.Dock="Top"
+                        Text="{Binding UserDto.UserName}" />
 
                     <PasswordBox
                         Margin="0,5"
                         md:HintAssist.Hint="请输入密码"
+                        pass:PassWordExtensions.PassWord="{Binding UserDto.PassWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DockPanel.Dock="Top">
                         <i:Interaction.Behaviors>
                             <pass:PasswordBehavior />
@@ -111,16 +115,23 @@
                     <PasswordBox
                         Margin="0,5"
                         md:HintAssist.Hint="请再次输入密码"
+                        pass:PassWordExtensions.PassWord="{Binding UserDto.NewPassWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         DockPanel.Dock="Top">
                         <i:Interaction.Behaviors>
                             <pass:PasswordBehavior />
                         </i:Interaction.Behaviors>
                     </PasswordBox>
 
-                    <Button Content="注册账号" DockPanel.Dock="Top" />
+                    <Button
+                        Command="{Binding ExecuteCommand}"
+                        CommandParameter="Resgiter"
+                        Content="注册账号"
+                        DockPanel.Dock="Top" />
 
                     <Button
                         Margin="0,10"
+                        Command="{Binding ExecuteCommand}"
+                        CommandParameter="Return"
                         Content="返回登录"
                         DockPanel.Dock="Top"
                         Style="{StaticResource MaterialDesignOutlinedButton}" />

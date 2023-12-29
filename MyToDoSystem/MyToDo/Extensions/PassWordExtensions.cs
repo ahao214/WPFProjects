@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xaml.Behaviors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 
@@ -24,6 +19,11 @@ namespace MyToDo.Extensions
         public static readonly DependencyProperty PassWordProperty =
             DependencyProperty.RegisterAttached("PassWord", typeof(string), typeof(PassWordExtensions), new FrameworkPropertyMetadata(string.Empty, OnPassWordPropertyChanged));
 
+        /// <summary>
+        /// 密码属性变更事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         static void OnPassWordPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             var passWord = sender as PasswordBox;
