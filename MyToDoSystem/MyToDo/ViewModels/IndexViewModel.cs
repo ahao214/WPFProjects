@@ -10,6 +10,7 @@ using MyToDo.Services;
 using Prism.Regions;
 using System.Numerics;
 using MyToDo.Extensions;
+using ImTools;
 
 namespace MyToDo.ViewModels
 {
@@ -32,9 +33,9 @@ namespace MyToDo.ViewModels
             this.memoService = provider.Resolve<IMemoService>();
             //this.regionManager = provider.Resolve<IRegionManager>();
             _dialog = dialog;
-            //EditMemoCommand = new DelegateCommand<MemoDto>(AddMemo);
-            //EditToDoCommand = new DelegateCommand<ToDoDto>(AddToDo);
-            //ToDoCompltedCommand = new DelegateCommand<ToDoDto>(Complted);
+            EditMemoCommand = new DelegateCommand<MemoDto>(AddMemo);
+            EditToDoCommand = new DelegateCommand<ToDoDto>(AddToDo);
+            ToDoCompltedCommand = new DelegateCommand<ToDoDto>(Complted);
             //NavigateCommand = new DelegateCommand<TaskBar>(Navigate);
         }
 
@@ -51,30 +52,7 @@ namespace MyToDo.ViewModels
             //regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.Target, param);
         }
 
-        private async void Complted(ToDoDto obj)
-        {
-            //try
-            //{
-            //    UpdateLoading(true);
-            //    var updateResult = await toDoService.UpdateAsync(obj);
-            //    if (updateResult.Status)
-            //    {
-            //        var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
-            //        if (todo != null)
-            //        {
-            //            summary.ToDoList.Remove(todo);
-            //            summary.CompletedCount += 1;
-            //            summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
-            //            this.Refresh();
-            //        }
-            //        aggregator.SendMessage("已完成!");
-            //    }
-            //}
-            //finally
-            //{
-            //    UpdateLoading(false);
-            //}
-        }
+
 
 
 
@@ -113,34 +91,82 @@ namespace MyToDo.ViewModels
         }
         #endregion
 
+        #region 完成
+
+        private async void Complted(ToDoDto obj)
+        {
+            var updateResult = await toDoService.UpdateAsync(obj);
+            if (updateResult.Status)
+            {
+                var todo = ToDoDtos.FirstOrDefault(t => t.Id.Equals(obj.Id));
+                if (todo != null)
+                {
+                    ToDoDtos.Remove(obj);
+                }
+            }
+            //try
+            //{
+            //    UpdateLoading(true);
+            //    var updateResult = await toDoService.UpdateAsync(obj);
+            //    if (updateResult.Status)
+            //    {
+            //        var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
+            //        if (todo != null)
+            //        {
+            //            summary.ToDoList.Remove(todo);
+            //            summary.CompletedCount += 1;
+            //            summary.CompletedRatio = (summary.CompletedCount / (double)summary.Sum).ToString("0%");
+            //            this.Refresh();
+            //        }
+            //        aggregator.SendMessage("已完成!");
+            //    }
+            //}
+            //finally
+            //{
+            //    UpdateLoading(false);
+            //}
+        }
+
+        #endregion
 
         #region 添加
         private void Execute(string obj)
         {
             switch (obj)
             {
-                case "新增待办": AddToDo(); break;
-                case "新增备忘录": AddMemo(); break;
+                case "新增待办": AddToDo(null); break;
+                case "新增备忘录": AddMemo(null); break;
             }
         }
 
         #endregion
 
-
-
-
-
         #region 新增待办事项
 
-        async void AddToDo()
+        async void AddToDo(ToDoDto model)
         {
-            var dialog = await _dialog.ShowDialog("AddToDoView", null);
+            DialogParameters param = new DialogParameters();
+            if (model != null)
+            {
+                param.Add("Value", model);
+            }
+
+            var dialog = await _dialog.ShowDialog("AddToDoView", param);
             if (dialog.Result == ButtonResult.OK)
             {
                 var todo = dialog.Parameters.GetValue<ToDoDto>("Value");
                 if (todo.Id > 0)
                 {
-
+                    var updResult = await toDoService.UpdateAsync(todo);
+                    if (updResult.Status)
+                    {
+                        var todoModel = ToDoDtos.FirstOrDefault(t => t.Id.Equals(todo.Id));
+                        if (todoModel != null)
+                        {
+                            todoModel.Title = todo.Title;
+                            todoModel.Content = todo.Content;
+                        }
+                    }
                 }
                 else
                 {
@@ -158,15 +184,30 @@ namespace MyToDo.ViewModels
 
         #region 新增备忘录
 
-        async void AddMemo()
+        async void AddMemo(MemoDto model)
         {
-            var dialog = await _dialog.ShowDialog("AddMemoView", null);
+            DialogParameters param = new DialogParameters();
+            if (model != null)
+            {
+                param.Add("Value", model);
+            }
+
+            var dialog = await _dialog.ShowDialog("AddMemoView", param);
             if (dialog.Result == ButtonResult.OK)
             {
                 var memo = dialog.Parameters.GetValue<MemoDto>("Value");
                 if (memo.Id > 0)
                 {
-
+                    var updResult = await memoService.UpdateAsync(memo);
+                    if (updResult.Status)
+                    {
+                        var memoModel = MemoDtos.FirstOrDefault(t => t.Id.Equals(memo.Id));
+                        if (memoModel != null)
+                        {
+                            memoModel.Title = memo.Title;
+                            memoModel.Content = memo.Content;
+                        }
+                    }
                 }
                 else
                 {
