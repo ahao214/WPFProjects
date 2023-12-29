@@ -8,6 +8,9 @@ namespace MyToDo.Shared.Parameters
 {
     public class ToDoParameter : QueryParameter
     {
+        /// <summary>
+        /// 当前状态
+        /// </summary>
         public int? Status { get; set; }
     }
 }

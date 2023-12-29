@@ -82,13 +82,13 @@ namespace MyToDo.Api.Service
             try
             {
                 var repository = work.GetRepository<ToDo>();
-                //var todos = await repository.GetPagedListAsync(predicate:
-                //   x => (string.IsNullOrWhiteSpace(parameter.Search) ? true : x.Title.Contains(parameter.Search))
-                //   && (parameter.Status == null ? true : x.Status.Equals(parameter.Status)),
-                //   pageIndex: parameter.PageIndex,
-                //   pageSize: parameter.PageSize,
-                //   orderBy: source => source.OrderByDescending(t => t.CreateDate));
-                var todos = await repository.GetAllAsync();
+                var todos = await repository.GetPagedListAsync(predicate:
+                   x => (string.IsNullOrWhiteSpace(parameter.Search) ? true : x.Title.Contains(parameter.Search))
+                   && (parameter.Status == null ? true : x.Status.Equals(parameter.Status)),
+                   pageIndex: parameter.PageIndex,
+                   pageSize: parameter.PageSize,
+                   orderBy: source => source.OrderByDescending(t => t.CreateDate));
+                
                 return new ApiResponse(true, todos);
             }
             catch (Exception ex)

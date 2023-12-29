@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using MyToDo.Shared.Dtos;
 using Prism.Ioc;
 using Prism.Regions;
+using MyToDo.Shared.Parameters;
 
 
 namespace MyToDo.ViewModels
@@ -48,6 +49,16 @@ namespace MyToDo.ViewModels
         private ObservableCollection<ToDoDto> toDoDtos;
         private readonly IToDoService _service;
 
+        private int selectedIndex;
+
+        /// <summary>
+        /// 下拉列表选中状态值
+        /// </summary>
+        public int SelectedIndex
+        {
+            get { return selectedIndex; }
+            set { selectedIndex = value; RaisePropertyChanged(); }
+        }
 
         public ObservableCollection<ToDoDto> ToDoDtos
         {
@@ -66,7 +77,7 @@ namespace MyToDo.ViewModels
             if (result.Status)
             {
                 var model = ToDoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
-                if(model != null)
+                if (model != null)
                 {
                     ToDoDtos.Remove(model);
                 }
@@ -205,11 +216,14 @@ namespace MyToDo.ViewModels
         {
             UpdateLoading(true);
 
-            var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
+            int? Status = SelectedIndex == 0 ? null : SelectedIndex == 2 ? 1 : 0;
+
+            var todoResult = await _service.GetAllFilterAsync(new ToDoParameter()
             {
                 PageIndex = 0,
                 PageSize = 100,
-                Search = Search
+                Search = Search,
+                Status = Status
             });
 
             if (todoResult.Status)
