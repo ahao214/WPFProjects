@@ -1,4 +1,9 @@
-﻿using Prism.Services.Dialogs;
+﻿using MaterialDesignThemes.Wpf;
+using MyToDo.Common;
+using MyToDo.Shared.Dtos;
+using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Services.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,27 +13,57 @@ using System.Threading.Tasks;
 namespace MyToDo.ViewModels.Dialogs
 {
     /// <summary>
-    /// Memo对话框
+    /// Memo弹出框
     /// </summary>
-    public class AdddMemoViewModel : IDialogAware
+    public class AdddMemoViewModel : BindableBase, IDialogHostAware
     {
-        public string Title { get; set; }
-
-        public event Action<IDialogResult> RequestClose;
-
-        public bool CanCloseDialog()
+        public AdddMemoViewModel()
         {
-            return true;
+            SaveCommand = new DelegateCommand(Save);
+            CancelCommand = new DelegateCommand(Cancel);
         }
 
-        public void OnDialogClosed()
+        private MemoDto model;
+
+        public MemoDto Model
         {
-            
+            get { return model; }
+            set { model = value; RaisePropertyChanged(); }
         }
 
-        public void OnDialogOpened(IDialogParameters parameters)
+        private void Cancel()
         {
-            
+            if (DialogHost.IsDialogOpen(DialogHostName))
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.No));
         }
+
+        private void Save()
+        {
+            if (string.IsNullOrWhiteSpace(Model.Title) ||
+                string.IsNullOrWhiteSpace(model.Content)) return;
+
+            if (DialogHost.IsDialogOpen(DialogHostName))
+            {
+                //确定时,把编辑的实体返回并且返回OK
+                DialogParameters param = new DialogParameters();
+                param.Add("Value", Model);
+                DialogHost.Close(DialogHostName, new DialogResult(ButtonResult.OK, param));
+            }
+        }
+
+        public string DialogHostName { get; set; }
+        public DelegateCommand SaveCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
+
+        public void OnDialogOpend(IDialogParameters parameters)
+        {
+            if (parameters.ContainsKey("Value"))
+            {
+                Model = parameters.GetValue<MemoDto>("Value");
+            }
+            else
+                Model = new MemoDto();
+        }
+
     }
 }
