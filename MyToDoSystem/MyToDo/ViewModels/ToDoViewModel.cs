@@ -73,14 +73,22 @@ namespace MyToDo.ViewModels
         /// <param name="dto"></param>
         private async void Delete(ToDoDto dto)
         {
-            var result = await _service.DeleteAsync(dto.Id);
-            if (result.Status)
+            try
             {
-                var model = ToDoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
-                if (model != null)
+                UpdateLoading(true);
+                var result = await _service.DeleteAsync(dto.Id);
+                if (result.Status)
                 {
-                    ToDoDtos.Remove(model);
+                    var model = ToDoDtos.FirstOrDefault(t => t.Id.Equals(dto.Id));
+                    if (model != null)
+                    {
+                        ToDoDtos.Remove(model);
+                    }
                 }
+            }
+            finally
+            {
+                UpdateLoading(false);
             }
 
         }
