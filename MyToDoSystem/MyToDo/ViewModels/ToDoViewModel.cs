@@ -6,6 +6,7 @@ using MyToDo.Shared.Dtos;
 using Prism.Ioc;
 using Prism.Regions;
 using System.Windows.Controls.Primitives;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace MyToDo.ViewModels
 {
@@ -17,6 +18,7 @@ namespace MyToDo.ViewModels
             ExecuteCommand = new DelegateCommand<string>(Execute);
             SelectedCommand = new DelegateCommand<ToDoDto>(Selected);
             _service = service;
+            CreateToDoList();
         }
 
         private void Execute(string obj)
@@ -150,6 +152,24 @@ namespace MyToDo.ViewModels
                 UpdateLoading(false);
             }
         }
+
+        async void CreateToDoList()
+        {
+            var todoResult = await _service.GetAllAsync(new Shared.Parameters.QueryParameter()
+            {
+                PageIndex = 0,
+                PageSize = 100             
+            });
+            if(todoResult!=null)
+            {
+                ToDoDtos.Clear();
+                foreach (var item in todoResult.Result .Items)
+                {
+                    ToDoDtos.Add(item);
+                }
+            }
+        }
+
 
         /// <summary>
         /// 获取数据
