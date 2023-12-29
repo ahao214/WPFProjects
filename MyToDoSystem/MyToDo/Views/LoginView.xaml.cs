@@ -12,11 +12,11 @@ namespace MyToDo.Views
         public LoginView(IEventAggregator aggregator)
         {
             InitializeComponent();
-            ////注册提示消息
-            //aggregator.RegisterMessage(arg =>
-            //{
-            //    LoginSnakeBar.MessageQueue.Enqueue(arg.Message);
-            //}, "Login");
+            //注册提示消息
+            aggregator.RegisterMessage(arg =>
+            {
+                LoginSnakeBar.MessageQueue.Enqueue(arg.Message);
+            }, "Login");
         }
     }
 }

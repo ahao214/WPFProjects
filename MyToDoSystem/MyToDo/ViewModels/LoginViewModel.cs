@@ -10,6 +10,9 @@ namespace MyToDo.ViewModels
 {
     public class LoginViewModel : BindableBase, IDialogAware
     {
+        private readonly ILoginService loginService;
+        private readonly IEventAggregator aggregator;
+
         public LoginViewModel(ILoginService loginService, IEventAggregator aggregator)
         {
             UserDto = new ResgiterUserDto();
@@ -49,6 +52,13 @@ namespace MyToDo.ViewModels
 
         public DelegateCommand<string> ExecuteCommand { get; private set; }
 
+        private int selectedIndex;
+
+        public int SelectedIndex
+        {
+            get { return selectedIndex; }
+            set { selectedIndex = value; RaisePropertyChanged(); }
+        }
 
         private string userName;
 
@@ -67,8 +77,7 @@ namespace MyToDo.ViewModels
         }
 
         private string passWord;
-        private readonly ILoginService loginService;
-        private readonly IEventAggregator aggregator;
+
 
         public string PassWord
         {
@@ -82,9 +91,12 @@ namespace MyToDo.ViewModels
             {
                 case "Login": Login(); break;
                 case "LoginOut": LoginOut(); break;
-                case "Resgiter": Resgiter(); break;
-                case "ResgiterPage": SelectIndex = 1; break;
-                case "Return": SelectIndex = 0; break;
+                // 注册账号
+                case "Register": Resgiter(); break;
+                // 跳转注册页面
+                case "Go": SelectedIndex = 1; break;
+                // 返回登录页面
+                case "Return": SelectedIndex = 0; break;
             }
         }
 
@@ -98,19 +110,21 @@ namespace MyToDo.ViewModels
 
         async void Login()
         {
-            if (string.IsNullOrWhiteSpace(UserName) ||
+            if (string.IsNullOrWhiteSpace(account) ||
                 string.IsNullOrWhiteSpace(PassWord))
             {
+                aggregator.SendMessage("用户名或密码不能为空", "Login");
                 return;
             }
 
             var loginResult = await loginService.LoginAsync(new Shared.Dtos.UserDto()
             {
-                Account = UserName,
-                PassWord = PassWord
+                Account = Account,
+                PassWord = PassWord,
+                UserName = Account
             });
 
-            if (loginResult != null && !loginResult.Status)
+            if (loginResult != null && loginResult.Status)
             {
                 RequestClose?.Invoke(new DialogResult(ButtonResult.OK));
                 return;
@@ -127,13 +141,13 @@ namespace MyToDo.ViewModels
             if (string.IsNullOrWhiteSpace(UserDto.Account) ||
                 string.IsNullOrWhiteSpace(UserDto.UserName) ||
                 string.IsNullOrWhiteSpace(UserDto.PassWord) ||
-                string.IsNullOrWhiteSpace(UserDto.NewPassWord))
+                string.IsNullOrWhiteSpace(UserDto.NewpassWord))
             {
                 aggregator.SendMessage("请输入完整的注册信息！", "Login");
                 return;
             }
 
-            if (UserDto.PassWord != UserDto.NewPassWord)
+            if (UserDto.PassWord != UserDto.NewpassWord)
             {
                 aggregator.SendMessage("密码不一致,请重新输入！", "Login");
                 return;
@@ -150,10 +164,13 @@ namespace MyToDo.ViewModels
             {
                 aggregator.SendMessage("注册成功", "Login");
                 //注册成功,返回登录页页面
-                SelectIndex = 0;
+                SelectedIndex = 0;
+                return;
             }
             else
+            {
                 aggregator.SendMessage(resgiterResult.Message, "Login");
+            }
         }
 
         void LoginOut()

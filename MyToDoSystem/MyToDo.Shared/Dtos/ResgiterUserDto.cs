@@ -34,7 +34,7 @@ namespace MyToDo.Shared.Dtos
 
         private string newpassWord;
 
-        public string NewPassWord
+        public string NewpassWord
         {
             get { return newpassWord; }
             set { newpassWord = value; OnPropertyChanged(); }
