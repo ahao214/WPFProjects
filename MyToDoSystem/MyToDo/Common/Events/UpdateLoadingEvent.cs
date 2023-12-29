@@ -1,9 +1,4 @@
 ﻿using Prism.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyToDo.Common.Events
 {
@@ -13,6 +8,9 @@ namespace MyToDo.Common.Events
         public bool IsOpen { get; set; }
     }
 
+    /// <summary>
+    /// 登录Event
+    /// </summary>
     public class UpdateLoadingEvent : PubSubEvent<UpdateModel>
     {
     }
