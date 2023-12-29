@@ -131,13 +131,23 @@
                                         </Grid.RowDefinitions>
 
                                         <md:PopupBox HorizontalAlignment="Right" Panel.ZIndex="1">
-                                            <Button Content="删除" />
+                                            <Button Content="删除" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
                                         </md:PopupBox>
 
-                                        <Border
-                                            Grid.RowSpan="2"
-                                            Background="Green"
-                                            CornerRadius="3" />
+                                        <Border Grid.RowSpan="2" CornerRadius="3">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Status}" Value="0">
+                                                            <Setter Property="Background" Value="#3C8371" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Status}" Value="1">
+                                                            <Setter Property="Background" Value="#1E90FF" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                        </Border>
 
                                         <TextBlock
                                             Padding="10,5"
