@@ -1,5 +1,4 @@
-﻿using Prism.Mvvm;
-using MyToDo.Common.Models;
+﻿using MyToDo.Common.Models;
 using System.Collections.ObjectModel;
 using MyToDo.Shared.Dtos;
 using Prism.Commands;
@@ -8,9 +7,6 @@ using MyToDo.Common;
 using Prism.Ioc;
 using MyToDo.Services;
 using Prism.Regions;
-using System.Numerics;
-using MyToDo.Extensions;
-using ImTools;
 
 namespace MyToDo.ViewModels
 {
@@ -25,8 +21,6 @@ namespace MyToDo.ViewModels
         {
             CreateTaskBars();
             //TaskBars = new ObservableCollection<TaskBar>();
-            ToDoDtos = new ObservableCollection<ToDoDto>();
-            MemoDtos = new ObservableCollection<MemoDto>();
 
             ExecuteCommand = new DelegateCommand<string>(Execute);
             this.toDoService = provider.Resolve<IToDoService>();
@@ -52,10 +46,6 @@ namespace MyToDo.ViewModels
             //regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(obj.Target, param);
         }
 
-
-
-
-
         #region 属性
 
         public DelegateCommand<ToDoDto> ToDoCompltedCommand { get; private set; }
@@ -73,22 +63,18 @@ namespace MyToDo.ViewModels
             set { taskBars = value; RaisePropertyChanged(); }
         }
 
-        private ObservableCollection<ToDoDto> toDoDtos;
-
-        public ObservableCollection<ToDoDto> ToDoDtos
-        {
-            get { return toDoDtos; }
-            set { toDoDtos = value; RaisePropertyChanged(); }
-        }
-
-        private ObservableCollection<MemoDto> memoDtos;
         private readonly IDialogHostService _dialog;
-
-        public ObservableCollection<MemoDto> MemoDtos
+        private SummaryDto summary;
+        /// <summary>
+        /// 首页统计
+        /// </summary>
+        public SummaryDto Summary
         {
-            get { return memoDtos; }
-            set { memoDtos = value; RaisePropertyChanged(); }
+            get { return summary; }
+            set { summary = value; RaisePropertyChanged(); }
         }
+
+
         #endregion
 
         #region 完成
@@ -98,10 +84,10 @@ namespace MyToDo.ViewModels
             var updateResult = await toDoService.UpdateAsync(obj);
             if (updateResult.Status)
             {
-                var todo = ToDoDtos.FirstOrDefault(t => t.Id.Equals(obj.Id));
+                var todo = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(obj.Id));
                 if (todo != null)
                 {
-                    ToDoDtos.Remove(obj);
+                    summary.ToDoList.Remove(obj);
                 }
             }
             //try
@@ -160,7 +146,7 @@ namespace MyToDo.ViewModels
                     var updResult = await toDoService.UpdateAsync(todo);
                     if (updResult.Status)
                     {
-                        var todoModel = ToDoDtos.FirstOrDefault(t => t.Id.Equals(todo.Id));
+                        var todoModel = summary.ToDoList.FirstOrDefault(t => t.Id.Equals(todo.Id));
                         if (todoModel != null)
                         {
                             todoModel.Title = todo.Title;
@@ -173,7 +159,7 @@ namespace MyToDo.ViewModels
                     var addResult = await toDoService.AddAsync(todo);
                     if (addResult.Status)
                     {
-                        ToDoDtos.Add(addResult.Result);
+                        summary.ToDoList.Add(addResult.Result);
                     }
                 }
             }
@@ -201,7 +187,7 @@ namespace MyToDo.ViewModels
                     var updResult = await memoService.UpdateAsync(memo);
                     if (updResult.Status)
                     {
-                        var memoModel = MemoDtos.FirstOrDefault(t => t.Id.Equals(memo.Id));
+                        var memoModel = summary.MemoList.FirstOrDefault(t => t.Id.Equals(memo.Id));
                         if (memoModel != null)
                         {
                             memoModel.Title = memo.Title;
@@ -214,7 +200,7 @@ namespace MyToDo.ViewModels
                     var memoResult = await memoService.AddAsync(memo);
                     if (memoResult.Status)
                     {
-                        MemoDtos.Add(memoResult.Result);
+                        summary.MemoList.Add(memoResult.Result);
                     }
                 }
             }
@@ -228,15 +214,33 @@ namespace MyToDo.ViewModels
         void CreateTaskBars()
         {
             TaskBars = new ObservableCollection<TaskBar>();
-            TaskBars.Add(new TaskBar { Icon = "ClockFast", Title = "汇总", Content = "9", Color = "#FF0CA0FF", Target = "" });
-            TaskBars.Add(new TaskBar { Icon = "ClockCheckOutline", Title = "已完成", Content = "9", Color = "#FF1ECA3A", Target = "" });
-            TaskBars.Add(new TaskBar { Icon = "ChartLineVariant", Title = "完成比例", Content = "100%", Color = "#FF02C6DC", Target = "" });
-            TaskBars.Add(new TaskBar { Icon = "PlaylistStar", Title = "备忘录", Content = "19", Color = "#FFFFA000", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "ClockFast", Title = "汇总", Color = "#FF0CA0FF", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "ClockCheckOutline", Title = "已完成", Color = "#FF1ECA3A", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "ChartLineVariant", Title = "完成比例", Color = "#FF02C6DC", Target = "" });
+            TaskBars.Add(new TaskBar { Icon = "PlaylistStar", Title = "备忘录", Color = "#FFFFA000", Target = "" });
 
         }
 
         #endregion
 
+        public override async void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            var summaryResult = await toDoService.SummaryAsync();
+            if (summaryResult.Status)
+            {
+                Summary = summaryResult.Result;
+                Refresh();
+            }
+            base.OnNavigatedTo(navigationContext);
+        }
+
+        void Refresh()
+        {
+            TaskBars[0].Content = summary.Sum.ToString();
+            TaskBars[1].Content = summary.CompletedCount.ToString();
+            TaskBars[2].Content = summary.CompletedRatio;
+            TaskBars[3].Content = summary.MemoeCount.ToString();
+        }
 
     }
 }

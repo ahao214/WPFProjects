@@ -24,12 +24,15 @@ namespace MyToDo.Services
             return await client.ExecuteAsync<PagedList<ToDoDto>>(request);
         }
 
+        /// <summary>
+        /// 获取统计数据
+        /// </summary>
+        /// <returns></returns>
         public async Task<ApiResponse<SummaryDto>> SummaryAsync()
         {
             BaseRequest request = new BaseRequest();
             request.Route = "api/ToDo/Summary";
             return await client.ExecuteAsync<SummaryDto>(request);  
-
         }
     }
 }
