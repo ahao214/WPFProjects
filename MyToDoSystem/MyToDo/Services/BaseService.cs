@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace MyToDo.Services
 {
+    /// <summary>
+    /// 基础服务方法
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
         private readonly HttpRestClient _client;
@@ -32,7 +36,7 @@ namespace MyToDo.Services
         {
             BaseRequest request = new BaseRequest();
             request.Method = RestSharp.Method.DELETE;
-            request.Route = $"api/{_serviceName}/Delete={id}";
+            request.Route = $"api/{_serviceName}/Delete?id={id}";
             return await _client.ExecuteAsync(request);
         }
 
@@ -50,7 +54,7 @@ namespace MyToDo.Services
         {
             BaseRequest request = new BaseRequest();
             request.Method = RestSharp.Method.GET;
-            request.Route = $"api/{_serviceName}/id={id}";
+            request.Route = $"api/{_serviceName}/Get?id={id}";
             return await _client.ExecuteAsync<TEntity>(request);
         }
 
