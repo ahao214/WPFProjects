@@ -174,13 +174,28 @@ namespace SqlServerTool
 
         #endregion
 
-        #region 自定义函数
+        #region 查看函数脚本
         private void FcMi_Click(object sender, RoutedEventArgs e)
         {
             TreeNode tn = GetSelectTreeNode(TreeNodeType.Function);
             if (tn == null)
                 return;
-            throw new NotImplementedException();
+            string sql = string.Format(SqlConst.GetFunction, tn.Name);
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                DataTable dt = db.GetDataTable(sql);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    sb.AppendFormat("{0}", dr[0]);
+                }
+                TxtSql.Text = sb.ToString();
+            }
+            catch (Exception err)
+            {
+
+                throw;
+            }
         }
 
         #endregion

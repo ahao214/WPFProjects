@@ -57,5 +57,12 @@ namespace SqlServerTool.SqlItem
         public const string GetProcedure = "sp_helpindex '{0}'";
 
         #endregion
+
+        #region 查看函数
+
+        public const string GetFunction = "sp_helpindex '{0}'";
+
+        #endregion
+
     }
 }
