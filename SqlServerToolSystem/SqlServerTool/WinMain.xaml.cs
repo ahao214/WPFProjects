@@ -1,5 +1,6 @@
 ﻿using SqlServerTool.CustomClass;
 using SqlServerTool.DatabaseHelper;
+using SqlServerTool.FileRwHelper;
 using SqlServerTool.SqlItem;
 using System;
 using System.Collections.Generic;
@@ -195,12 +196,49 @@ namespace SqlServerTool
         }
         #endregion
 
+        #region 生成INSERT语句
 
-
+        /// <summary>
+        /// 生成INSERT语句
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NotImplementedException"></exception>
         private void TbMiThree_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.Table);
+            if (tn == null)
+                return;
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                FileReadWrite fileRead = new FileReadWrite(AppDomain.CurrentDomain.BaseDirectory + "\\Sql.txt");
+                //通过读取文件的方式进行获取SQL脚本
+                string sql = string.Format(fileRead.ReadFile(), tn.Name);
+                DataSet ds = db.GetDataSet(sql);
+                foreach (DataTable dt in ds.Tables)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        for (int i = 0; i < dt.Columns.Count; i++)
+                        {
+                            sb.Append(dr[i].ToString());
+                        }
+                        sb.Append(";\r\n");
+                    }
+                }
+                TxtSql.Text = sb.ToString();
+                DocContent.Children.Clear();
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message, Caption, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
         }
+
+        #endregion
 
         #region 生成创建表语句Create脚本
         /// <summary>
@@ -288,7 +326,7 @@ namespace SqlServerTool
                     string[] typeArr = type.Split(' ');
                     if (typeArr.Length > 3)
                     {
-                        sb.AppendFormat("DEFAULT {0} FOR [{1}],",keys, typeArr[3]);
+                        sb.AppendFormat("DEFAULT {0} FOR [{1}],", keys, typeArr[3]);
 
                     }
                     else
@@ -305,8 +343,8 @@ namespace SqlServerTool
             sb.Append(";\r\n");
             // 索引
             sql = string.Format(SqlConst.GetIndex, tbName);
-            if(ds.Tables .Count ==0) { return; }
-            foreach (DataRow dr in ds.Tables[0].Rows )
+            if (ds.Tables.Count == 0) { return; }
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 sb.AppendFormat("CREATE INDEX [{0}] ON [{1}] ({2})", dr["index_name"], tbName, dr["index_keys"]);
             }

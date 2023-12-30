@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CustomClass\TreeNode.cs" />
+    <Compile Include="FileRwHelper\FileReadWrite.cs" />
     <Compile Include="SqlItem\SqlConst.cs" />
     <Compile Include="WinMain.xaml.cs">
       <DependentUpon>WinMain.xaml</DependentUpon>
