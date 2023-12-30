@@ -196,7 +196,7 @@ namespace SqlServerTool
         #endregion
 
 
-        #region 表
+
         private void TbMiThree_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
@@ -282,19 +282,47 @@ namespace SqlServerTool
                 string keys = dr["constraint_keys"].ToString();
                 string name = dr["constraint_name"].ToString();
                 sb.AppendFormat(" CONSTRAINT [{0}]", name);
+
+                if (keys.StartsWith("("))
+                {
+                    string[] typeArr = type.Split(' ');
+                    if (typeArr.Length > 3)
+                    {
+                        sb.AppendFormat("DEFAULT {0} FOR [{1}],",keys, typeArr[3]);
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    sb.AppendFormat("{0} ([{1}]),", type.Replace("(", "").Replace(")", "").ToUpper(), keys);
+                }
+            }
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(";\r\n");
+            // 索引
+            sql = string.Format(SqlConst.GetIndex, tbName);
+            if(ds.Tables .Count ==0) { return; }
+            foreach (DataRow dr in ds.Tables[0].Rows )
+            {
+                sb.AppendFormat("CREATE INDEX [{0}] ON [{1}] ({2})", dr["index_name"], tbName, dr["index_keys"]);
             }
 
             TxtSql.Text = sb.ToString();
+
+            DocContent.Children.Clear();
+
+
         }
 
         #endregion
 
-        #region
 
 
-
-        #endregion
-
+        #region 查看表结构
         /// <summary>
         /// 查看表结构
         /// </summary>
@@ -312,8 +340,9 @@ namespace SqlServerTool
             Execute(sql);
         }
 
-
         #endregion
+
+
 
         #region 执行SQL语句
         /// <summary>

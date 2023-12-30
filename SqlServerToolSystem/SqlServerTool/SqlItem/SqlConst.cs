@@ -43,5 +43,13 @@ namespace SqlServerTool.SqlItem
         public const string GetConstraint = @"EXEC sys.sp_helpconstraint '{0}','nomsg'";
 
         #endregion
+
+        #region 获取索引
+        /// <summary>
+        /// 获取索引
+        /// </summary>
+        public const string GetIndex = "EXEC sys.sp_helpindex '{0}'";
+
+        #endregion
     }
 }
