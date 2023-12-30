@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shell.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,13 @@ namespace Shell.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as MainWindowViewModel;
         }
     }
 }
