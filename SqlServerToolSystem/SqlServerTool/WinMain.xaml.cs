@@ -191,7 +191,17 @@ namespace SqlServerTool
             TreeNode tn = GetSelectTreeNode(TreeNodeType.Procedure);
             if (tn == null)
                 return;
-            throw new NotImplementedException();
+
+            string sql = string.Format(SqlConst.GetProcedure, tn.Name);
+            StringBuilder sb = new StringBuilder();
+            DataTable dt = db.GetDataTable(tn.Name);
+            foreach (DataRow dr in dt.Rows)
+            {
+                sb.AppendFormat("{0}", dr[0]);
+
+            }
+            TxtSql.Text = sb.ToString();
+
         }
         #endregion
 
