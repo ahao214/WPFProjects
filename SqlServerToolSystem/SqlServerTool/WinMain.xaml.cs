@@ -177,6 +177,9 @@ namespace SqlServerTool
         #region 自定义函数
         private void FcMi_Click(object sender, RoutedEventArgs e)
         {
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.Function);
+            if (tn == null)
+                return;
             throw new NotImplementedException();
         }
 
@@ -185,15 +188,29 @@ namespace SqlServerTool
         #region 存储过程
         private void PrMi_Click(object sender, RoutedEventArgs e)
         {
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.Procedure);
+            if (tn == null)
+                return;
             throw new NotImplementedException();
         }
         #endregion
 
-        #region 视图
+        #region 查看视图
+        /// <summary>
+        /// 查看视图
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NotImplementedException"></exception>
         private void VmMi_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            TreeNode tn = GetSelectTreeNode(TreeNodeType.View);
+            if (tn == null)
+                return;
+            string sql = string.Format(SqlConst.GetColumns, tn.Name);
+            Execute(sql);
         }
+
         #endregion
 
         #region 生成INSERT语句
