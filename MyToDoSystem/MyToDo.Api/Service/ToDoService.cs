@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using MyToDo.Shared;
+using MyToDo.Api.IService;
 
 namespace MyToDo.Api.Service
 {

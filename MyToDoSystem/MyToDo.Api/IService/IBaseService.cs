@@ -1,10 +1,8 @@
-﻿using MyToDo.Shared.Parameters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MyToDo.Api.Service;
+using MyToDo.Shared.Parameters;
 
-namespace MyToDo.Api.Service
+
+namespace MyToDo.Api.IService
 {
     public interface IBaseService<T>
     {

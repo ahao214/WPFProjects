@@ -1,10 +1,11 @@
-﻿using MyToDo.Shared.Dtos;
+﻿using MyToDo.Api.Service;
+using MyToDo.Shared.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyToDo.Api.Service
+namespace MyToDo.Api.IService
 {
     public interface ILoginService
     {

@@ -4,6 +4,7 @@ using MyToDo.Api;
 using MyToDo.Api.Context;
 using MyToDo.Api.Context.Repository;
 using MyToDo.Api.Extensions;
+using MyToDo.Api.IService;
 using MyToDo.Api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
