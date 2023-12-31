@@ -6,10 +6,29 @@
     xmlns:local="clr-namespace:Shell.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:share="clr-namespace:Application.Share.Names;assembly=Application.Share"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1000"
+    Height="600"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    AllowsTransparency="True"
+    ResizeMode="CanResizeWithGrip"
+    SnapsToDevicePixels="True"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
-    <Grid />
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CornerRadius="3"
+            GlassFrameThickness="0"
+            NonClientFrameEdges="None"
+            UseAeroCaptionButtons="False" />
+    </WindowChrome.WindowChrome>
+
+
+    <Grid>
+        <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.MainRegion}" />
+
+    </Grid>
 </Window>

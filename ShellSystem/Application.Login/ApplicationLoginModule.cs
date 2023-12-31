@@ -1,22 +1,23 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using System;
 
 
-namespace Core.Tools
+namespace Application.Login
 {
     /// <summary>
-    /// 工具模块
+    /// 登录模块
     /// </summary>
-    public class CoreToolsModule : IModule
+    public class ApplicationLoginModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            
+            throw new NotImplementedException();
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

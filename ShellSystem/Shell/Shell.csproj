@@ -174,9 +174,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.Share\Application.Share.csproj">
+      <Project>{effa3ff1-e599-459a-baa5-04d7750d29a7}</Project>
+      <Name>Application.Share</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Logger\Core.Logger.csproj">
+      <Project>{e92e0fa7-eac7-4a59-bda7-448c795bb3b7}</Project>
+      <Name>Core.Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
       <Project>{9157E131-B2FC-4762-99D6-768B2ABE5585}</Project>
       <Name>Core.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.UI\Core.UI.csproj">
+      <Project>{1f64a1dd-a2b3-415b-834c-a4204ec68c01}</Project>
+      <Name>Core.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
