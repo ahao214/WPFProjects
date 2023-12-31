@@ -24,9 +24,9 @@
 
             <!--  左侧  -->
             <Grid Grid.Column="0">
-                <!--<Grid.Background>
+                <Grid.Background>
                     <ImageBrush ImageSource="{StaticResource Image_LoginBG}" />
-                </Grid.Background>-->
+                </Grid.Background>
             </Grid>
             <!--  右侧  -->
             <Grid Grid.Column="1" />

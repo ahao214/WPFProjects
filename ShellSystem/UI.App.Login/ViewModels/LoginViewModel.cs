@@ -1,10 +1,12 @@
 ﻿
+using ReactiveUI;
+
 namespace UI.App.Login.ViewModels
 {
     /// <summary>
     /// 登录
     /// </summary>
-    internal class LoginViewModel
+    internal class LoginViewModel:ReactiveObject
     {
         public string Title { get; }
         /// <summary>

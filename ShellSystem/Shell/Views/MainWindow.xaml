@@ -27,11 +27,13 @@
             UseAeroCaptionButtons="False" />
     </WindowChrome.WindowChrome>
 
-    <!--<i:Interaction.Triggers>
+    <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadCommand}" />
         </i:EventTrigger>
-    </i:Interaction.Triggers>-->
+    </i:Interaction.Triggers>
+
+
 
     <Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.MainRegion}" />

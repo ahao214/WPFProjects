@@ -159,6 +159,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.UI\Core.UI.csproj">
+      <Project>{c3f67966-815e-4123-aa1d-6afd5afb481d}</Project>
+      <Name>Core.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UI.App.Share\UI.App.Share.csproj">
       <Project>{2096a9a9-4b16-4369-b218-fb2066843fdc}</Project>
       <Name>UI.App.Share</Name>
