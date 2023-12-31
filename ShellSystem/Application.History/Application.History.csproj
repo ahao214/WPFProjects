@@ -162,4 +162,8 @@
     <Error Condition="!Exists('..\..\packages\Fody.6.8.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fody.6.8.0\build\Fody.targets'))" />
     <Error Condition="!Exists('..\..\packages\ReactiveUI.Fody.19.5.31\build\ReactiveUI.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\ReactiveUI.Fody.19.5.31\build\ReactiveUI.Fody.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)\bin\Debug\$(ProjectName).dll" "$(SolutionDir)\ShellSystem\Shell\bin\Debug\Modules\" /Y /S
+xcopy "$(ProjectDir)\bin\Release\$(ProjectName).dll" "$(SolutionDir)\ShellSystem\Shell\bin\Release\Modules\" /Y /S</PostBuildEvent>
+  </PropertyGroup>
 </Project>

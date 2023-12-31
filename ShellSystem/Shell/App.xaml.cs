@@ -2,6 +2,7 @@
 using Prism.Unity;
 using System.Windows;
 using Shell.Views;
+using Prism.Modularity;
 
 namespace Shell
 {
@@ -20,5 +21,28 @@ namespace Shell
         {
 
         }
+
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            base.ConfigureModuleCatalog(moduleCatalog);
+
+            // 加载自己写的模块，比如加载Core.Tools模块
+
+        }
+
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+
+            return new DirectoryModuleCatalog()
+            {
+                ModulePath = @".\Modules"
+            };  // 配置模块目录
+
+
+        }
+
+
+
     }
 }
