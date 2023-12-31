@@ -9,7 +9,30 @@
     d:DesignHeight="600"
     d:DesignWidth="1000"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Background="Red"
+    Background="Transparent"
     mc:Ignorable="d">
-    <Grid />
+
+    <Border
+        Margin="1"
+        Background="White"
+        CornerRadius="1 ">
+        <Grid Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6.5*" />
+                <ColumnDefinition Width="3.5*" />
+            </Grid.ColumnDefinitions>
+
+            <!--左侧-->
+            <Grid Grid.Column="0">
+                
+            </Grid>
+<!--右侧-->
+            <Grid Grid.Column="1">
+                
+            </Grid>               
+
+        </Grid>
+
+    </Border>
+
 </UserControl>
