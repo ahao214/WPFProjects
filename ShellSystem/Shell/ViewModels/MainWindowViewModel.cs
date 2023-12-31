@@ -1,10 +1,10 @@
-﻿using UI.Application.Share.Names;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Modularity;
 using Prism.Regions;
 using ReactiveUI;
 using System;
 using System.Windows.Input;
+using UI.Application.Share.Names;
 
 namespace Shell.ViewModels
 {
