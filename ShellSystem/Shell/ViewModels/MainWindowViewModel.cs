@@ -1,4 +1,4 @@
-﻿using Application.Share.Names;
+﻿using UI.Application.Share.Names;
 using Prism.Commands;
 using Prism.Modularity;
 using Prism.Regions;

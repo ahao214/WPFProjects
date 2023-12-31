@@ -1,5 +1,5 @@
 ﻿
-namespace Application.Share.Names
+namespace UI.Application.Share.Names
 {
     public class ModuleNames
     {

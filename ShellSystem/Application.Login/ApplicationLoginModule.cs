@@ -1,7 +1,7 @@
-﻿using Application.Login.Views;
-using Application.Share.Names;
+﻿using UI.Application.Share.Names;
 using Prism.Ioc;
 using Prism.Modularity;
+using UI.Application.Login.Views;
 
 
 
