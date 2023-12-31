@@ -3,6 +3,7 @@ using Prism.Unity;
 using System.Windows;
 using Shell.Views;
 using Prism.Modularity;
+using Core.Tools;
 
 namespace Shell
 {
@@ -28,6 +29,9 @@ namespace Shell
             base.ConfigureModuleCatalog(moduleCatalog);
 
             // 加载自己写的模块，比如加载Core.Tools模块
+            moduleCatalog.AddModule<CoreToolsModule>(); //加载工具模块
+
+
 
         }
 
