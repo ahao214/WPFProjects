@@ -22,14 +22,14 @@
                 <ColumnDefinition Width="3.5*" />
             </Grid.ColumnDefinitions>
 
-            <!--左侧-->
+            <!--  左侧  -->
             <Grid Grid.Column="0">
-                
+                <Grid.Background>
+                    <ImageBrush ImageSource="{StaticResource Image_LoginBG}" />
+                </Grid.Background>
             </Grid>
-<!--右侧-->
-            <Grid Grid.Column="1">
-                
-            </Grid>               
+            <!--  右侧  -->
+            <Grid Grid.Column="1" />
 
         </Grid>
 

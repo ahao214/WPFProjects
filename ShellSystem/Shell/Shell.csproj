@@ -190,6 +190,10 @@
       <Project>{9157E131-B2FC-4762-99D6-768B2ABE5585}</Project>
       <Name>Core.Tools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core.UI\Core.UI.csproj">
+      <Project>{c3f67966-815e-4123-aa1d-6afd5afb481d}</Project>
+      <Name>Core.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MainWindow.xaml">
