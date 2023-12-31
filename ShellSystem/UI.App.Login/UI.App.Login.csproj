@@ -168,7 +168,9 @@
       <Name>UI.App.Share</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\loginbg.png" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>

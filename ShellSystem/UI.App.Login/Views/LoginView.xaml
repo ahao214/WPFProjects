@@ -24,21 +24,22 @@
 
             <!--  左侧  -->
             <Grid Grid.Column="0">
-                <Grid.Background>
-                    <ImageBrush ImageSource="{StaticResource Image_LogicBG}" />
-                </Grid.Background>
-                <Grid>
+
+                <Grid Margin="60" VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <TextBlock
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         FontSize="50"
                         Foreground="#C58537"
                         Text="SSS上位机控制系统" />
-                    <TextBlock Grid.Row="1">
+                    <TextBlock
+                        Grid.Row="1"
+                        HorizontalAlignment="Right"
+                        Foreground="White">
                         <Run Text="程序版本" />
                         <Run Text="{Binding Version, Mode=OneTime}" />
                         <Run Text="最佳分辨率:1920*1080" />
@@ -48,7 +49,13 @@
 
 
             <!--  右侧  -->
-            <Grid Grid.Column="1" />
+            <Grid Grid.Column="1">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock Text="" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
 
         </Grid>
 

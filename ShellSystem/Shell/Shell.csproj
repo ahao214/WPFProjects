@@ -174,12 +174,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Core.Logger\Core.Logger.csproj">
       <Project>{e92e0fa7-eac7-4a59-bda7-448c795bb3b7}</Project>
       <Name>Core.Logger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
-      <Project>{9157E131-B2FC-4762-99D6-768B2ABE5585}</Project>
+      <Project>{9157e131-b2fc-4762-99d6-768b2abe5585}</Project>
       <Name>Core.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.UI\Core.UI.csproj">
@@ -190,12 +196,6 @@
       <Project>{2096a9a9-4b16-4369-b218-fb2066843fdc}</Project>
       <Name>UI.App.Share</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fody.6.8.0\build\Fody.targets" Condition="Exists('..\..\packages\Fody.6.8.0\build\Fody.targets')" />
