@@ -24,7 +24,9 @@
 
             <!--  左侧  -->
             <Grid Grid.Column="0">
-
+                <Grid.Background>
+                    <ImageBrush ImageSource="{StaticResource Image_LoginBG}" />
+                </Grid.Background>
                 <Grid Margin="60" VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition />

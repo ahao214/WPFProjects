@@ -92,7 +92,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\loginbg.png" />
+    <Resource Include="Images\loginbg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
