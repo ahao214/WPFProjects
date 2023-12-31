@@ -159,17 +159,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.UI\Core.UI.csproj">
-      <Project>{c3f67966-815e-4123-aa1d-6afd5afb481d}</Project>
-      <Name>Core.UI</Name>
+    <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
+      <Project>{9157e131-b2fc-4762-99d6-768b2abe5585}</Project>
+      <Name>Core.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\UI.App.Share\UI.App.Share.csproj">
       <Project>{2096a9a9-4b16-4369-b218-fb2066843fdc}</Project>
       <Name>UI.App.Share</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\loginbg.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\LoginView.xaml">
