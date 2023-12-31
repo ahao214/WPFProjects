@@ -5,21 +5,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FA82A77-2C46-4E59-B23E-45B922095CD2}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Shell</RootNamespace>
-    <AssemblyName>Shell</AssemblyName>
+    <ProjectGuid>{313D32F5-71A9-44DC-886B-09F16CFB6227}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>UI.App.History</RootNamespace>
+    <AssemblyName>UI.App.History</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -29,7 +27,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -133,20 +130,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -170,34 +153,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core.Logger\Core.Logger.csproj">
-      <Project>{e92e0fa7-eac7-4a59-bda7-448c795bb3b7}</Project>
-      <Name>Core.Logger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
-      <Project>{9157E131-B2FC-4762-99D6-768B2ABE5585}</Project>
-      <Name>Core.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.UI\Core.UI.csproj">
-      <Project>{c3f67966-815e-4123-aa1d-6afd5afb481d}</Project>
-      <Name>Core.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UI.App.Share\UI.App.Share.csproj">
-      <Project>{2096a9a9-4b16-4369-b218-fb2066843fdc}</Project>
-      <Name>UI.App.Share</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)\bin\Debug\$(ProjectName).dll" "$(SolutionDir)\ShellSystem\Shell\bin\Debug\Modules\" /Y /S
+xcopy "$(ProjectDir)\bin\Release\$(ProjectName).dll" "$(SolutionDir)\ShellSystem\Shell\bin\Release\Modules\" /Y /S</PostBuildEvent>
+  </PropertyGroup>
   <Import Project="..\..\packages\Fody.6.8.0\build\Fody.targets" Condition="Exists('..\..\packages\Fody.6.8.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

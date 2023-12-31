@@ -99,6 +99,38 @@
       <Project>{c3f67966-815e-4123-aa1d-6afd5afb481d}</Project>
       <Name>Core.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UI.App.Config\UI.App.Config.csproj">
+      <Project>{8914c2d7-9f38-4690-97bf-12b5c2c85f67}</Project>
+      <Name>UI.App.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.History\UI.App.History.csproj">
+      <Project>{313d32f5-71a9-44dc-886b-09f16cfb6227}</Project>
+      <Name>UI.App.History</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Index\UI.App.Index.csproj">
+      <Project>{83320633-0eeb-4afa-97dc-234d01df0999}</Project>
+      <Name>UI.App.Index</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Initialize\UI.App.Initialize.csproj">
+      <Project>{cb3c3ae9-4eae-4f7b-8881-b502aa7ab7b6}</Project>
+      <Name>UI.App.Initialize</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Login\UI.App.Login.csproj">
+      <Project>{ee578ea6-a772-48b4-a4cd-acb90160d524}</Project>
+      <Name>UI.App.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Main\UI.App.Main.csproj">
+      <Project>{ec7041bc-34da-4f90-8823-d21b1b59b486}</Project>
+      <Name>UI.App.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Reactor\UI.App.Reactor.csproj">
+      <Project>{9c139d1c-08a9-470f-80a4-2453fb08be20}</Project>
+      <Name>UI.App.Reactor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UI.App.Share\UI.App.Share.csproj">
+      <Project>{2096a9a9-4b16-4369-b218-fb2066843fdc}</Project>
+      <Name>UI.App.Share</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

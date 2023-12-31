@@ -4,7 +4,8 @@ using Prism.Regions;
 using ReactiveUI;
 using System;
 using System.Windows.Input;
-using UI.Application.Share.Names;
+using UI.App.Share.Names;
+
 
 namespace Shell.ViewModels
 {
