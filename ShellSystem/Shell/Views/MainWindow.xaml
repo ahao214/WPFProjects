@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:share="clr-namespace:Application.Share.Names;assembly=Application.Share"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     Title="MainWindow"
     Width="1000"
     Height="600"
@@ -26,6 +27,11 @@
             UseAeroCaptionButtons="False" />
     </WindowChrome.WindowChrome>
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.MainRegion}" />

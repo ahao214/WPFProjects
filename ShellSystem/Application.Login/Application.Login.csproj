@@ -164,6 +164,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Share\Application.Share.csproj">
+      <Project>{EFFA3FF1-E599-459A-BAA5-04D7750D29A7}</Project>
+      <Name>Application.Share</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fody.6.8.0\build\Fody.targets" Condition="Exists('..\..\packages\Fody.6.8.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
