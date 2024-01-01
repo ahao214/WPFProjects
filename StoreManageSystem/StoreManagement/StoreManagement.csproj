@@ -102,6 +102,7 @@
     <Compile Include="Service\GoodsTypeService.cs" />
     <Compile Include="Service\InStoreService.cs" />
     <Compile Include="Service\InventoryService.cs" />
+    <Compile Include="Service\IService.cs" />
     <Compile Include="Service\OutStoreService.cs" />
     <Compile Include="Service\SpecService.cs" />
     <Compile Include="Service\StoreService.cs" />
