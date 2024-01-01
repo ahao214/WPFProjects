@@ -97,6 +97,16 @@
     <Compile Include="OutStore.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\GoodsService.cs" />
+    <Compile Include="Service\GoodsTypeService.cs" />
+    <Compile Include="Service\InStoreService.cs" />
+    <Compile Include="Service\InventoryService.cs" />
+    <Compile Include="Service\OutStoreService.cs" />
+    <Compile Include="Service\SpecService.cs" />
+    <Compile Include="Service\StoreService.cs" />
+    <Compile Include="Service\SupplierService.cs" />
+    <Compile Include="Service\UserInfoService.cs" />
     <Compile Include="Spec.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -203,7 +213,6 @@
     <Folder Include="Control\" />
     <Folder Include="Converter\" />
     <Folder Include="Model\" />
-    <Folder Include="Service\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
