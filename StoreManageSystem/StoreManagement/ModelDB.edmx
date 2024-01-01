@@ -1,0 +1,1021 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="32" />
+          <Property Name="Email" Type="nvarchar" MaxLength="64" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Serial" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="16" />
+          <Property Name="Min" Type="float" />
+          <Property Name="Max" Type="float" />
+          <Property Name="Quant" Type="float" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="GoodsTypeId" Type="int" />
+          <Property Name="SpecId" Type="int" />
+          <Property Name="UserInfoId" Type="int" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="GoodsType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="InStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsSerial" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="32" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="128" />
+          <Property Name="SpecId" Type="int" />
+          <Property Name="SpecName" Type="nvarchar" MaxLength="32" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="16" />
+          <Property Name="Number" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="GoodsTypeId" Type="int" />
+          <Property Name="UserInfoId" Type="int" />
+          <Property Name="UserInfoName" Type="nvarchar" MaxLength="32" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsInventory" Type="bit" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsSerial" Type="nvarchar" MaxLength="32" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="16" />
+          <Property Name="Quant" Type="float" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="GoodsTypeId" Type="int" />
+          <Property Name="SpecId" Type="int" />
+          <Property Name="UserInfoId" Type="int" />
+          <Property Name="UserInfoName" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="OutStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GoodsSerial" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="StoreName" Type="nvarchar" MaxLength="32" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="128" />
+          <Property Name="SpecId" Type="int" />
+          <Property Name="SpecName" Type="nvarchar" MaxLength="32" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="16" />
+          <Property Name="Number" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="GoodsTypeId" Type="int" />
+          <Property Name="UserInfoId" Type="int" />
+          <Property Name="UserInfoName" Type="nvarchar" MaxLength="32" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsInventory" Type="bit" />
+        </EntityType>
+        <EntityType Name="Spec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="64" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Role" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="32" />
+          <Property Name="Email" Type="nvarchar" MaxLength="64" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <Association Name="FK_Goods_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StoreDBModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodsType" EntityType="Self.GoodsType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InStore" EntityType="Self.InStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutStore" EntityType="Self.OutStore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spec" EntityType="Self.Spec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Goods_GoodsType" Association="Self.FK_Goods_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_Spec" Association="Self.FK_Goods_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Goods" Association="Self.FK_InStore_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_GoodsType" Association="Self.FK_InStore_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Spec" Association="Self.FK_InStore_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Store" Association="Self.FK_InStore_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Supplier" Association="Self.FK_InStore_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Goods" Association="Self.FK_Inventory_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_GoodsType" Association="Self.FK_Inventory_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Spec" Association="Self.FK_Inventory_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Goods" Association="Self.FK_OutStore_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_GoodsType" Association="Self.FK_OutStore_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Spec" Association="Self.FK_OutStore_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Store" Association="Self.FK_OutStore_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Supplier" Association="Self.FK_OutStore_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Min" Type="Double" />
+          <Property Name="Max" Type="Double" />
+          <Property Name="Quant" Type="Double" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsTypeId" Type="Int32" />
+          <Property Name="SpecId" Type="Int32" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GoodsType" Relationship="Self.FK_Goods_GoodsType" FromRole="Goods" ToRole="GoodsType" />
+          <NavigationProperty Name="Spec" Relationship="Self.FK_Goods_Spec" FromRole="Goods" ToRole="Spec" />
+          <NavigationProperty Name="InStore" Relationship="Self.FK_InStore_Goods" FromRole="Goods" ToRole="InStore" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Goods" FromRole="Goods" ToRole="Inventory" />
+          <NavigationProperty Name="OutStore" Relationship="Self.FK_OutStore_Goods" FromRole="Goods" ToRole="OutStore" />
+        </EntityType>
+        <EntityType Name="GoodsType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_GoodsType" FromRole="GoodsType" ToRole="Goods" />
+          <NavigationProperty Name="InStore" Relationship="Self.FK_InStore_GoodsType" FromRole="GoodsType" ToRole="InStore" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_GoodsType" FromRole="GoodsType" ToRole="Inventory" />
+          <NavigationProperty Name="OutStore" Relationship="Self.FK_OutStore_GoodsType" FromRole="GoodsType" ToRole="OutStore" />
+        </EntityType>
+        <EntityType Name="InStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsSerial" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SpecId" Type="Int32" />
+          <Property Name="SpecName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsTypeId" Type="Int32" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <Property Name="UserInfoName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsInventory" Type="Boolean" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_InStore_Goods" FromRole="InStore" ToRole="Goods" />
+          <NavigationProperty Name="GoodsType" Relationship="Self.FK_InStore_GoodsType" FromRole="InStore" ToRole="GoodsType" />
+          <NavigationProperty Name="Spec" Relationship="Self.FK_InStore_Spec" FromRole="InStore" ToRole="Spec" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_InStore_Store" FromRole="InStore" ToRole="Store" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_InStore_Supplier" FromRole="InStore" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsSerial" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Quant" Type="Double" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsTypeId" Type="Int32" />
+          <Property Name="SpecId" Type="Int32" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <Property Name="UserInfoName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Inventory_Goods" FromRole="Inventory" ToRole="Goods" />
+          <NavigationProperty Name="GoodsType" Relationship="Self.FK_Inventory_GoodsType" FromRole="Inventory" ToRole="GoodsType" />
+          <NavigationProperty Name="Spec" Relationship="Self.FK_Inventory_Spec" FromRole="Inventory" ToRole="Spec" />
+        </EntityType>
+        <EntityType Name="OutStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsSerial" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SpecId" Type="Int32" />
+          <Property Name="SpecName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsTypeId" Type="Int32" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <Property Name="UserInfoName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsInventory" Type="Boolean" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_OutStore_Goods" FromRole="OutStore" ToRole="Goods" />
+          <NavigationProperty Name="GoodsType" Relationship="Self.FK_OutStore_GoodsType" FromRole="OutStore" ToRole="GoodsType" />
+          <NavigationProperty Name="Spec" Relationship="Self.FK_OutStore_Spec" FromRole="OutStore" ToRole="Spec" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_OutStore_Store" FromRole="OutStore" ToRole="Store" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_OutStore_Supplier" FromRole="OutStore" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Spec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK_Goods_Spec" FromRole="Spec" ToRole="Goods" />
+          <NavigationProperty Name="InStore" Relationship="Self.FK_InStore_Spec" FromRole="Spec" ToRole="InStore" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Spec" FromRole="Spec" ToRole="Inventory" />
+          <NavigationProperty Name="OutStore" Relationship="Self.FK_OutStore_Spec" FromRole="Spec" ToRole="OutStore" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InStore" Relationship="Self.FK_InStore_Store" FromRole="Store" ToRole="InStore" />
+          <NavigationProperty Name="OutStore" Relationship="Self.FK_OutStore_Store" FromRole="Store" ToRole="OutStore" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InStore" Relationship="Self.FK_InStore_Supplier" FromRole="Supplier" ToRole="InStore" />
+          <NavigationProperty Name="OutStore" Relationship="Self.FK_OutStore_Supplier" FromRole="Supplier" ToRole="OutStore" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="Telephone" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Goods_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goods_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Goods" Type="Self.Goods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Goods">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Goods">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="Serial" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="GoodsSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_GoodsType">
+          <End Role="GoodsType" Type="Self.GoodsType" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GoodsType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="GoodsTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InStore_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="InStore" Type="Self.InStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InStore">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Spec">
+          <End Role="Spec" Type="Self.Spec" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="SpecId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="StoreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OutStore_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="OutStore" Type="Self.OutStore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OutStore">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StoreDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="GoodsType" EntityType="Self.GoodsType" />
+          <EntitySet Name="InStore" EntityType="Self.InStore" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+          <EntitySet Name="OutStore" EntityType="Self.OutStore" />
+          <EntitySet Name="Spec" EntityType="Self.Spec" />
+          <EntitySet Name="Store" EntityType="Self.Store" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <AssociationSet Name="FK_Goods_GoodsType" Association="Self.FK_Goods_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goods_Spec" Association="Self.FK_Goods_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="Goods" EntitySet="Goods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Goods" Association="Self.FK_InStore_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Goods" Association="Self.FK_Inventory_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Goods" Association="Self.FK_OutStore_Goods">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_GoodsType" Association="Self.FK_InStore_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_GoodsType" Association="Self.FK_Inventory_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_GoodsType" Association="Self.FK_OutStore_GoodsType">
+            <End Role="GoodsType" EntitySet="GoodsType" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Spec" Association="Self.FK_InStore_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Store" Association="Self.FK_InStore_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InStore_Supplier" Association="Self.FK_InStore_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="InStore" EntitySet="InStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Spec" Association="Self.FK_Inventory_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Spec" Association="Self.FK_OutStore_Spec">
+            <End Role="Spec" EntitySet="Spec" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Store" Association="Self.FK_OutStore_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutStore_Supplier" Association="Self.FK_OutStore_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="OutStore" EntitySet="OutStore" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StoreDBModelStoreContainer" CdmEntityContainer="StoreDBEntities">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="StoreDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="StoreDBModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="Quant" ColumnName="Quant" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
+                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsType">
+            <EntityTypeMapping TypeName="StoreDBModel.GoodsType">
+              <MappingFragment StoreEntitySet="GoodsType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InStore">
+            <EntityTypeMapping TypeName="StoreDBModel.InStore">
+              <MappingFragment StoreEntitySet="InStore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GoodsSerial" ColumnName="GoodsSerial" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
+                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="UserInfoName" ColumnName="UserInfoName" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="StoreDBModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GoodsSerial" ColumnName="GoodsSerial" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Quant" ColumnName="Quant" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
+                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="UserInfoName" ColumnName="UserInfoName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutStore">
+            <EntityTypeMapping TypeName="StoreDBModel.OutStore">
+              <MappingFragment StoreEntitySet="OutStore">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GoodsSerial" ColumnName="GoodsSerial" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
+                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="UserInfoName" ColumnName="UserInfoName" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spec">
+            <EntityTypeMapping TypeName="StoreDBModel.Spec">
+              <MappingFragment StoreEntitySet="Spec">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Store">
+            <EntityTypeMapping TypeName="StoreDBModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="StoreDBModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="StoreDBModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
