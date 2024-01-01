@@ -13,6 +13,12 @@
                 xmlns:vm="clr-namespace:StoreManagement.ViewModel"
                 x:Key="Locator"
                 d:IsDataSource="True" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/ButtonDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -87,7 +87,8 @@
                         Width="200"
                         Height="40"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center" />
                 </Grid>
                 <!--  password  -->
                 <Grid Grid.Row="2">
@@ -105,7 +106,8 @@
                         Width="200"
                         Height="40"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center" />
                 </Grid>
                 <!--  button  -->
                 <Button
@@ -113,7 +115,8 @@
                     Width="200"
                     Height="36"
                     Margin="18,0,0,0"
-                    Content="登录" />
+                    Content="登  录"
+                    Style="{StaticResource ButtonStyle}" />
                 <!--  footer  -->
                 <Border
                     Grid.Row="4"
