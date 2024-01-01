@@ -149,6 +149,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.App.Index", "ShellSystem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.App.History", "ShellSystem\UI.App.History\UI.App.History.csproj", "{313D32F5-71A9-44DC-886B-09F16CFB6227}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement", "StoreManageSystem\StoreManagement\StoreManagement.csproj", "{C20C8B00-2FD6-4B2B-97BD-529B399E53AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -355,6 +357,10 @@ Global
 		{313D32F5-71A9-44DC-886B-09F16CFB6227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313D32F5-71A9-44DC-886B-09F16CFB6227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313D32F5-71A9-44DC-886B-09F16CFB6227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20C8B00-2FD6-4B2B-97BD-529B399E53AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20C8B00-2FD6-4B2B-97BD-529B399E53AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20C8B00-2FD6-4B2B-97BD-529B399E53AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20C8B00-2FD6-4B2B-97BD-529B399E53AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
