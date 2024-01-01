@@ -6,7 +6,36 @@ using System.Threading.Tasks;
 
 namespace StoreManagement.Service
 {
-    internal class StoreService
+    public class StoreService : IService<Store>
     {
+        public int Delete(Store t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Insert(Store t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Store Select(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Store Select(string Name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Store> Select()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(Store t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
