@@ -6,36 +6,60 @@ using System.Threading.Tasks;
 
 namespace StoreManagement.Service
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class StoreService : IService<Store>
     {
         public int Delete(Store t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Deleted;
+                return db.SaveChanges();
+            }
         }
 
         public int Insert(Store t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Added;
+                return db.SaveChanges();
+            }
         }
 
         public Store Select(int id)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.Store.FirstOrDefault(item => item.Id == id);
+            }
         }
 
         public Store Select(string Name)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.Store.FirstOrDefault(item => item.Name == Name);
+            }
         }
 
         public List<Store> Select()
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.Store.ToList();
+            }
         }
 
         public int Update(Store t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Modified;
+                return db.SaveChanges();
+            }
         }
     }
 }
