@@ -57,82 +57,322 @@
                     VerticalAlignment="Center"
                     FontSize="20"
                     Foreground="#3A5455"
-                    Text="导航菜单" />
+                    Text="   导航菜单" />
             </Border>
             <!--  主菜单  -->
-            <StackPanel Grid.Row="1">
-                <Expander
-                    VerticalAlignment="Top"
-                    Background="#1D2828"
-                    ExpandDirection="Down"
-                    SnapsToDevicePixels="True"
-                    Style="{StaticResource ExpanderStyle}">
-                    <Expander.Header>
-                        <StackPanel
-                            Height="50"
-                            Background="Transparent"
-                            Orientation="Horizontal">
-                            <TextBlock
-                                Width="auto"
-                                Margin="10,0,10,0"
-                                VerticalAlignment="Center"
-                                FontFamily="Fonts/#iconfont"
-                                FontSize="22"
-                                Foreground="red"
-                                Text="&#xe641;" />
-                            <TextBlock
-                                Width="200"
-                                VerticalAlignment="Center"
-                                FontSize="18"
-                                Foreground="#918C8C"
-                                Text="首页" />
-                        </StackPanel>
-                    </Expander.Header>
-                    <Expander.Content>
-                        <StackPanel Background="#F6F8F8">
-                            <RadioButton>控制中心</RadioButton>
-                            <RadioButton>资源管理</RadioButton>
-                        </StackPanel>
-                    </Expander.Content>
-                </Expander>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
 
-                <Expander
-                    VerticalAlignment="Top"
-                    Background="#1D2828"
-                    ExpandDirection="Down"
-                    SnapsToDevicePixels="True"
-                    Style="{DynamicResource ExpanderStyle}">
-                    <Expander.Header>
-                        <StackPanel
-                            Height="50"
-                            Background="Transparent"
-                            Orientation="Horizontal">
-                            <TextBlock
-                                Width="auto"
-                                Margin="10,0,10,0"
-                                VerticalAlignment="Center"
-                                FontFamily="Fonts/#iconfont"
-                                FontSize="22"
-                                Foreground="red"
-                                Text="&#xe641;" />
-                            <TextBlock
-                                Width="200"
-                                VerticalAlignment="Center"
-                                FontSize="18"
-                                Foreground="#918C8C"
-                                Text="首页2222" />
-                        </StackPanel>
-                    </Expander.Header>
-                    <Expander.Content>
-                        <StackPanel Background="#F6F8F8">
-                            <RadioButton>控制中心</RadioButton>
-                            <Button>资源管理</Button>
-                        </StackPanel>
-                    </Expander.Content>
-                </Expander>
+                <StackPanel Background="#222C32">
+                    <Expander
+                        VerticalAlignment="Top"
+                        Background="#1D2828"
+                        ExpandDirection="Down"
+                        SnapsToDevicePixels="True"
+                        Style="{StaticResource ExpanderStyle}">
+                        <Expander.Header>
+                            <StackPanel
+                                Height="50"
+                                Background="Transparent"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="auto"
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Fonts/#iconfont"
+                                    FontSize="22"
+                                    Foreground="red"
+                                    Text="&#xe641;" />
+                                <TextBlock
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#918C8C"
+                                    Text="控制台首页" />
+                            </StackPanel>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel Background="#F6F8F8">
+                                <RadioButton
+                                    Height="30"
+                                    Content="物资设置"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="供应商设置"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
 
-            </StackPanel>
+                                <RadioButton
+                                    Height="30"
+                                    Content="仓库设置"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
 
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+
+                    <Expander
+                        VerticalAlignment="Top"
+                        Background="#1D2828"
+                        ExpandDirection="Down"
+                        SnapsToDevicePixels="True"
+                        Style="{DynamicResource ExpanderStyle}">
+                        <Expander.Header>
+                            <StackPanel
+                                Height="50"
+                                Background="Transparent"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="auto"
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Fonts/#iconfont"
+                                    FontSize="22"
+                                    Foreground="red"
+                                    Text="&#xe641;" />
+                                <TextBlock
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#918C8C"
+                                    Text="物品管理" />
+                            </StackPanel>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel Background="#F6F8F8">
+                                <RadioButton
+                                    Height="30"
+                                    Content="入库管理"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="出库管理"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="盘存管理"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+
+                    <Expander
+                        VerticalAlignment="Top"
+                        Background="#1D2828"
+                        ExpandDirection="Down"
+                        SnapsToDevicePixels="True"
+                        Style="{DynamicResource ExpanderStyle}">
+                        <Expander.Header>
+                            <StackPanel
+                                Height="50"
+                                Background="Transparent"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="auto"
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Fonts/#iconfont"
+                                    FontSize="22"
+                                    Foreground="red"
+                                    Text="&#xe641;" />
+                                <TextBlock
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#918C8C"
+                                    Text="查询统计" />
+                            </StackPanel>
+                        </Expander.Header>
+
+                        <Expander.Content>
+                            <StackPanel Background="#F6F8F8">
+                                <RadioButton
+                                    Height="30"
+                                    Content="库存查询"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="入库查询"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="出库查询"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="统计年报"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+
+                    <Expander
+                        VerticalAlignment="Top"
+                        Background="#1D2828"
+                        ExpandDirection="Down"
+                        SnapsToDevicePixels="True"
+                        Style="{DynamicResource ExpanderStyle}">
+                        <Expander.Header>
+                            <StackPanel
+                                Height="50"
+                                Background="Transparent"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="auto"
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Fonts/#iconfont"
+                                    FontSize="22"
+                                    Foreground="red"
+                                    Text="&#xe641;" />
+                                <TextBlock
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#918C8C"
+                                    Text="系统维护" />
+                            </StackPanel>
+                        </Expander.Header>
+
+                        <Expander.Content>
+                            <StackPanel Background="#F6F8F8">
+                                <RadioButton
+                                    Height="30"
+                                    Content="数据备份"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="数据还原"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="数据压缩"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="数据导出"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+
+                    <Expander
+                        VerticalAlignment="Top"
+                        Background="#1D2828"
+                        ExpandDirection="Down"
+                        SnapsToDevicePixels="True"
+                        Style="{DynamicResource ExpanderStyle}">
+                        <Expander.Header>
+                            <StackPanel
+                                Height="50"
+                                Background="Transparent"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="auto"
+                                    Margin="10,0,10,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Fonts/#iconfont"
+                                    FontSize="22"
+                                    Foreground="red"
+                                    Text="&#xe641;" />
+                                <TextBlock
+                                    Width="200"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Foreground="#918C8C"
+                                    Text="系统应用" />
+                            </StackPanel>
+                        </Expander.Header>
+
+                        <Expander.Content>
+                            <StackPanel Background="#F6F8F8">
+                                <RadioButton
+                                    Height="30"
+                                    Content="用户管理"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="更改密码"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="权限设置"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="退出系统"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                                <RadioButton
+                                    Height="30"
+                                    Content="关于我们"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+
+
+
+
+                </StackPanel>
+
+            </ScrollViewer>
         </Grid>
         <Grid
             Grid.Row="1"
