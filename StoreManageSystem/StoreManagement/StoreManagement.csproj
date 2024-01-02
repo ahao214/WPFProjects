@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppData.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

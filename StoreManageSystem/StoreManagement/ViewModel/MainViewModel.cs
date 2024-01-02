@@ -4,9 +4,8 @@ namespace StoreManagement.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+        public AppData AppData { get; private set; } = AppData.Instance;
+
         public MainViewModel()
         {
            

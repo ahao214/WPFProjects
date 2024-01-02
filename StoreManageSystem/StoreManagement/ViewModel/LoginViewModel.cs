@@ -12,6 +12,8 @@ namespace StoreManagement.ViewModel
     /// </summary>
     public class LoginViewModel : ViewModelBase
     {
+        public AppData AppData { get; private set; } = AppData.Instance;
+
         private UserInfo user = new UserInfo() { Name = "admin", Password = "1" };
         public UserInfo User
         {
@@ -39,7 +41,7 @@ namespace StoreManagement.ViewModel
                     var item = users.FirstOrDefault(t => t.Name == User.Name && t.Password == User.Password);
                     if (item != null)
                     {
-                        MessageBox.Show("登录成功");
+                        this.AppData.User = item;
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
                         // 关闭当前窗体

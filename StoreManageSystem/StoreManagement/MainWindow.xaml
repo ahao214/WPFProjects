@@ -40,7 +40,72 @@
             Grid.Row="0"
             Grid.Column=" 1"
             Background="#3C8DBB"
-            Tag="顶栏" />
+            Tag="顶栏">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    FontFamily="/Fonts/#iconfont"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="&#xe627;" />
+                <TextBlock
+                    Margin="0,10,0,10"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="欢迎" />
+                <TextBlock
+                    Margin="5,10,0,10"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="{Binding AppData.User.Name}" />
+            </StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    FontFamily="/Fonts/#iconfont"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="&#xe64a;" />
+                <TextBlock
+                    Margin="0,10,0,10"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="修改密码" />
+                <TextBlock
+                    Margin="10"
+                    VerticalAlignment="Center"
+                    FontFamily="/Fonts/#iconfont"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="&#xe64b;" />
+                <TextBlock
+                    Margin="0,10,0,10"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    Foreground="White"
+                    Text="退出系统" />
+            </StackPanel>
+        </Grid>
+
+
         <Grid
             Grid.Row="1"
             Grid.Column=" 0"
@@ -377,6 +442,7 @@
         <Grid
             Grid.Row="1"
             Grid.Column=" 1"
+            Background="#E4ECEF"
             Tag="舞台">
             <ContentControl x:Name="container" />
         </Grid>
