@@ -12,7 +12,7 @@ namespace StoreManagement.ViewModel
     /// </summary>
     public class LoginViewModel : ViewModelBase
     {
-        private UserInfo user = new UserInfo();
+        private UserInfo user = new UserInfo() { Name = "admin", Password = "1" };
         public UserInfo User
         {
             get { return user; }
