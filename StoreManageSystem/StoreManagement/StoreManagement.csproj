@@ -92,6 +92,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData.cs" />
+    <Compile Include="Control\ButtonCard.xaml.cs">
+      <DependentUpon>ButtonCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
     <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Control\ButtonCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,7 +241,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
     <Folder Include="Converter\" />
     <Folder Include="Model\" />
     <Folder Include="View\" />
