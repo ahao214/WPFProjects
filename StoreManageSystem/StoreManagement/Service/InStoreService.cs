@@ -10,32 +10,53 @@ namespace StoreManagement.Service
     {
         public int Delete(InStore t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Deleted;
+                return db.SaveChanges();
+            }
         }
 
         public int Insert(InStore t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Added;
+                return db.SaveChanges();
+            }
         }
 
         public InStore Select(int id)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.InStore.FirstOrDefault(item => item.Id == id);
+            }
         }
 
         public InStore Select(string Name)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.InStore.FirstOrDefault(item => item.Name == Name);
+            }
         }
 
         public List<InStore> Select()
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                return db.InStore.ToList();
+            }
         }
 
         public int Update(InStore t)
         {
-            throw new NotImplementedException();
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Modified;
+                return db.SaveChanges();
+            }
         }
     }
 }
