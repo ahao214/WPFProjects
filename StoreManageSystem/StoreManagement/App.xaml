@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Resource/ButtonDictionary.xaml" />
                 <ResourceDictionary Source="Resource/ExpanderDictionary.xaml" />
                 <ResourceDictionary Source="Resource/RadioButtonMenuStyle.xaml" />
+                <ResourceDictionary Source="Resource/CommonDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
 

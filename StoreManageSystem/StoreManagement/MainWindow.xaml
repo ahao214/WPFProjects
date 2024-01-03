@@ -89,6 +89,7 @@
                     VerticalAlignment="Center"
                     FontSize="16"
                     Foreground="White"
+                    Style="{StaticResource TextBoxBanberStyle}"
                     Text="修改密码" />
                 <TextBlock
                     Margin="10"
@@ -102,6 +103,7 @@
                     VerticalAlignment="Center"
                     FontSize="16"
                     Foreground="White"
+                    Style="{StaticResource TextBoxBanberStyle}"
                     Text="退出系统" />
             </StackPanel>
         </Grid>
