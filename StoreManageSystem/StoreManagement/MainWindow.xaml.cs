@@ -61,7 +61,8 @@ namespace StoreManagement
         /// <param name="e"></param>
         private void txtUserName_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            var window = new EditUserWindow();
+            window.ShowDialog();
         }
     }
 }
