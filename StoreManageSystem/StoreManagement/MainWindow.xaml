@@ -129,6 +129,13 @@
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
 
                 <StackPanel Background="#222C32">
+                    <RadioButton
+                        Height="50"
+                        Content="控制台首页"
+                        FontSize="16"
+                        Foreground="#85979F"
+                        Style="{StaticResource RadioButtonMenuStyle}"
+                        Tag="&#xe641;" />
                     <Expander
                         VerticalAlignment="Top"
                         Background="#1D2828"
@@ -153,7 +160,7 @@
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Foreground="#918C8C"
-                                    Text="控制台首页" />
+                                    Text="基础数据" />
                             </StackPanel>
                         </Expander.Header>
                         <Expander.Content>
@@ -445,12 +452,7 @@
             Grid.Column=" 1"
             Background="#E4ECEF"
             Tag="舞台">
-            <ContentControl x:Name="container">
-                <control:ButtonCard
-                    Title="入库清单"
-                    Content="这是可以入库的快捷操作"
-                    Logo="&#xe60f;" />
-            </ContentControl>
+            <ContentControl x:Name="container" />
         </Grid>
 
 
