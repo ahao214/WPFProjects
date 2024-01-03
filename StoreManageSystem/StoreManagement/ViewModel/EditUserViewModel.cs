@@ -12,6 +12,15 @@ namespace StoreManagement.ViewModel
     /// </summary>
     public class EditUserViewModel : ViewModelBase
     {
+        private UserInfo user = AppData.Instance.User;
+        public UserInfo User
+        {
+            get { return user; }
+            set { user = value; RaisePropertyChanged(); }
+        }
+
+
+
 
 
     }
