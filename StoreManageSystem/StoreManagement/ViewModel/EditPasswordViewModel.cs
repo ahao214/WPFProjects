@@ -11,14 +11,7 @@ namespace StoreManagement.ViewModel
     /// </summary>
     public class EditPasswordViewModel: ViewModelBase
     {
-        public AppData AppData { get; private set; } = AppData.Instance;
-
-        private UserInfo user = new UserInfo() { Name = "admin", Password = "1" };
-        public UserInfo User
-        {
-            get { return user; }
-            set { user = value; RaisePropertyChanged(); }
-        }
+       
 
         public RelayCommand<Window> EditPasswordCommand
         {

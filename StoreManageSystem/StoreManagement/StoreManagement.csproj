@@ -110,6 +110,7 @@
     <Compile Include="Inventory.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\EditPasswordModel.cs" />
     <Compile Include="OutStore.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -261,7 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converter\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
