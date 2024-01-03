@@ -49,7 +49,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontSize="20"
-                Text="权限" />
+                Text="权限角色" />
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
@@ -161,14 +161,7 @@
                     Content="取  消"
                     Style="{StaticResource ButtonStyle}" />
             </StackPanel>
-
         </Grid>
-
-
-
-
-
-
     </Grid>
 
 </Window>
