@@ -139,8 +139,12 @@
     </Compile>
     <Compile Include="ViewModel\EditPasswordViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
+    <Compile Include="ViewModel\GoodsTypeViewModel.cs" />
+    <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\StoreViewModel.cs" />
+    <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\GoodsTypeView.xaml.cs">
       <DependentUpon>GoodsTypeView.xaml</DependentUpon>

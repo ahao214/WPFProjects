@@ -37,6 +37,15 @@ namespace StoreManagement.ViewModel
             SimpleIoc.Default.Register<EditPasswordViewModel>();
             SimpleIoc.Default.Register<EditUserViewModel>();
 
+            #region 基础数据
+            SimpleIoc.Default.Register<GoodsTypeViewModel>();
+            SimpleIoc.Default.Register<GoodsViewModel>();
+            SimpleIoc.Default.Register<StoreViewModel>();
+            SimpleIoc.Default.Register<SupplierViewModel>();
+            #endregion
+
+
+
         }
 
         public MainViewModel Main
@@ -70,6 +79,43 @@ namespace StoreManagement.ViewModel
                 return ServiceLocator.Current.GetInstance<EditUserViewModel>();
             }
         }
+
+        #region 基础数据
+        public GoodsTypeViewModel GoodsType
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<GoodsTypeViewModel>();
+            }
+        }
+
+        public GoodsViewModel Goods
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<GoodsViewModel>();
+            }
+        }
+
+        public StoreViewModel Store
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<StoreViewModel>();
+            }
+        }
+
+        public SupplierViewModel Supplier
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SupplierViewModel>();
+            }
+        }
+
+        #endregion
+
+
 
         public static void Cleanup()
         {
