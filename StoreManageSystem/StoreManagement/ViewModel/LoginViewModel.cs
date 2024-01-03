@@ -33,6 +33,7 @@ namespace StoreManagement.ViewModel
                 {
                     if (string.IsNullOrEmpty(User.Name) == true || string.IsNullOrEmpty(User.Password) == true)
                     {
+                        MessageBox.Show("用户名或密码不能为空");
                         return;
                     }
 
@@ -46,6 +47,10 @@ namespace StoreManagement.ViewModel
                         mainWindow.Show();
                         // 关闭当前窗体
                         window.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("用户名或密码错误");
                     }
                 });
                 return command;
