@@ -138,7 +138,9 @@
 
                 <StackPanel Background="#222C32">
                     <RadioButton
+                        x:Name="IndexView"
                         Height="50"
+                        Click="StoreView_Checked"
                         Content="控制台首页"
                         FontSize="16"
                         Foreground="#85979F"
@@ -174,14 +176,28 @@
                         <Expander.Content>
                             <StackPanel Background="#F6F8F8">
                                 <RadioButton
+                                    x:Name="GoodsTypeView"
                                     Height="30"
+                                    Click="StoreView_Checked"
                                     Content="物资设置"
                                     FontSize="16"
                                     Foreground="#85979F"
                                     Style="{StaticResource RadioButtonMenuStyle}"
                                     Tag="&#xe641;" />
+
                                 <RadioButton
+    x:Name="GoodsView"
+    Height="30"
+    Click="StoreView_Checked"
+    Content="物资登记"
+    FontSize="16"
+    Foreground="#85979F"
+    Style="{StaticResource RadioButtonMenuStyle}"
+    Tag="&#xe641;" />
+                                <RadioButton
+                                    x:Name="SupplierView"
                                     Height="30"
+                                    Click="StoreView_Checked"
                                     Content="供应商设置"
                                     FontSize="16"
                                     Foreground="#85979F"
@@ -189,7 +205,9 @@
                                     Tag="&#xe641;" />
 
                                 <RadioButton
+                                    x:Name="StoreView"
                                     Height="30"
+                                    Click="StoreView_Checked"
                                     Content="仓库设置"
                                     FontSize="16"
                                     Foreground="#85979F"

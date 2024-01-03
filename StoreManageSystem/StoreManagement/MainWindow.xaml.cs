@@ -3,6 +3,7 @@ using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -63,6 +64,22 @@ namespace StoreManagement
         {
             var window = new EditUserWindow();
             window.ShowDialog();
+        }
+
+
+        private void StoreView_Checked(object sender, RoutedEventArgs e)
+        {
+            var button = sender as RadioButton;
+            if (button == null)
+                return;
+
+            // 获取当前程序集
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            var space = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Namespace;
+            var path = space + ".View." + button.Name;
+            dynamic obj = assembly.CreateInstance(path);
+            if (obj == null) return;
+            container.Content = obj;
         }
     }
 }
