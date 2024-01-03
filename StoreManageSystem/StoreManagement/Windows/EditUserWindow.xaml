@@ -65,7 +65,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.OldPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
@@ -73,7 +73,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
@@ -81,7 +81,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Telephone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock
                 Grid.Row="1"
@@ -112,7 +112,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.OldPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 Grid.Row="2"
                 Grid.Column="3"
@@ -120,7 +120,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 Grid.Row="3"
                 Grid.Column="3"
@@ -128,7 +128,7 @@
                 Height="30"
                 HorizontalAlignment="Left"
                 FontSize="20"
-                Text="{Binding PasswordModel.ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding User.Tag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <!--  Button  -->
             <StackPanel
                 Grid.Row="4"
@@ -144,8 +144,8 @@
                     Height="45"
                     Margin="20,0,20,0"
                     HorizontalAlignment="Center"
-                    Command="{Binding EditPasswordCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:EditPasswordWindow}}"
+                    Command="{Binding OKCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:EditUserWindow}}"
                     Content="确  认"
                     Style="{StaticResource ButtonStyle}" />
                 <Button
@@ -156,9 +156,9 @@
                     Height="45"
                     Margin="20,0,65,0"
                     HorizontalAlignment="Center"
-                    Command="{Binding EditPasswordCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:EditPasswordWindow}}"
-                    Content="确  认"
+                    Command="{Binding CancelCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:EditUserWindow}}"
+                    Content="取  消"
                     Style="{StaticResource ButtonStyle}" />
             </StackPanel>
 
