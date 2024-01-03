@@ -35,11 +35,11 @@ namespace StoreManagement.Model
         /// <summary>
         /// 确认密码
         /// </summary>
-        private string comfirPassword = "";
-        public string ComfirPassword
+        private string confirmPassword = "";
+        public string ConfirmPassword
         {
-            get { return comfirPassword; }
-            set { comfirPassword = value; RaisePropertyChanged(); }
+            get { return confirmPassword; }
+            set { confirmPassword = value; RaisePropertyChanged(); }
         }
     }
 }

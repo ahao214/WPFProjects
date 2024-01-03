@@ -34,6 +34,7 @@ namespace StoreManagement.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
+            SimpleIoc.Default.Register<EditPasswordViewModel>();
 
         }
 
@@ -50,6 +51,14 @@ namespace StoreManagement.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+
+        public EditPasswordViewModel EditPassword
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditPasswordViewModel>();
             }
         }
 

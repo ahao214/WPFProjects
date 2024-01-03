@@ -1,4 +1,5 @@
 ﻿using StoreManagement.View;
+using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,8 @@ namespace StoreManagement
         /// <param name="e"></param>
         private void txtBlockPwd_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            var window = new EditPasswordWindow();
+            window.ShowDialog();
         }
         /// <summary>
         /// 修改用户
