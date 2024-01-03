@@ -32,5 +32,34 @@ namespace StoreManagement
             };
 
         }
+
+        /// <summary>
+        /// 退出系统
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBlock_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBlockPwd_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 修改用户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtUserName_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

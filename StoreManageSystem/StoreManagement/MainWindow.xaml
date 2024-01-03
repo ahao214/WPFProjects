@@ -65,10 +65,13 @@
                     Foreground="White"
                     Text="欢迎" />
                 <TextBlock
+                    x:Name="txtUserName"
                     Margin="5,10,0,10"
                     VerticalAlignment="Center"
                     FontSize="16"
                     Foreground="White"
+                    MouseUp="txtUserName_MouseUp"
+                    Style="{StaticResource TextBoxBanberStyle}"
                     Text="{Binding AppData.User.Name}" />
             </StackPanel>
             <StackPanel
@@ -85,10 +88,12 @@
                     Foreground="White"
                     Text="&#xe64a;" />
                 <TextBlock
+                    x:Name="txtBlockPwd"
                     Margin="0,10,0,10"
                     VerticalAlignment="Center"
                     FontSize="16"
                     Foreground="White"
+                    MouseUp="txtBlockPwd_MouseUp"
                     Style="{StaticResource TextBoxBanberStyle}"
                     Text="修改密码" />
                 <TextBlock
@@ -103,6 +108,7 @@
                     VerticalAlignment="Center"
                     FontSize="16"
                     Foreground="White"
+                    MouseUp="TextBlock_MouseUp"
                     Style="{StaticResource TextBoxBanberStyle}"
                     Text="退出系统" />
             </StackPanel>
