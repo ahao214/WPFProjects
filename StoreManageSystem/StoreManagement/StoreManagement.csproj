@@ -138,6 +138,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\EditGoodsTypeViewModel.cs" />
+    <Compile Include="ViewModel\EditGoodsViewModel.cs" />
     <Compile Include="ViewModel\EditPasswordViewModel.cs" />
     <Compile Include="ViewModel\EditStoreViewModel.cs" />
     <Compile Include="ViewModel\EditSupplierViewModel.cs" />
@@ -166,6 +167,9 @@
     </Compile>
     <Compile Include="Windows\EditGoodsTypeWindow.xaml.cs">
       <DependentUpon>EditGoodsTypeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditGoodsWindow.xaml.cs">
+      <DependentUpon>EditGoodsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditPasswordWindow.xaml.cs">
       <DependentUpon>EditPasswordWindow.xaml</DependentUpon>
@@ -239,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EditGoodsTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditGoodsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
