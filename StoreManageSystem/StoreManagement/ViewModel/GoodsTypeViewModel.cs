@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Service;
 using System;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace StoreManagement.ViewModel
 {
@@ -34,13 +37,60 @@ namespace StoreManagement.ViewModel
             set { goodsTypeList = value; RaisePropertyChanged(); }
         }
 
-        //增加
-        public RelayCommand<UserControl> AddCommand
-        {
-            get
-            {
+        ////增加
+        //public RelayCommand<UserControl> AddCommand
+        //{
+        //    get
+        //    {
+        //        var command = new RelayCommand<UserControl>((view) =>
+        //        {
+        //            if (string.IsNullOrEmpty(GoodsType.Name) == true)
+        //            {
+        //                MessageBox.Show("不能为空");
 
-            }
-        }
+
+        //            }
+        //        });
+        //        return command;
+        //    }
+        //}
+
+        ///// <summary>
+        ///// 修改
+        ///// </summary>
+        //public RelayCommand<Button> EditCommand
+        //{
+        //    get
+        //    {
+        //        var command = new RelayCommand<Button>((view) =>
+        //        {
+        //            var old = view.Tag as GoodsType;
+        //            if(old == null )
+        //            {
+        //                return;
+        //            }
+        //            var model = ServiceLocator.Current.GetInstance<EditGoodsTypeViewModel>();
+
+        //        });
+        //        return command;
+        //    }
+        //}
+
+        ///// <summary>
+        ///// 删除
+        ///// </summary>
+        //public RelayCommand<Button> DeleteCommand
+        //{
+        //    get
+        //    {
+        //        var command = new RelayCommand<Button>((view) =>
+        //        {
+
+        //        });
+        //        return command;
+        //    }
+        //}
+
+
     }
 }

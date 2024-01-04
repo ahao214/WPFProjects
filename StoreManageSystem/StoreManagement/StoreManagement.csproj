@@ -137,7 +137,10 @@
     <Compile Include="UserInfo.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\EditGoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\EditPasswordViewModel.cs" />
+    <Compile Include="ViewModel\EditStoreViewModel.cs" />
+    <Compile Include="ViewModel\EditSupplierViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
     <Compile Include="ViewModel\GoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />

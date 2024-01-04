@@ -78,25 +78,27 @@
         </Grid>
 
         <!--  浏览  -->
-        <Grid  Grid.Row="2" Margin="10 0 0 10">
-            <DataGrid ItemsSource="{Binding GoodsTypeList}" AutoGenerateColumns="False">
+        <Grid Grid.Row="2" Margin="10,0,0,10">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GoodsTypeList}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="序号" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="物资类型" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="备注" Binding="{Binding Tag}"/>
-                    <DataGridTextColumn Header="日期" Binding="{Binding InsertDate}"/>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="序号" />
+                    <DataGridTextColumn Binding="{Binding Name}" Header="物资类型" />
+                    <DataGridTextColumn Binding="{Binding Tag}" Header="备注" />
+                    <DataGridTextColumn Binding="{Binding InsertDate}" Header="日期" />
                     <DataGridTemplateColumn Header="操作">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="编辑"/>
+                                    <Button Content="编辑" />
+
+                                    <Button Content="编辑" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            
+
         </Grid>
     </Grid>
 </UserControl>

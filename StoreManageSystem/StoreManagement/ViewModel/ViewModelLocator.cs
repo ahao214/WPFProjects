@@ -42,6 +42,10 @@ namespace StoreManagement.ViewModel
             SimpleIoc.Default.Register<GoodsViewModel>();
             SimpleIoc.Default.Register<StoreViewModel>();
             SimpleIoc.Default.Register<SupplierViewModel>();
+            SimpleIoc.Default.Register<EditGoodsTypeViewModel>();
+            SimpleIoc.Default.Register<EditStoreViewModel>();
+            SimpleIoc.Default.Register<EditSupplierViewModel>();
+
             #endregion
 
 
@@ -113,7 +117,32 @@ namespace StoreManagement.ViewModel
             }
         }
 
+        public EditGoodsTypeViewModel EditGoodsType
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditGoodsTypeViewModel>();
+            }
+        }
+
+        public EditStoreViewModel EditStore
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditStoreViewModel>();
+            }
+        }
+
+        public EditSupplierViewModel EditSupplier
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditSupplierViewModel>();
+            }
+        }
+
         #endregion
+
 
 
 
