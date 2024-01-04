@@ -1,12 +1,12 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Service;
+using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace StoreManagement.ViewModel
 {
@@ -69,6 +69,53 @@ namespace StoreManagement.ViewModel
             }
         }
 
+
+        public RelayCommand<Button> EditCommand
+        {
+            get
+            {
+                var command = new RelayCommand<Button>((view) =>
+                {
+                    var old = view.Tag as Supplier;
+                    if (old == null)
+                        return;
+                    var model = ServiceLocator.Current.GetInstance<EditSupplierViewModel>();
+                    model.Supplier = old;
+                    var window = new EditSupplierWindow();
+                    window.ShowDialog();
+                    SupplierList = new SupplierService().Select();
+                });
+                return command;
+            }
+        }
+
+        public RelayCommand<Button> DeleteCommand
+        {
+            get
+            {
+                var command = new RelayCommand<Button>((view) =>
+                {
+                    if(MessageBox .Show ("是否执行操作?","",MessageBoxButton.YesNo)== MessageBoxResult.Yes)
+                    {
+                        var old = view.Tag as Supplier;
+                        if (old == null)
+                            return;
+                        var service = new SupplierService();
+                        int count = service.Delete(old);
+                        if(count > 0)
+                        {
+                            SupplierList = service.Select();
+                            MessageBox.Show("操作成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("操作失败");
+                        }
+                    }
+                });
+                return command;
+            }
+        }
 
     }
 }
