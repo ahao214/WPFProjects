@@ -164,6 +164,9 @@
     <Compile Include="View\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditGoodsTypeWindow.xaml.cs">
+      <DependentUpon>EditGoodsTypeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditPasswordWindow.xaml.cs">
       <DependentUpon>EditPasswordWindow.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditGoodsTypeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
