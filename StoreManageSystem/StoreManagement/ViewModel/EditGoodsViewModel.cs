@@ -3,6 +3,9 @@
 
 namespace StoreManagement.ViewModel
 {
+    /// <summary>
+    /// 物资登记
+    /// </summary>
     public class EditGoodsViewModel:ViewModelBase
     {
         private Goods goods;

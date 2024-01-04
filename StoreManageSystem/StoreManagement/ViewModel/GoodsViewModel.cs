@@ -44,7 +44,7 @@ namespace StoreManagement.ViewModel
                 var command = new RelayCommand(() =>
                 {
                     if (string.IsNullOrEmpty(Goods.Name) == true || 
-                    string.IsNullOrEmpty(Goods.Unit))
+                    string.IsNullOrEmpty(Goods.Serial))
                     {
                         MessageBox.Show("不能为空");
                         return;
