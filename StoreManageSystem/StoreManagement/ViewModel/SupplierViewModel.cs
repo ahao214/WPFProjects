@@ -69,7 +69,9 @@ namespace StoreManagement.ViewModel
             }
         }
 
-
+        /// <summary>
+        /// 编辑
+        /// </summary>
         public RelayCommand<Button> EditCommand
         {
             get
@@ -89,6 +91,9 @@ namespace StoreManagement.ViewModel
             }
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
         public RelayCommand<Button> DeleteCommand
         {
             get
