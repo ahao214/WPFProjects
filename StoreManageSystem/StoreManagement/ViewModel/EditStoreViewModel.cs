@@ -9,5 +9,12 @@ namespace StoreManagement.ViewModel
 {
     public class EditStoreViewModel:ViewModelBase
     {
+
+        private Store store = new Store();
+        public Store Store
+        {
+            get { return store; }
+            set { store = value; RaisePropertyChanged(); }
+        }
     }
 }
