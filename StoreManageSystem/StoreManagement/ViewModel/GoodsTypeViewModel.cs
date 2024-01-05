@@ -2,21 +2,19 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Service;
+using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace StoreManagement.ViewModel
 {
     /// <summary>
     /// 物资设置
     /// </summary>
-    public class GoodsTypeViewModel:ViewModelBase
+    public class GoodsTypeViewModel : ViewModelBase
     {
         public GoodsTypeViewModel()
         {
@@ -37,59 +35,90 @@ namespace StoreManagement.ViewModel
             set { goodsTypeList = value; RaisePropertyChanged(); }
         }
 
-        ////增加
-        //public RelayCommand<UserControl> AddCommand
-        //{
-        //    get
-        //    {
-        //        var command = new RelayCommand<UserControl>((view) =>
-        //        {
-        //            if (string.IsNullOrEmpty(GoodsType.Name) == true)
-        //            {
-        //                MessageBox.Show("不能为空");
+        /// <summary>
+        /// 添加
+        /// </summary>
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                var command = new RelayCommand(() =>
+                {
+                    if (string.IsNullOrEmpty(GoodsType.Name) == true)
+                    {
+                        MessageBox.Show("物资类别不能为空");
+                        return;
+                    }
+                    GoodsType.InsertDate = DateTime.Now;
+                    var service = new GoodsTypeService();
+                    int count = service.Insert(GoodsType);
+                    if (count > 0)
+                    {
+                        GoodsTypeList = service.Select();
+                        MessageBox.Show("操作成功");
+                        GoodsType = new GoodsType();
+                    }
+                    else
+                    {
+                        MessageBox.Show("操作失败");
+                    }
+                });
+                return command;
+            }
+        }
 
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        public RelayCommand<Button> EditCommand
+        {
+            get
+            {
+                var command = new RelayCommand<Button>((view) =>
+                {
+                    var old = view.Tag as GoodsType;
+                    if (old == null)
+                        return;
+                    var model = ServiceLocator.Current.GetInstance<EditGoodsTypeViewModel>();
+                    model.GoodsType = old;
+                    var window = new EditGoodsTypeWindow();
+                    window.ShowDialog();
+                    GoodsTypeList = new GoodsTypeService().Select();
+                });
+                return command;
+            }
+        }
 
-        //            }
-        //        });
-        //        return command;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// 修改
-        ///// </summary>
-        //public RelayCommand<Button> EditCommand
-        //{
-        //    get
-        //    {
-        //        var command = new RelayCommand<Button>((view) =>
-        //        {
-        //            var old = view.Tag as GoodsType;
-        //            if(old == null )
-        //            {
-        //                return;
-        //            }
-        //            var model = ServiceLocator.Current.GetInstance<EditGoodsTypeViewModel>();
-
-        //        });
-        //        return command;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// 删除
-        ///// </summary>
-        //public RelayCommand<Button> DeleteCommand
-        //{
-        //    get
-        //    {
-        //        var command = new RelayCommand<Button>((view) =>
-        //        {
-
-        //        });
-        //        return command;
-        //    }
-        //}
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public RelayCommand<Button> DeleteCommand
+        {
+            get
+            {
+                var command = new RelayCommand<Button>((view) =>
+                {
+                    if (MessageBox.Show("是否执行操作?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        var old = view.Tag as GoodsType;
+                        if (old == null)
+                            return;
+                        var service = new GoodsTypeService();
+                        int count = service.Delete(old);
+                        if (count > 0)
+                        {
+                            GoodsTypeList = service.Select();
+                            MessageBox.Show("操作成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("操作失败");
+                        }
+                    }
+                });
+                return command;
+            }
+        }
 
 
     }

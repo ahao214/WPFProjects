@@ -73,7 +73,8 @@
                     Height="36"
                     Margin="18,0,0,0"
                     Content="增加"
-                    Style="{StaticResource ButtonStyle}" />
+                    Command="{Binding AddCommand}"
+CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:GoodsTypeView}}" Style="{StaticResource ButtonStyle}" />
             </StackPanel>
         </Grid>
 
@@ -89,9 +90,19 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="编辑" />
+                                    <Button
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:GoodsTypeView}, Path=DataContext.EditCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                        Content="编辑"
+                                        Style="{Binding DataGridButtonStyle}"
+                                        Tag="{Binding}" />
 
-                                    <Button Content="编辑" />
+                                    <Button
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:GoodsTypeView}, Path=DataContext.DeleteCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                        Content="删除"
+                                        Style="{Binding DataGridButtonStyle}"
+                                        Tag="{Binding}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
