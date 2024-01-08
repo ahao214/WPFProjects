@@ -186,14 +186,14 @@
                                     Tag="&#xe641;" />
 
                                 <RadioButton
-    x:Name="GoodsView"
-    Height="30"
-    Click="StoreView_Checked"
-    Content="物资登记"
-    FontSize="16"
-    Foreground="#85979F"
-    Style="{StaticResource RadioButtonMenuStyle}"
-    Tag="&#xe641;" />
+                                    x:Name="GoodsView"
+                                    Height="30"
+                                    Click="StoreView_Checked"
+                                    Content="物资登记"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
                                 <RadioButton
                                     x:Name="SupplierView"
                                     Height="30"
@@ -209,6 +209,16 @@
                                     Height="30"
                                     Click="StoreView_Checked"
                                     Content="仓库设置"
+                                    FontSize="16"
+                                    Foreground="#85979F"
+                                    Style="{StaticResource RadioButtonMenuStyle}"
+                                    Tag="&#xe641;" />
+
+                                <RadioButton
+                                    x:Name="SpecView"
+                                    Height="30"
+                                    Click="StoreView_Checked"
+                                    Content="规格设置"
                                     FontSize="16"
                                     Foreground="#85979F"
                                     Style="{StaticResource RadioButtonMenuStyle}"
