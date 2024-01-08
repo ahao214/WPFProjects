@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Service;
+using StoreManagement.View;
 using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,12 @@ namespace StoreManagement.ViewModel
             GoodsTypeList = new GoodsTypeService().Select();
             SpecList = new SpecService().Select();
         }
-        private Goods goods;
+        private Goods goods = new Goods();
 
         public Goods Goods
         {
             get { return goods; }
-            set { goods = value; }
+            set { goods = value; RaisePropertyChanged(); }
         }
 
         private List<Goods> goodsList;
@@ -59,19 +60,34 @@ namespace StoreManagement.ViewModel
         /// <summary>
         /// 添加
         /// </summary>
-        public RelayCommand AddCommand
+        public RelayCommand<UserControl> AddCommand
         {
             get
             {
-                var command = new RelayCommand(() =>
+                var command = new RelayCommand<UserControl>((obj) =>
                 {
+                    if (!(obj is GoodsView view))
+                        return;
+
                     if (string.IsNullOrEmpty(Goods.Name) == true ||
-                    string.IsNullOrEmpty(Goods.Serial))
+                    string.IsNullOrEmpty(Goods.Serial) == true)
                     {
-                        MessageBox.Show("不能为空");
+                        MessageBox.Show("序号和名称不能为空");
                         return;
                     }
+
                     Goods.InsertDate = DateTime.Now;
+                    Goods.UserInfoId = AppData.Instance.User.Id;
+                    var goodsTye = view.comboboxGoodsType.SelectedItem as GoodsType;
+                    var spec = view.comboboxSpec.SelectedItem as Spec;
+                    if (goodsTye != null)
+                    {
+                        Goods.GoodsTypeId = goodsTye.Id;
+                    }
+                    if (spec != null)
+                    {
+                        Goods.SpecId = spec.Id;
+                    }
                     var service = new GoodsService();
                     int count = service.Insert(Goods);
                     if (count > 0)
