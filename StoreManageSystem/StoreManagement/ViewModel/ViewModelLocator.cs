@@ -47,6 +47,9 @@ namespace StoreManagement.ViewModel
             SimpleIoc.Default.Register<EditStoreViewModel>();
             SimpleIoc.Default.Register<EditSupplierViewModel>();
 
+            SimpleIoc.Default.Register<SpecViewModel>();
+            SimpleIoc.Default.Register<EditSpecViewModel>();
+
             #endregion
 
 
@@ -147,6 +150,22 @@ namespace StoreManagement.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<EditGoodsViewModel>();
+            }
+        }
+
+        public SpecViewModel Spec
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SpecViewModel>();
+            }
+        }
+
+        public EditSpecViewModel EditSpec
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditSpecViewModel>();
             }
         }
 

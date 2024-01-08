@@ -140,6 +140,7 @@
     <Compile Include="ViewModel\EditGoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\EditGoodsViewModel.cs" />
     <Compile Include="ViewModel\EditPasswordViewModel.cs" />
+    <Compile Include="ViewModel\EditSpecViewModel.cs" />
     <Compile Include="ViewModel\EditStoreViewModel.cs" />
     <Compile Include="ViewModel\EditSupplierViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SpecViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -158,6 +160,9 @@
     </Compile>
     <Compile Include="View\IndexView.xaml.cs">
       <DependentUpon>IndexView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpecView.xaml.cs">
+      <DependentUpon>SpecView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StoreView.xaml.cs">
       <DependentUpon>StoreView.xaml</DependentUpon>
@@ -173,6 +178,9 @@
     </Compile>
     <Compile Include="Windows\EditPasswordWindow.xaml.cs">
       <DependentUpon>EditPasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditSpecWindow.xaml.cs">
+      <DependentUpon>EditSpecWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditStoreWindow.xaml.cs">
       <DependentUpon>EditStoreWindow.xaml</DependentUpon>
@@ -234,6 +242,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\SpecView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EditPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditSpecWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
