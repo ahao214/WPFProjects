@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace StoreManagement.ViewModel
 {
-    public  class SpecViewModel:ViewModelBase
+    public class SpecViewModel : ViewModelBase
     {
         public SpecViewModel()
         {
@@ -46,9 +46,9 @@ namespace StoreManagement.ViewModel
             {
                 var command = new RelayCommand(() =>
                 {
-                    if (string.IsNullOrEmpty(spec.Name) == true )
+                    if (string.IsNullOrEmpty(spec.Name) == true)
                     {
-                        MessageBox.Show("不能为空");
+                        MessageBox.Show("名称不能为空");
                         return;
                     }
                     spec.InsertDate = DateTime.Now;
@@ -56,9 +56,9 @@ namespace StoreManagement.ViewModel
                     int count = service.Insert(spec);
                     if (count > 0)
                     {
-                        specList = service.Select();
+                        SpecList = service.Select();
                         MessageBox.Show("操作成功");
-                        spec = new Spec();
+                        Spec = new Spec();
                     }
                     else
                     {
@@ -85,7 +85,7 @@ namespace StoreManagement.ViewModel
                     model.Spec = old;
                     var window = new EditSpecWindow();
                     window.ShowDialog();
-                    specList = new SpecService().Select();
+                    SpecList = new SpecService().Select();
                 });
                 return command;
             }
@@ -109,7 +109,7 @@ namespace StoreManagement.ViewModel
                         int count = service.Delete(old);
                         if (count > 0)
                         {
-                            specList = service.Select();
+                            SpecList = service.Select();
                             MessageBox.Show("操作成功");
                         }
                         else
