@@ -179,7 +179,7 @@
                                     x:Name="GoodsTypeView"
                                     Height="30"
                                     Click="StoreView_Checked"
-                                    Content="物资设置"
+                                    Content="类别设置"
                                     FontSize="16"
                                     Foreground="#85979F"
                                     Style="{StaticResource RadioButtonMenuStyle}"

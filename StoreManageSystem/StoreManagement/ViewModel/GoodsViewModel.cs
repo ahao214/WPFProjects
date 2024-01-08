@@ -18,6 +18,8 @@ namespace StoreManagement.ViewModel
         public GoodsViewModel()
         {
             GoodsList = new GoodsService().Select();
+            GoodsTypeList = new GoodsTypeService().Select();
+            SpecList = new SpecService().Select();
         }
         private Goods goods;
 
@@ -34,6 +36,26 @@ namespace StoreManagement.ViewModel
             set { goodsList = value; RaisePropertyChanged(); }
         }
 
+        private List<GoodsType> goodsTypeList = new List<GoodsType>();
+        /// <summary>
+        /// 物资类别集合
+        /// </summary>
+        public List<GoodsType> GoodsTypeList
+        {
+            get { return goodsTypeList; }
+            set { goodsTypeList = value; RaisePropertyChanged(); }
+        }
+
+        private List<Spec> specList = new List<Spec>();
+        /// <summary>
+        /// 物资规格
+        /// </summary>
+        public List<Spec> SpecList
+        {
+            get { return specList; }
+            set { specList = value; RaisePropertyChanged(); }
+        }
+
         /// <summary>
         /// 添加
         /// </summary>
@@ -43,7 +65,7 @@ namespace StoreManagement.ViewModel
             {
                 var command = new RelayCommand(() =>
                 {
-                    if (string.IsNullOrEmpty(Goods.Name) == true || 
+                    if (string.IsNullOrEmpty(Goods.Name) == true ||
                     string.IsNullOrEmpty(Goods.Serial))
                     {
                         MessageBox.Show("不能为空");
