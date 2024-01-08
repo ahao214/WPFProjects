@@ -28,7 +28,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 FontSize="20"
-                Text="首页&gt;物品规格管理" />
+                Text="首页&gt;物资规格管理" />
         </StackPanel>
 
         <!--  增加  -->
