@@ -10,7 +10,7 @@ namespace StoreManagement.ViewModel
     /// <summary>
     /// 物资登记
     /// </summary>
-    public class EditGoodsViewModel:ViewModelBase
+    public class EditGoodsViewModel : ViewModelBase
     {
         public EditGoodsViewModel()
         {
@@ -58,13 +58,14 @@ namespace StoreManagement.ViewModel
             {
                 var command = new RelayCommand<Window>((window) =>
                 {
-                    if (string.IsNullOrEmpty(Goods.Name) == true ||                    
+                    if (string.IsNullOrEmpty(Goods.Name) == true ||
                     string.IsNullOrEmpty(Goods.Serial) == true)
                     {
                         MessageBox.Show("序号和名称不能为空");
                         return;
                     }
-
+                    Goods.GoodsTypeId = Goods.GoodsType.Id;
+                    Goods.SpecId = Goods.Spec.Id;
                     var service = new GoodsService();
                     int count = service.Update(Goods);
                     if (count > 0)
