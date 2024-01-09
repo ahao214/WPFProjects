@@ -177,7 +177,7 @@
                 CanUserAddRows="False"
                 ItemsSource="{Binding GoodsList}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" Header="序号" />
+                    <DataGridTextColumn Binding="{Binding Serial}" Header="序号" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="名称" />
                     <DataGridTextColumn Binding="{Binding Unit}" Header="单位" />
                     <DataGridTextColumn Binding="{Binding Max}" Header="最大库存" />
