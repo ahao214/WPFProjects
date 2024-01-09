@@ -44,7 +44,7 @@
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding GoodsTypeList}"
-                    SelectedItem="{Binding Goods.GoodsType}"
+                    SelectedItem="{Binding GoodsType}"
                     SelectedValuePath="Id" />
                 <TextBlock
                     Width="80"
@@ -58,7 +58,7 @@
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
                     ItemsSource="{Binding SpecList}"
-                    SelectedItem="{Binding Goods.Spec}"
+                    SelectedItem="{Binding Spec}"
                     SelectedValuePath="Id" />
             </StackPanel>
 
@@ -75,6 +75,7 @@
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
+                    IsReadOnly="True"
                     Text="{Binding Goods.Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock
                     Width="80"

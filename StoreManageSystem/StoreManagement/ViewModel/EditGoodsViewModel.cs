@@ -16,9 +16,6 @@ namespace StoreManagement.ViewModel
         {
             GoodsTypeList = new GoodsTypeService().Select();
             SpecList = new SpecService().Select();
-
-
-
         }
 
         private Goods goods;
@@ -41,13 +38,35 @@ namespace StoreManagement.ViewModel
 
         private List<Spec> specList = new List<Spec>();
         /// <summary>
-        /// 物资规格
+        /// 物资规格集合
         /// </summary>
         public List<Spec> SpecList
         {
             get { return specList; }
             set { specList = value; RaisePropertyChanged(); }
         }
+
+
+        private GoodsType goodsType = new GoodsType();
+        /// <summary>
+        /// 物资类别
+        /// </summary>
+        public GoodsType GoodsType
+        {
+            get { return goodsType; }
+            set { goodsType = value; RaisePropertyChanged(); }
+        }
+
+        private Spec spec = new Spec();
+        /// <summary>
+        /// 物资规格
+        /// </summary>
+        public Spec Spec
+        {
+            get { return spec; }
+            set { spec = value; RaisePropertyChanged(); }
+        }
+
 
         /// <summary>
         /// 修改
@@ -64,7 +83,9 @@ namespace StoreManagement.ViewModel
                         MessageBox.Show("序号和名称不能为空");
                         return;
                     }
-                    
+                    Goods.GoodsTypeId = goodsType.Id;
+                    Goods.SpecId = spec.Id;
+
                     var service = new GoodsService();
                     int count = service.Update(Goods);
                     if (count > 0)
