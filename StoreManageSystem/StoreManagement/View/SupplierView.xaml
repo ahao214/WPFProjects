@@ -132,7 +132,11 @@
 
         <!--  浏览  -->
         <Grid Grid.Row="2" Margin="10,0,0,10">
-            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SupplierList}">
+            <DataGrid
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                ItemsSource="{Binding SupplierList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="序号" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="供应商" />
@@ -146,9 +150,19 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="编辑" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:SupplierView},Path=DataContext.EditCommand}" Tag="{Binding}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" Style="{Binding DataGridButtonStyle}"/>
+                                    <Button
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:SupplierView}, Path=DataContext.EditCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                        Content="编辑"
+                                        Style="{Binding DataGridButtonStyle}"
+                                        Tag="{Binding}" />
 
-                                    <Button Content="删除" Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:SupplierView},Path=DataContext.DeleteCommand}" Tag="{Binding}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" Style="{Binding DataGridButtonStyle}"/>
+                                    <Button
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:SupplierView}, Path=DataContext.DeleteCommand}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                        Content="删除"
+                                        Style="{Binding DataGridButtonStyle}"
+                                        Tag="{Binding}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

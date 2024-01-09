@@ -172,7 +172,11 @@
 
         <!--  浏览  -->
         <Grid Grid.Row="2" Margin="10,20,0,10">
-            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding GoodsList}">
+            <DataGrid
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                ItemsSource="{Binding GoodsList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="序号" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="名称" />
