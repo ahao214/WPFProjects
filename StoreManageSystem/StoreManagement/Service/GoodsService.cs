@@ -49,7 +49,7 @@ namespace StoreManagement.Service
         {
             using (StoreDBEntities db = new StoreDBEntities())
             {
-                return db.Goods.Include("Spec").Include("GoodsType").ToList();
+                return db.Goods.ToList();
             }
         }
 

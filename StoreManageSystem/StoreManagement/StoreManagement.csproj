@@ -98,7 +98,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GoodsEntity.cs" />
+    <Compile Include="Entities\Goods.cs" />
     <Compile Include="Goods.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
