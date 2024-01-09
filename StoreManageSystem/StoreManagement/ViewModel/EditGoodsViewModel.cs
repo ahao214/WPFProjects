@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Service;
+using System.Collections.Generic;
 using System.Windows;
 
 
@@ -11,12 +12,41 @@ namespace StoreManagement.ViewModel
     /// </summary>
     public class EditGoodsViewModel:ViewModelBase
     {
+        public EditGoodsViewModel()
+        {
+            GoodsTypeList = new GoodsTypeService().Select();
+            SpecList = new SpecService().Select();
+
+
+
+        }
+
         private Goods goods;
 
         public Goods Goods
         {
             get { return goods; }
             set { goods = value; }
+        }
+
+        private List<GoodsType> goodsTypeList = new List<GoodsType>();
+        /// <summary>
+        /// 物资类别集合
+        /// </summary>
+        public List<GoodsType> GoodsTypeList
+        {
+            get { return goodsTypeList; }
+            set { goodsTypeList = value; RaisePropertyChanged(); }
+        }
+
+        private List<Spec> specList = new List<Spec>();
+        /// <summary>
+        /// 物资规格
+        /// </summary>
+        public List<Spec> SpecList
+        {
+            get { return specList; }
+            set { specList = value; RaisePropertyChanged(); }
         }
 
         /// <summary>

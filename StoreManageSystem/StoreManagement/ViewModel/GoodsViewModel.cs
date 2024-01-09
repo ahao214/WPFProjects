@@ -6,6 +6,7 @@ using StoreManagement.View;
 using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -118,7 +119,11 @@ namespace StoreManagement.ViewModel
                     if (old == null)
                         return;
                     var model = ServiceLocator.Current.GetInstance<EditGoodsViewModel>();
+
                     model.Goods = old;
+                    model.Goods.GoodsType = model.GoodsTypeList.FirstOrDefault(t => t.Id == model.Goods.GoodsType.Id);
+                    model.Goods.Spec = model.SpecList.FirstOrDefault(t => t.Id == model.Goods.Spec.Id);
+
                     var window = new EditGoodsWindow();
                     window.ShowDialog();
                     GoodsList = new GoodsService().Select();

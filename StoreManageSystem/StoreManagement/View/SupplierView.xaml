@@ -135,7 +135,6 @@
             <DataGrid
                 AutoGenerateColumns="False"
                 CanUserAddRows="False"
-                CanUserDeleteRows="False"
                 ItemsSource="{Binding SupplierList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="序号" />

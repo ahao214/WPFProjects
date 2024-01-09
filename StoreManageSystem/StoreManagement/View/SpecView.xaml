@@ -84,7 +84,6 @@
             <DataGrid
                 AutoGenerateColumns="False"
                 CanUserAddRows="False"
-                CanUserDeleteRows="False"
                 ItemsSource="{Binding SpecList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Id}" Header="序号" />
