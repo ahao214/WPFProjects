@@ -75,6 +75,7 @@
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
+                    IsEnabled="False"
                     IsReadOnly="True"
                     Text="{Binding Goods.Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock
