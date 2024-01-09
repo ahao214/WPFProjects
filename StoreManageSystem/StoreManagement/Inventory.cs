@@ -24,9 +24,5 @@ namespace StoreManagement
         public Nullable<int> SpecId { get; set; }
         public Nullable<int> UserInfoId { get; set; }
         public string UserInfoName { get; set; }
-    
-        public virtual Goods Goods { get; set; }
-        public virtual GoodsType GoodsType { get; set; }
-        public virtual Spec Spec { get; set; }
     }
 }

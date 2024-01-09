@@ -14,14 +14,6 @@ namespace StoreManagement
     
     public partial class Goods
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Goods()
-        {
-            this.InStore = new HashSet<InStore>();
-            this.Inventory = new HashSet<Inventory>();
-            this.OutStore = new HashSet<OutStore>();
-        }
-    
         public int Id { get; set; }
         public string Serial { get; set; }
         public string Name { get; set; }
@@ -34,14 +26,5 @@ namespace StoreManagement
         public Nullable<int> SpecId { get; set; }
         public Nullable<int> UserInfoId { get; set; }
         public string Tag { get; set; }
-    
-        public virtual GoodsType GoodsType { get; set; }
-        public virtual Spec Spec { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InStore> InStore { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inventory> Inventory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OutStore> OutStore { get; set; }
     }
 }

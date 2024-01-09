@@ -121,8 +121,8 @@ namespace StoreManagement.ViewModel
                     var model = ServiceLocator.Current.GetInstance<EditGoodsViewModel>();
 
                     model.Goods = old;
-                    model.Goods.GoodsType = model.GoodsTypeList.FirstOrDefault(t => t.Id == model.Goods.GoodsType.Id);
-                    model.Goods.Spec = model.SpecList.FirstOrDefault(t => t.Id == model.Goods.Spec.Id);
+                    //model.Goods.GoodsType = model.GoodsTypeList.FirstOrDefault(t => t.Id == model.Goods.GoodsType.Id);
+                    //model.Goods.Spec = model.SpecList.FirstOrDefault(t => t.Id == model.Goods.Spec.Id);
 
                     var window = new EditGoodsWindow();
                     window.ShowDialog();

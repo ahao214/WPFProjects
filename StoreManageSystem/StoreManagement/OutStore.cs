@@ -32,11 +32,5 @@ namespace StoreManagement
         public string UserInfoName { get; set; }
         public string Tag { get; set; }
         public Nullable<bool> IsInventory { get; set; }
-    
-        public virtual Goods Goods { get; set; }
-        public virtual GoodsType GoodsType { get; set; }
-        public virtual Spec Spec { get; set; }
-        public virtual Store Store { get; set; }
-        public virtual Supplier Supplier { get; set; }
     }
 }

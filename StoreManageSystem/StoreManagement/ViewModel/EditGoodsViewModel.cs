@@ -64,8 +64,7 @@ namespace StoreManagement.ViewModel
                         MessageBox.Show("序号和名称不能为空");
                         return;
                     }
-                    Goods.GoodsTypeId = Goods.GoodsType.Id;
-                    Goods.SpecId = Goods.Spec.Id;
+                    
                     var service = new GoodsService();
                     int count = service.Update(Goods);
                     if (count > 0)
