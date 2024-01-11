@@ -111,5 +111,7 @@ namespace StoreManagement.Model
             set { inventoryDate = value; RaisePropertyChanged(); }
         }
 
+        public int UserInfoId { get; set; }
+
     }
 }

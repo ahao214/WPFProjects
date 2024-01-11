@@ -1,22 +1,21 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using StoreManagement.Model;
 using StoreManagement.Service;
+using StoreManagement.View;
 using StoreManagement.Windows;
+using System;
 using System.Collections.Generic;
+using System.Web.UI;
+using System.Windows;
 
 
 namespace StoreManagement.ViewModel
 {
     public class InStoreViewModel : ViewModelBase
     {
-        private InStoreEx inStore = new InStoreEx();
 
-        public InStoreEx InStore
-        {
-            get { return inStore; }
-            set { inStore = value; RaisePropertyChanged(); }
-        }
 
         private Goods goods;
 
@@ -122,6 +121,29 @@ namespace StoreManagement.ViewModel
 
         #endregion
 
+
+        #region 入库
+
+        private InStoreEx inStore = new InStoreEx();
+
+        public InStoreEx InStore
+        {
+            get { return inStore; }
+            set { inStore = value; RaisePropertyChanged(); }
+        }
+
+        private List<InStore> inStoreList = new List<InStore>();
+        /// <summary>
+        /// 入库
+        /// </summary>
+        public List<InStore> InStoreList
+        {
+            get { return inStoreList; }
+            set { inStoreList = value; RaisePropertyChanged(); }
+        }
+
+        #endregion
+
         /// <summary>
         /// 打开物资选择窗口
         /// </summary>
@@ -152,13 +174,125 @@ namespace StoreManagement.ViewModel
             {
                 return new RelayCommand(() =>
                 {
-                    GoodsTypeList = new GoodsTypeService().Select();
-                    SpecList = new SpecService().Select();
                     StoreList = new StoreService().Select();
                     SupplierList = new SupplierService().Select();
+                    InStoreList = new InStoreService().Select();
                 });
             }
         }
 
+
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        public RelayCommand<UserControl> AddCommand
+        {
+            get
+            {
+                var command = new RelayCommand<UserControl>((obj) =>
+                {
+                    if (!(obj is InStoreView view))
+                        return;
+
+                    if (string.IsNullOrEmpty(InStore.Name) == true ||
+                    string.IsNullOrEmpty(InStore.GoodsSerial) == true)
+                    {
+                        MessageBox.Show("序号和名称不能为空");
+                        return;
+                    }
+
+                    InStore.InsertDate = DateTime.Now;
+                    InStore.UserInfoId = AppData.Instance.User.Id;
+
+                    if (Store.Id == 0)
+                    {
+                        MessageBox.Show("仓库不能为空");
+                        return;
+                    }
+
+                    if (Supplier.Id == 0)
+                    {
+                        MessageBox.Show("供应商不能为空");
+                        return;
+                    }
+
+                    InStore.StoreId = Store.Id;
+                    InStore.SupplierId = Supplier.Id;
+
+                    var service = new InStoreService();
+                    int count = service.Insert(InStore);
+                    if (count > 0)
+                    {
+                        InStoreList = service.Select();
+                        MessageBox.Show("操作成功");
+                        InStore = new InStoreEx();
+                    }
+                    else
+                    {
+                        MessageBox.Show("操作失败");
+                    }
+                });
+                return command;
+            }
+        }
+
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        //public RelayCommand<Button> EditCommand
+        //{
+        //    get
+        //    {
+        //        var command = new RelayCommand<Button>((view) =>
+        //        {
+        //            var old = view.Tag as Goods;
+        //            if (old == null)
+        //                return;
+        //            var vm = ServiceLocator.Current.GetInstance<EditGoodsViewModel>();
+
+        //            vm.Goods = old;
+        //            vm.GoodsType = vm.GoodsTypeList.FirstOrDefault(t => t.Id == old.GoodsTypeId);
+        //            vm.Spec = vm.SpecList.FirstOrDefault(t => t.Id == old.SpecId);
+
+
+        //            var window = new EditGoodsWindow();
+        //            window.ShowDialog();
+        //            GoodsList = new GoodsService().Select();
+        //        });
+        //        return command;
+        //    }
+        //}
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        //public RelayCommand<Button> DeleteCommand
+        //{
+        //    get
+        //    {
+        //        var command = new RelayCommand<Button>((view) =>
+        //        {
+        //            if (MessageBox.Show("是否执行操作?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+        //            {
+        //                var old = view.Tag as Goods;
+        //                if (old == null)
+        //                    return;
+        //                var service = new GoodsService();
+        //                int count = service.Delete(old);
+        //                if (count > 0)
+        //                {
+        //                    GoodsList = service.Select();
+        //                    MessageBox.Show("操作成功");
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("操作失败");
+        //                }
+        //            }
+        //        });
+        //        return command;
+        //    }
+        //}
     }
 }

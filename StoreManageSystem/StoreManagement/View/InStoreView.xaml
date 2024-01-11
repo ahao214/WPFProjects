@@ -69,7 +69,7 @@
                     Margin="0,0,10,0"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding StoreList}"
+                    ItemsSource="{Binding StoreList}" SelectedItem="{Binding Store}"
                     SelectedValuePath="Id" />
                     <TextBlock
                     Width="80"
@@ -82,7 +82,7 @@
                     Height="30"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding SupplierList}"
+                    ItemsSource="{Binding SupplierList}" SelectedItem="{Binding Supplier}"
                     SelectedValuePath="Id" />
                 </StackPanel>
 
@@ -116,7 +116,7 @@
 
                     <TextBlock
                     Width="80"
-                    Margin="0,0,10,0"
+                    Margin="30,0,10,0"
                     VerticalAlignment="Center"
                     Text="单位:" />
                     <TextBox
@@ -134,23 +134,23 @@
                     Width="80"
                     Margin="0,0,10,0"
                     VerticalAlignment="Center"
-                    Text="库存最小值:" />
+                    Text="入库数量:" />
                     <TextBox
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
-                    Text="{Binding Goods.Min, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding InStore.Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock
                     Width="80"
                     Margin="10,0,10,0"
                     VerticalAlignment="Center"
-                    Text="库存最大值:" />
+                    Text="入库价格:" />
                     <TextBox
                     Width="150"
                     Height="30"
                     Margin="0,0,10,0"
                     VerticalContentAlignment="Center"
-                    Text="{Binding Goods.Max, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding InStore.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock
                     Width="80"
                     Margin="0,0,10,0"
@@ -160,7 +160,7 @@
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
-                    Text="{Binding Goods.Tag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding InStore.Tag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
 
                 <StackPanel
@@ -185,7 +185,7 @@
             <DataGrid
             AutoGenerateColumns="False"
             CanUserAddRows="False"
-            ItemsSource="{Binding GoodsList}">
+            ItemsSource="{Binding InStoreList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Serial}" Header="序号" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="名称" />
