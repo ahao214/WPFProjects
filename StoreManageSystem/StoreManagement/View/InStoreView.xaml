@@ -104,6 +104,9 @@
                     Margin="0,0,10,0"
                     VerticalContentAlignment="Center"
                     Text="{Binding Goods.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Button Content="选择..." Click="Button_Click"/>
+
                     <TextBlock
                     Width="80"
                     Margin="0,0,10,0"

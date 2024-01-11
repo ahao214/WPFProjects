@@ -1,5 +1,4 @@
-﻿using StoreManagement.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,20 +16,13 @@ using System.Windows.Shapes;
 namespace StoreManagement.View
 {
     /// <summary>
-    /// InStoreView.xaml 的交互逻辑
+    /// OutStoreView.xaml 的交互逻辑
     /// </summary>
-    public partial class InStoreView : UserControl
+    public partial class OutStoreView : UserControl
     {
-        public InStoreView()
+        public OutStoreView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new SelectGoodsWindow();
-            window.Show();
-
         }
     }
 }
