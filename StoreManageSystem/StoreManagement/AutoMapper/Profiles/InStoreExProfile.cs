@@ -7,7 +7,7 @@ namespace StoreManagement.AutoMapper.Profiles
     {
         public InStoreExProfile()
         {
-            CreateMap<InStore, InStoreEx>();
+            CreateMap<InStoreEx, InStore>();
         }
 
     }
