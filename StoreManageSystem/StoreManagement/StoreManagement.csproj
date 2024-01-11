@@ -95,6 +95,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData.cs" />
+    <Compile Include="AutoMapper\Configration.cs" />
+    <Compile Include="AutoMapper\Profiles\InStoreExProfile.cs" />
     <Compile Include="Control\ButtonCard.xaml.cs">
       <DependentUpon>ButtonCard.xaml</DependentUpon>
     </Compile>

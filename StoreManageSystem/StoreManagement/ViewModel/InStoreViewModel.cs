@@ -1,14 +1,15 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using StoreManagement.AutoMapper;
 using StoreManagement.Model;
 using StoreManagement.Service;
 using StoreManagement.View;
 using StoreManagement.Windows;
 using System;
 using System.Collections.Generic;
-using System.Web.UI;
 using System.Windows;
+using System.Windows.Controls;
 
 
 namespace StoreManagement.ViewModel
@@ -220,8 +221,9 @@ namespace StoreManagement.ViewModel
                     InStore.StoreId = Store.Id;
                     InStore.SupplierId = Supplier.Id;
 
+                    var newInStore = Configration.Mapper.Map<InStore>(InStore);
                     var service = new InStoreService();
-                    int count = service.Insert(InStore);
+                    int count = service.Insert(newInStore);
                     if (count > 0)
                     {
                         InStoreList = service.Select();
