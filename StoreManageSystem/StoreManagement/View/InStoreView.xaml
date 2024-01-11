@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StoreManagement.View"
              mc:Ignorable="d" 
              DataContext="{Binding Source={StaticResource Locator},Path=InStore}"
-             d:DesignHeight="450" d:DesignWidth="800">
+            >
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -57,11 +57,11 @@
                 Margin="0,30,0,10"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                    <TextBlock
+                    <TextBlock Text="选择仓库:"
                     Width="80"
                     Margin="0,0,10,0"
                     VerticalAlignment="Center"
-                    Text="物资类别:" />
+                   />
                     <ComboBox
                     x:Name="comboboxGoodsType"
                     Width="150"
@@ -69,20 +69,20 @@
                     Margin="0,0,10,0"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding GoodsTypeList}"
+                    ItemsSource="{Binding StoreList}"
                     SelectedValuePath="Id" />
                     <TextBlock
                     Width="80"
                     Margin="0,0,10,0"
                     VerticalAlignment="Center"
-                    Text="规格型号:" />
+                    Text="选择供应商:" />
                     <ComboBox
                     x:Name="comboboxSpec"
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="Name"
-                    ItemsSource="{Binding SpecList}"
+                    ItemsSource="{Binding SupplierList}"
                     SelectedValuePath="Id" />
                 </StackPanel>
 

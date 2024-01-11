@@ -26,6 +26,8 @@ namespace StoreManagement.ViewModel
             set { goods = value; }
         }
 
+        #region 物资类别
+
         private List<GoodsType> goodsTypeList = new List<GoodsType>();
         /// <summary>
         /// 物资类别集合
@@ -35,17 +37,6 @@ namespace StoreManagement.ViewModel
             get { return goodsTypeList; }
             set { goodsTypeList = value; RaisePropertyChanged(); }
         }
-
-        private List<Spec> specList = new List<Spec>();
-        /// <summary>
-        /// 物资规格集合
-        /// </summary>
-        public List<Spec> SpecList
-        {
-            get { return specList; }
-            set { specList = value; RaisePropertyChanged(); }
-        }
-
 
         private GoodsType goodsType = new GoodsType();
         /// <summary>
@@ -57,6 +48,21 @@ namespace StoreManagement.ViewModel
             set { goodsType = value; RaisePropertyChanged(); }
         }
 
+        #endregion
+
+
+        #region 物资规格
+
+        private List<Spec> specList = new List<Spec>();
+        /// <summary>
+        /// 物资规格集合
+        /// </summary>
+        public List<Spec> SpecList
+        {
+            get { return specList; }
+            set { specList = value; RaisePropertyChanged(); }
+        }
+
         private Spec spec = new Spec();
         /// <summary>
         /// 物资规格
@@ -66,6 +72,55 @@ namespace StoreManagement.ViewModel
             get { return spec; }
             set { spec = value; RaisePropertyChanged(); }
         }
+        #endregion
+
+        #region 仓库
+
+        private List<Store> storeList = new List<Store>();
+        /// <summary>
+        /// 仓库集合
+        /// </summary>
+        public List<Store> StoreList
+        {
+            get { return storeList; }
+            set { storeList = value; RaisePropertyChanged(); }
+        }
+
+        private Store store = new Store();
+        /// <summary>
+        /// 仓库
+        /// </summary>
+        public Store Store
+        {
+            get { return store; }
+            set { store = value; RaisePropertyChanged(); }
+        }
+
+        #endregion
+
+        #region 供应商
+
+        private List<Supplier> supplierList = new List<Supplier>();
+        /// <summary>
+        /// 供应商集合
+        /// </summary>
+        public List<Supplier> SupplierList
+        {
+            get { return supplierList; }
+            set { supplierList = value; RaisePropertyChanged(); }
+        }
+
+        private Supplier supplier = new Supplier();
+        /// <summary>
+        /// 供应商
+        /// </summary>
+        public Supplier Supplier
+        {
+            get { return supplier; }
+            set { supplier = value; RaisePropertyChanged(); }
+        }
+
+        #endregion
 
         /// <summary>
         /// 打开物资选择窗口
@@ -99,6 +154,8 @@ namespace StoreManagement.ViewModel
                 {
                     GoodsTypeList = new GoodsTypeService().Select();
                     SpecList = new SpecService().Select();
+                    StoreList = new StoreService().Select();
+                    SupplierList = new SupplierService().Select();
                 });
             }
         }
