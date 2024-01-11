@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using StoreManagement.Model;
 using StoreManagement.Windows;
 
 
@@ -7,15 +8,17 @@ namespace StoreManagement.ViewModel
 {
     public class InStoreViewModel : ViewModelBase
     {
-        private InStore inStore = new InStore();
+        private InStoreEx inStore = new InStoreEx();
 
-        public InStore InStore
+        public InStoreEx InStore
         {
             get { return inStore; }
             set { inStore = value; RaisePropertyChanged(); }
         }
 
-
+        /// <summary>
+        /// 打开物资选择窗口
+        /// </summary>
         public RelayCommand OpenSelectGoodsWindow
         {
             get
