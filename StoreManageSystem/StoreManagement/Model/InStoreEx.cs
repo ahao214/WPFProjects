@@ -28,19 +28,81 @@ namespace StoreManagement.Model
             set { name = value; RaisePropertyChanged(); }
         }
 
-        public Nullable<int> StoreId { get; set; }
-        public string StoreName { get; set; }
-        public int SupplierId { get; set; }
-        public string SupplierName { get; set; }
-        public string Unit { get; set; }
-        public double Number { get; set; }
-        public double Price { get; set; }
-        public Nullable<System.DateTime> InsertDate { get; set; }
-        public Nullable<int> GoodsTypeId { get; set; }
-        public Nullable<int> UserInfoId { get; set; }
-        public string UserInfoName { get; set; }
-        public string Tag { get; set; }
-        public Nullable<bool> IsInventory { get; set; }
+        private Nullable<int> storeId = 0;
+
+        public Nullable<int> StoreId
+        {
+            get { return storeId; }
+            set { storeId = value; RaisePropertyChanged(); }
+        }
+
+
+        private string storeName = "";
+
+
+        public string StoreName
+        {
+            get { return storeName; }
+            set { storeName = value; RaisePropertyChanged(); }
+        }
+
+        private int supplierId = 0;
+        public int SupplierId
+        {
+            get { return supplierId; }
+            set { supplierId = value; RaisePropertyChanged(); }
+        }
+
+        public string supplierName = "";
+        public string SupplierName
+        {
+            get { return supplierName; }
+            set { supplierName = value; RaisePropertyChanged(); }
+        }
+
+        private string unit = "";
+
+        public string Unit
+        {
+            get { return unit; }
+            set { unit = value; RaisePropertyChanged(); }
+        }
+
+        private double number = 0;
+        public double Number
+        {
+            get { return number; }
+            set { number = value; RaisePropertyChanged(); }
+        }
+
+        public double price = 0;
+        public double Price
+        {
+            get { return price; }
+            set { price = value; RaisePropertyChanged(); }
+        }
+
+        private Nullable<System.DateTime> insertDate;
+        public Nullable<System.DateTime> InsertDate
+        {
+            get { return insertDate; }
+            set { insertDate = value; RaisePropertyChanged(); }
+        }
+
+
+        public string tag = "";
+        public string Tag
+        {
+            get { return tag; }
+            set { tag = value; RaisePropertyChanged(); }
+        }
+
+        private Nullable<bool> isInventory;
+        public Nullable<bool> IsInventory
+        {
+            get { return isInventory; }
+            set { isInventory = value; RaisePropertyChanged(); }
+        }
 
     }
 }
