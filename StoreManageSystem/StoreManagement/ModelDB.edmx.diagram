@@ -8,13 +8,13 @@
         <EntityTypeShape EntityType="StoreDBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="StoreDBModel.Goods" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="StoreDBModel.GoodsType" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="StoreDBModel.InStore" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="StoreDBModel.Inventory" Width="1.5" PointX="2.75" PointY="4.75" />
         <EntityTypeShape EntityType="StoreDBModel.OutStore" Width="1.5" PointX="4.75" PointY="3.75" />
         <EntityTypeShape EntityType="StoreDBModel.Spec" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="StoreDBModel.Store" Width="1.5" PointX="6.75" PointY="3.75" />
         <EntityTypeShape EntityType="StoreDBModel.Supplier" Width="1.5" PointX="6.75" PointY="6.75" />
         <EntityTypeShape EntityType="StoreDBModel.UserInfo" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="StoreDBModel.InStore" Width="1.5" PointX="0.625" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

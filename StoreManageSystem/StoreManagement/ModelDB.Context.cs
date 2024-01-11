@@ -28,12 +28,12 @@ namespace StoreManagement
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Goods> Goods { get; set; }
         public virtual DbSet<GoodsType> GoodsType { get; set; }
-        public virtual DbSet<InStore> InStore { get; set; }
         public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<OutStore> OutStore { get; set; }
         public virtual DbSet<Spec> Spec { get; set; }
         public virtual DbSet<Store> Store { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
+        public virtual DbSet<InStore> InStore { get; set; }
     }
 }

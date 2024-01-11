@@ -63,6 +63,7 @@
           <Property Name="UserInfoName" Type="nvarchar" MaxLength="32" />
           <Property Name="Tag" Type="nvarchar" MaxLength="256" />
           <Property Name="IsInventory" Type="bit" />
+          <Property Name="InventoryDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -166,13 +167,13 @@
           <EntitySet Name="Customer" EntityType="StoreDBModel.Customer" />
           <EntitySet Name="Goods" EntityType="StoreDBModel.Goods" />
           <EntitySet Name="GoodsType" EntityType="StoreDBModel.GoodsType" />
-          <EntitySet Name="InStore" EntityType="StoreDBModel.InStore" />
           <EntitySet Name="Inventory" EntityType="StoreDBModel.Inventory" />
           <EntitySet Name="OutStore" EntityType="StoreDBModel.OutStore" />
           <EntitySet Name="Spec" EntityType="StoreDBModel.Spec" />
           <EntitySet Name="Store" EntityType="StoreDBModel.Store" />
           <EntitySet Name="Supplier" EntityType="StoreDBModel.Supplier" />
           <EntitySet Name="UserInfo" EntityType="StoreDBModel.UserInfo" />
+          <EntitySet Name="InStore" EntityType="StoreDBModel.InStore" />
         </EntityContainer>
         <EntityType Name="Customer">
           <Key>
@@ -211,27 +212,6 @@
           <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="InsertDate" Type="DateTime" Precision="3" />
           <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="InStore">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodsSerial" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="StoreId" Type="Int32" />
-          <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="Number" Type="Double" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="false" />
-          <Property Name="InsertDate" Type="DateTime" Precision="3" />
-          <Property Name="GoodsTypeId" Type="Int32" />
-          <Property Name="UserInfoId" Type="Int32" />
-          <Property Name="UserInfoName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="IsInventory" Type="Boolean" />
         </EntityType>
         <EntityType Name="Inventory">
           <Key>
@@ -315,6 +295,28 @@
           <Property Name="InsertDate" Type="DateTime" Precision="3" />
           <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="InStore">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsSerial" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsTypeId" Type="Int32" />
+          <Property Name="UserInfoId" Type="Int32" />
+          <Property Name="UserInfoName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsInventory" Type="Boolean" />
+          <Property Name="InventoryDate" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -358,28 +360,6 @@
                 <ScalarProperty Name="Tag" ColumnName="Tag" />
                 <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InStore">
-            <EntityTypeMapping TypeName="StoreDBModel.InStore">
-              <MappingFragment StoreEntitySet="InStore">
-                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
-                <ScalarProperty Name="Tag" ColumnName="Tag" />
-                <ScalarProperty Name="UserInfoName" ColumnName="UserInfoName" />
-                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
-                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
-                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
-                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="GoodsSerial" ColumnName="GoodsSerial" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -468,6 +448,29 @@
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InStore">
+            <EntityTypeMapping TypeName="StoreDBModel.InStore">
+              <MappingFragment StoreEntitySet="InStore">
+                <ScalarProperty Name="InventoryDate" ColumnName="InventoryDate" />
+                <ScalarProperty Name="IsInventory" ColumnName="IsInventory" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="UserInfoName" ColumnName="UserInfoName" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="GoodsTypeId" ColumnName="GoodsTypeId" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GoodsSerial" ColumnName="GoodsSerial" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

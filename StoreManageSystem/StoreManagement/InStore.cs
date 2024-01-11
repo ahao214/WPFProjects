@@ -30,5 +30,6 @@ namespace StoreManagement
         public string UserInfoName { get; set; }
         public string Tag { get; set; }
         public Nullable<bool> IsInventory { get; set; }
+        public Nullable<System.DateTime> InventoryDate { get; set; }
     }
 }
