@@ -112,6 +112,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EditPasswordModel.cs" />
+    <Compile Include="Model\InStoreEx.cs" />
     <Compile Include="OutStore.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
