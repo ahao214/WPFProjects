@@ -97,7 +97,7 @@ namespace StoreManagement.Model
             set { tag = value; RaisePropertyChanged(); }
         }
 
-        private Nullable<bool> isInventory;
+        private Nullable<bool> isInventory = false;
         public Nullable<bool> IsInventory
         {
             get { return isInventory; }
