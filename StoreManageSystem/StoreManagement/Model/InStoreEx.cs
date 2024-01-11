@@ -104,5 +104,12 @@ namespace StoreManagement.Model
             set { isInventory = value; RaisePropertyChanged(); }
         }
 
+        private Nullable<System.DateTime> inventoryDate;
+        public Nullable<System.DateTime> InventoryDate
+        {
+            get { return inventoryDate; }
+            set { inventoryDate = value; RaisePropertyChanged(); }
+        }
+
     }
 }
