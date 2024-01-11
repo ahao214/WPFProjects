@@ -53,7 +53,7 @@ namespace StoreManagement.Model
             set { supplierId = value; RaisePropertyChanged(); }
         }
 
-        public string supplierName = "";
+        private string supplierName = "";
         public string SupplierName
         {
             get { return supplierName; }
@@ -75,7 +75,7 @@ namespace StoreManagement.Model
             set { number = value; RaisePropertyChanged(); }
         }
 
-        public double price = 0;
+        private double price = 0;
         public double Price
         {
             get { return price; }
@@ -90,7 +90,7 @@ namespace StoreManagement.Model
         }
 
 
-        public string tag = "";
+        private string tag = "";
         public string Tag
         {
             get { return tag; }
