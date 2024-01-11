@@ -21,8 +21,6 @@ namespace StoreManagement
         public string StoreName { get; set; }
         public int SupplierId { get; set; }
         public string SupplierName { get; set; }
-        public Nullable<int> SpecId { get; set; }
-        public string SpecName { get; set; }
         public string Unit { get; set; }
         public double Number { get; set; }
         public double Price { get; set; }

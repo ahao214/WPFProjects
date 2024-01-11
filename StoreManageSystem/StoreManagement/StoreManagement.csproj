@@ -147,6 +147,7 @@
     <Compile Include="ViewModel\EditUserViewModel.cs" />
     <Compile Include="ViewModel\GoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />
+    <Compile Include="ViewModel\InStoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SpecViewModel.cs" />
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="View\IndexView.xaml.cs">
       <DependentUpon>IndexView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InStoreView.xaml.cs">
+      <DependentUpon>InStoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SpecView.xaml.cs">
       <DependentUpon>SpecView.xaml</DependentUpon>
@@ -240,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\IndexView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InStoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -52,6 +52,11 @@ namespace StoreManagement.ViewModel
 
             #endregion
 
+            #region Èë¿â
+
+            SimpleIoc.Default.Register<InStoreViewModel>();
+
+            #endregion
 
 
         }
@@ -171,6 +176,18 @@ namespace StoreManagement.ViewModel
 
         #endregion
 
+
+        #region Èë¿â
+
+        public InStoreViewModel InStore
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<InStoreViewModel>();
+            }
+        }
+
+        #endregion
 
 
 

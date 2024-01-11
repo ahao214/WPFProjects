@@ -54,8 +54,6 @@
           <Property Name="StoreName" Type="nvarchar" MaxLength="32" />
           <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="SupplierName" Type="nvarchar" MaxLength="128" />
-          <Property Name="SpecId" Type="int" />
-          <Property Name="SpecName" Type="nvarchar" MaxLength="32" />
           <Property Name="Unit" Type="nvarchar" MaxLength="16" />
           <Property Name="Number" Type="float" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
@@ -92,8 +90,6 @@
           <Property Name="StoreName" Type="nvarchar" MaxLength="32" />
           <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="SupplierName" Type="nvarchar" MaxLength="128" />
-          <Property Name="SpecId" Type="int" />
-          <Property Name="SpecName" Type="nvarchar" MaxLength="32" />
           <Property Name="Unit" Type="nvarchar" MaxLength="16" />
           <Property Name="Number" Type="float" Nullable="false" />
           <Property Name="Price" Type="float" Nullable="false" />
@@ -227,8 +223,6 @@
           <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="SpecId" Type="Int32" />
-          <Property Name="SpecName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="Number" Type="Double" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
@@ -265,8 +259,6 @@
           <Property Name="StoreName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="SupplierName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="SpecId" Type="Int32" />
-          <Property Name="SpecName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Unit" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="Number" Type="Double" Nullable="false" />
           <Property Name="Price" Type="Double" Nullable="false" />
@@ -323,7 +315,7 @@
           <Property Name="InsertDate" Type="DateTime" Precision="3" />
           <Property Name="Tag" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -382,8 +374,6 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
-                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="StoreName" ColumnName="StoreName" />
@@ -422,8 +412,6 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
-                <ScalarProperty Name="SpecId" ColumnName="SpecId" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="StoreName" ColumnName="StoreName" />
