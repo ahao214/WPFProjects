@@ -167,6 +167,9 @@
     <Compile Include="View\InStoreView.xaml.cs">
       <DependentUpon>InStoreView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OutStoreView.xaml.cs">
+      <DependentUpon>OutStoreView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SpecView.xaml.cs">
       <DependentUpon>SpecView.xaml</DependentUpon>
     </Compile>
@@ -252,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\InStoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OutStoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -92,7 +92,7 @@
                     Width="150"
                     Height="30"
                     VerticalContentAlignment="Center"
-                    Text="{Binding Goods.Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding InStore.GoodsSerial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock
                     Width="80"
                     Margin="10,0,10,0"
@@ -103,9 +103,9 @@
                     Height="30"
                     Margin="0,0,10,0"
                     VerticalContentAlignment="Center"
-                    Text="{Binding Goods.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding InStore.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <Button Content="选择..." Click="Button_Click"/>
+                    <Button Content="选择..." Command="{Binding OpenSelectGoodsWindow}"/>
 
                     <TextBlock
                     Width="80"

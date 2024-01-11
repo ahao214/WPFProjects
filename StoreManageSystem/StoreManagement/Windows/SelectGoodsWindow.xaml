@@ -4,9 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreManagement.Windows"
-        mc:Ignorable="d"
-        Title="选择物资" Height="450" Width="800">
-    <Grid>
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" DataContext="{Binding Source={StaticResource Locator},Path=SelectGoods}"
         
+        Title="选择物资" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <DataGrid
+     AutoGenerateColumns="False"
+     CanUserAddRows="False"
+     ItemsSource="{Binding GoodsList}" SelectedItem="{Binding Goods}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Serial}" Header="序号" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="名称" />
+                <DataGridTextColumn Binding="{Binding Unit}" Header="单位" />
+                <DataGridTextColumn Binding="{Binding Max}" Header="最大库存" />
+                <DataGridTextColumn Binding="{Binding Min}" Header="最小库存" />
+                <DataGridTextColumn
+             Binding="{Binding GoodsTypeName}"
+             Header="物资类别"
+             IsReadOnly="True" />
+                <DataGridTextColumn
+             Binding="{Binding SpecName}"
+             Header="规格型号"
+             IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Tag}" Header="备注" />
+                <DataGridTextColumn Binding="{Binding InsertDate}" Header="日期" />
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button x:Name="btnOk" Content="确定" Margin="5" Width="80" Click="btnOk_Click"/>
+            <Button x:Name="btnCancel" Content="取消" Width="80" Margin="5" Click="btnCancel_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

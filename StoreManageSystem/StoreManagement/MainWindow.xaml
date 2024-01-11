@@ -257,14 +257,14 @@
                         </Expander.Header>
                         <Expander.Content>
                             <StackPanel Background="#F6F8F8">
-                                <RadioButton
+                                <RadioButton x:Name="InStoreView" Click="StoreView_Checked"
                                     Height="30"
                                     Content="入库管理"
                                     FontSize="16"
                                     Foreground="#85979F"
                                     Style="{StaticResource RadioButtonMenuStyle}"
                                     Tag="&#xe641;" />
-                                <RadioButton
+                                <RadioButton x:Name="OutStoreView" Click="StoreView_Checked"
                                     Height="30"
                                     Content="出库管理"
                                     FontSize="16"
