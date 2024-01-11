@@ -58,6 +58,7 @@ namespace StoreManagement.ViewModel
 
             #endregion
 
+            SimpleIoc.Default.Register<SelectGoodsViewModel>();
 
         }
 
@@ -189,7 +190,13 @@ namespace StoreManagement.ViewModel
 
         #endregion
 
-
+        public SelectGoodsViewModel SelectGoods
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SelectGoodsViewModel>();
+            }
+        }
 
         public static void Cleanup()
         {
