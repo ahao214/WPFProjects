@@ -160,6 +160,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OutStoreViewModel.cs" />
+    <Compile Include="ViewModel\QuantInStoreViewModel.cs" />
     <Compile Include="ViewModel\QuantViewModel.cs" />
     <Compile Include="ViewModel\SelectGoodsViewModel.cs" />
     <Compile Include="ViewModel\SpecViewModel.cs" />
@@ -186,6 +187,9 @@
     </Compile>
     <Compile Include="View\OutStoreView.xaml.cs">
       <DependentUpon>OutStoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuantInStoreView.xaml.cs">
+      <DependentUpon>QuantInStoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QuantView.xaml.cs">
       <DependentUpon>QuantView.xaml</DependentUpon>
@@ -290,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OutStoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuantInStoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
