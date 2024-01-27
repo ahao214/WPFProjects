@@ -64,6 +64,8 @@ namespace StoreManagement.ViewModel
             SimpleIoc.Default.Register<CustomerViewModel>();
             SimpleIoc.Default.Register<EditCustomerViewModel>();
 
+            SimpleIoc.Default.Register<OutStoreViewModel>();
+
         }
 
         public MainViewModel Main
@@ -215,6 +217,14 @@ namespace StoreManagement.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<EditCustomerViewModel>();
+            }
+        }
+
+        public OutStoreViewModel OutStore
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OutStoreViewModel>();
             }
         }
 

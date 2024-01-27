@@ -158,6 +158,7 @@
     <Compile Include="ViewModel\InStoreViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OutStoreViewModel.cs" />
     <Compile Include="ViewModel\SelectGoodsViewModel.cs" />
     <Compile Include="ViewModel\SpecViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
