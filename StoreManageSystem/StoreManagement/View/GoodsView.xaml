@@ -5,8 +5,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:StoreManagement.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     DataContext="{Binding Source={StaticResource Locator}, Path=Goods}"
     mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger  EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -182,6 +188,7 @@
                     <DataGridTextColumn Binding="{Binding Unit}" Header="单位" />
                     <DataGridTextColumn Binding="{Binding Max}" Header="最大库存" />
                     <DataGridTextColumn Binding="{Binding Min}" Header="最小库存" />
+                    <DataGridTextColumn Binding="{Binding Quant}" Header="当前库存" />
                     <DataGridTextColumn
                         Binding="{Binding GoodsTypeName}"
                         Header="物资类别"

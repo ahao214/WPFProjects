@@ -219,7 +219,9 @@ namespace StoreManagement.ViewModel
                     }
 
                     InStore.StoreId = Store.Id;
+                    InStore.StoreName = store.Name;
                     InStore.SupplierId = Supplier.Id;
+                    InStore.SupplierName = supplier.Name;
 
                     var newInStore = Configration.Mapper.Map<InStore>(InStore);
                     var service = new InStoreService();

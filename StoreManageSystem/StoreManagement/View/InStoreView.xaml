@@ -187,19 +187,12 @@
             CanUserAddRows="False"
             ItemsSource="{Binding InStoreList}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Serial}" Header="序号" />
+                    <DataGridTextColumn Binding="{Binding GoodsSerial}" Header="序号" />
                     <DataGridTextColumn Binding="{Binding Name}" Header="名称" />
-                    <DataGridTextColumn Binding="{Binding Unit}" Header="单位" />
-                    <DataGridTextColumn Binding="{Binding Max}" Header="最大库存" />
-                    <DataGridTextColumn Binding="{Binding Min}" Header="最小库存" />
-                    <DataGridTextColumn
-                    Binding="{Binding GoodsTypeName}"
-                    Header="物资类别"
-                    IsReadOnly="True" />
-                    <DataGridTextColumn
-                    Binding="{Binding SpecName}"
-                    Header="规格型号"
-                    IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding StoreName}" Header="仓库" />
+                    <DataGridTextColumn Binding="{Binding SupplierName}" Header="供应商" />
+                    <DataGridTextColumn Binding="{Binding Number}" Header="入库数量" />
+                    <DataGridTextColumn Binding="{Binding Price}" Header="入库价格" />
                     <DataGridTextColumn Binding="{Binding Tag}" Header="备注" />
                     <DataGridTextColumn Binding="{Binding InsertDate}" Header="日期" />
                     <DataGridTemplateColumn Header="操作">

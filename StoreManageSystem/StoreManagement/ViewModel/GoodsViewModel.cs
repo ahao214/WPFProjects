@@ -59,6 +59,24 @@ namespace StoreManagement.ViewModel
         }
 
         /// <summary>
+        /// 加载页面时获取数据
+        /// </summary>
+        public RelayCommand LoadCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    GoodsList = new GoodsService().Select();
+                    GoodsTypeList = new GoodsTypeService().Select();
+                    SpecList = new SpecService().Select();
+                });
+
+            }
+        }
+
+
+        /// <summary>
         /// 添加
         /// </summary>
         public RelayCommand<UserControl> AddCommand
