@@ -16,8 +16,6 @@ namespace StoreManagement.ViewModel
 {
     public class InStoreViewModel : ViewModelBase
     {
-
-
         private Goods goods;
 
         public Goods Goods
@@ -161,6 +159,7 @@ namespace StoreManagement.ViewModel
                         var vm = window.DataContext as SelectGoodsViewModel;
                         InStore.GoodsSerial = vm.Goods.Serial;
                         InStore.Name = vm.Goods.Name;
+                        this.Goods = vm.Goods;
                     }
                 });
             }
@@ -227,10 +226,18 @@ namespace StoreManagement.ViewModel
                     var service = new InStoreService();
                     int count = service.Insert(newInStore);
                     if (count > 0)
-                    {
+                    {                        
+                        // 及时更新当前物资的存量
+                        if (Goods != null)
+                        {
+                            Goods.Quant += InStore.Number;
+                            GoodsService goodsService = new GoodsService();
+                            count = goodsService.Update(this.Goods);
+                        }
                         InStoreList = service.Select();
-                        MessageBox.Show("操作成功");
                         InStore = new InStoreEx();
+                        MessageBox.Show("操作成功");
+
                     }
                     else
                     {

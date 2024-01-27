@@ -144,6 +144,8 @@
     <Compile Include="UserInfo.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\EditCustomerViewModel.cs" />
     <Compile Include="ViewModel\EditGoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\EditGoodsViewModel.cs" />
     <Compile Include="ViewModel\EditPasswordViewModel.cs" />
@@ -161,6 +163,9 @@
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GoodsTypeView.xaml.cs">
       <DependentUpon>GoodsTypeView.xaml</DependentUpon>
     </Compile>
@@ -184,6 +189,9 @@
     </Compile>
     <Compile Include="View\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditCustomerWindow.xaml.cs">
+      <DependentUpon>EditCustomerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditGoodsTypeWindow.xaml.cs">
       <DependentUpon>EditGoodsTypeWindow.xaml</DependentUpon>
@@ -248,6 +256,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GoodsTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -277,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditCustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

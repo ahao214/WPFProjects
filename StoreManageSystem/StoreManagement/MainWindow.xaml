@@ -205,6 +205,16 @@
                                     Tag="&#xe641;" />
 
                                 <RadioButton
+    x:Name="CustomerView"
+    Height="30"
+    Click="StoreView_Checked"
+    Content="客户设置"
+    FontSize="16"
+    Foreground="#85979F"
+    Style="{StaticResource RadioButtonMenuStyle}"
+    Tag="&#xe641;" />
+
+                                <RadioButton
                                     x:Name="StoreView"
                                     Height="30"
                                     Click="StoreView_Checked"

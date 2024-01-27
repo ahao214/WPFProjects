@@ -15,6 +15,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using StoreManagement.Service;
 
 
 namespace StoreManagement.ViewModel
@@ -59,6 +60,9 @@ namespace StoreManagement.ViewModel
             #endregion
 
             SimpleIoc.Default.Register<SelectGoodsViewModel>();
+
+            SimpleIoc.Default.Register<CustomerViewModel>();
+            SimpleIoc.Default.Register<EditCustomerViewModel>();
 
         }
 
@@ -195,6 +199,22 @@ namespace StoreManagement.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<SelectGoodsViewModel>();
+            }
+        }
+
+        public CustomerViewModel Customer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CustomerViewModel>();
+            }
+        }
+
+        public EditCustomerViewModel EditCustomer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditCustomerViewModel>();
             }
         }
 
