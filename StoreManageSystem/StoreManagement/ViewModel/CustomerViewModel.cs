@@ -78,7 +78,7 @@ namespace StoreManagement.ViewModel
                     var old = view.Tag as Customer;
                     if (old == null)
                         return;
-                    var model = ServiceLocator.Current.GetInstance<CustomerViewModel>();
+                    var model = ServiceLocator.Current.GetInstance<EditCustomerViewModel>();
                     model.Customer = old;
                     var window = new EditCustomerWindow();
                     window.ShowDialog();

@@ -34,32 +34,34 @@ namespace StoreManagement.ViewModel
             set { customerList = value; RaisePropertyChanged(); }
         }
 
+
+
         /// <summary>
-        /// 添加
+        /// 修改
         /// </summary>
-        public RelayCommand AddCommand
+        public RelayCommand<Window> EditCommand
         {
             get
             {
-                var command = new RelayCommand(() =>
+                var command = new RelayCommand<Window>((window) =>
                 {
                     if (string.IsNullOrEmpty(Customer.Name) == true)
                     {
-                        MessageBox.Show("物资类别不能为空");
+                        MessageBox.Show("客户名称不能为空");
                         return;
                     }
-                    Customer.InsertDate = DateTime.Now;
+
                     var service = new CustomerService();
-                    int count = service.Insert(Customer);
+                    int count = service.Update(Customer);
                     if (count > 0)
                     {
-                        CustomerList = service.Select();
-                        MessageBox.Show("操作成功");
-                        Customer = new Customer();
+                        MessageBox.Show("修改成功");
+                        // 关闭当前窗体
+                        window.Close();
                     }
                     else
                     {
-                        MessageBox.Show("操作失败");
+                        MessageBox.Show("修改失败");
                     }
                 });
                 return command;
@@ -67,53 +69,15 @@ namespace StoreManagement.ViewModel
         }
 
         /// <summary>
-        /// 编辑
+        /// 取消
         /// </summary>
-        public RelayCommand<Button> EditCommand
+        public RelayCommand<Window> CancelCommand
         {
             get
             {
-                var command = new RelayCommand<Button>((view) =>
+                var command = new RelayCommand<Window>((window) =>
                 {
-                    var old = view.Tag as Customer;
-                    if (old == null)
-                        return;
-                    var model = ServiceLocator.Current.GetInstance<EditCustomerViewModel>();
-                    model.Customer = old;
-                    var window = new EditCustomerWindow();
-                    window.ShowDialog();
-                    CustomerList = new CustomerService().Select();
-                });
-                return command;
-            }
-        }
-
-        /// <summary>
-        /// 删除
-        /// </summary>
-        public RelayCommand<Button> DeleteCommand
-        {
-            get
-            {
-                var command = new RelayCommand<Button>((view) =>
-                {
-                    if (MessageBox.Show("是否执行操作?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    {
-                        var old = view.Tag as Customer;
-                        if (old == null)
-                            return;
-                        var service = new CustomerService();
-                        int count = service.Delete(old);
-                        if (count > 0)
-                        {
-                            CustomerList = service.Select();
-                            MessageBox.Show("操作成功");
-                        }
-                        else
-                        {
-                            MessageBox.Show("操作失败");
-                        }
-                    }
+                    window.Close();
                 });
                 return command;
             }
