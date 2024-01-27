@@ -66,6 +66,10 @@ namespace StoreManagement.ViewModel
 
             SimpleIoc.Default.Register<OutStoreViewModel>();
 
+            SimpleIoc.Default.Register<QuantViewModel>();
+            SimpleIoc.Default.Register<InventoryViewModel>();
+
+
         }
 
         public MainViewModel Main
@@ -225,6 +229,22 @@ namespace StoreManagement.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<OutStoreViewModel>();
+            }
+        }
+
+        public QuantViewModel Quant
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<QuantViewModel>();
+            }
+        }
+
+        public InventoryViewModel Inventory
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<InventoryViewModel>();
             }
         }
 

@@ -156,9 +156,11 @@
     <Compile Include="ViewModel\GoodsTypeViewModel.cs" />
     <Compile Include="ViewModel\GoodsViewModel.cs" />
     <Compile Include="ViewModel\InStoreViewModel.cs" />
+    <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OutStoreViewModel.cs" />
+    <Compile Include="ViewModel\QuantViewModel.cs" />
     <Compile Include="ViewModel\SelectGoodsViewModel.cs" />
     <Compile Include="ViewModel\SpecViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
@@ -179,8 +181,14 @@
     <Compile Include="View\InStoreView.xaml.cs">
       <DependentUpon>InStoreView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OutStoreView.xaml.cs">
       <DependentUpon>OutStoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuantView.xaml.cs">
+      <DependentUpon>QuantView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SpecView.xaml.cs">
       <DependentUpon>SpecView.xaml</DependentUpon>
@@ -277,7 +285,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\InventoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\OutStoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuantView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
