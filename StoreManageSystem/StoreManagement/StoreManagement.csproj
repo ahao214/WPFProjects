@@ -167,6 +167,7 @@
     <Compile Include="ViewModel\SpecViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
+    <Compile Include="ViewModel\UserInfoViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
@@ -206,6 +207,9 @@
     </Compile>
     <Compile Include="View\SupplierView.xaml.cs">
       <DependentUpon>SupplierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserInfoView.xaml.cs">
+      <DependentUpon>UserInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditCustomerWindow.xaml.cs">
       <DependentUpon>EditCustomerWindow.xaml</DependentUpon>
@@ -322,6 +326,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
